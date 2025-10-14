@@ -129,7 +129,7 @@ const Home = () => {
       />
 
       {/* Toggle Buttons */}
-      <Stack textAlign="center" spacing="4" mt="1" mb="6">
+      <Stack textAlign="center" spacing="4" mt="-10" mb="6">
         <Center>
           <HStack bg={toggleBg} p="1" borderRadius="full" spacing="1">
             {["Mainnet", "Testnet"].map((item) => {
