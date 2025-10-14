@@ -12,14 +12,8 @@ import {
 import { SearchButton } from "@/components/search-button";
 import { RiArrowRightLine } from "react-icons/ri";
 import { useRouter } from "next/router";
-import { FC } from "react";
-
-interface HeroProps extends StackProps {}
-
-const Hero: FC<HeroProps> = () => {
-  const router = useRouter();
-
-  return (
+import { FC } from "react";interface HeroProps extends StackProps {}const Hero: FC<HeroProps> = () => {
+  const router = useRouter();  return (
     <Stack
       position="relative"
       maxW="container.md"
@@ -27,34 +21,11 @@ const Hero: FC<HeroProps> = () => {
       mx="auto"
       spacing="6"
       align="center"
+      minHeight="60vh"
+      justify="center"
+      transform={{ base: "translateY(10%)", md: "translateY(5%)" }} // Geser sedikit ke bawah, lebih kecil di desktop
+      // py={{ base: 8, md: 12 }}
     >
-      <Heading
-        as="h1"
-        fontSize={{ base: "6xl", md: "7xl" }}
-        color={useColorModeValue("gray.700", "gray.100")}
-        textAlign="center"
-        textTransform="uppercase"
-        lineHeight="0.9"
-        zIndex="1"
-        blendMode="luminosity"
-      >
-        A lil docs template{" "}
-        <Box as="span" color={useColorModeValue("purple.600", "purple.300")}>
-          for your lil projects
-        </Box>
-      </Heading>
-      <Text
-        fontSize={{ base: "lg", md: "2xl" }}
-        fontWeight="medium"
-        color={useColorModeValue("gray.600", "gray.100")}
-        textAlign="center"
-        letterSpacing="tighter"
-        zIndex="1"
-        blendMode="luminosity"
-      >
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti quasi
-        error molestias, dolores doloribus ipsa nulla facere facilis.
-      </Text>
       <Flex
         direction="row"
         alignItems="center"
@@ -63,7 +34,7 @@ const Hero: FC<HeroProps> = () => {
       >
         <Button
           maxW="60"
-          size="lg"
+          size="sm"
           colorScheme="whiteAlpha"
           color={useColorModeValue("gray.600", "white")}
           shadow="lg"
@@ -73,9 +44,9 @@ const Hero: FC<HeroProps> = () => {
           rightIcon={<Icon as={RiArrowRightLine} />}
           onClick={() => router.push("/docs/mdx")}
         >
-          Getting started
+          Stake with us !
         </Button>
-        <SearchButton
+        {/* <SearchButton
           w="52"
           display={{ base: "none", lg: "flex" }}
           size="lg"
@@ -84,8 +55,46 @@ const Hero: FC<HeroProps> = () => {
           borderColor={useColorModeValue("white", "whiteAlpha.300")}
           borderRadius="lg"
           ml="4"
-        />
+        /> */}
       </Flex>
+      <Heading
+        as="h1"
+        fontSize={{ base: "4xl", md: "7xl" }} 
+        color={useColorModeValue("gray.700", "gray.100")}
+        textAlign="center"
+        textTransform="uppercase"
+        lineHeight="0.5"
+        zIndex="1"
+        blendMode="luminosity"
+      >
+        Proof of Stake
+      </Heading>
+      <Heading
+        as="h3"
+        fontSize={{ base: "3xl", md: "6xl" }} 
+        color={useColorModeValue("purple.600", "purple.300")}
+        textAlign="center"
+        textTransform="uppercase"
+        lineHeight="1"
+        zIndex="1"
+        blendMode="luminosity"
+      >
+        Node Validator
+      </Heading>
+      <Text
+        fontSize={{ base: "md", md: "l" }}
+        fontWeight="medium"
+        color={useColorModeValue("gray.600", "gray.100")}
+        textAlign="center"
+        letterSpacing="tighter"
+        zIndex="1"
+        blendMode="luminosity"
+      >
+        We are committed, enthusiastic, and thrifty in operating nodes for
+        blockchain projects, always up to date with industry developments, and
+        eager to contribute to the advancement of blockchain technology through
+        efficient node operations.
+      </Text>
       <Box
         boxSize="72"
         position="absolute"
@@ -106,6 +115,5 @@ const Hero: FC<HeroProps> = () => {
       />
     </Stack>
   );
-};
+};export default Hero;
 
-export default Hero;

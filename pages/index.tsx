@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <DefaultLayout>
       <Hero />
-      <Teams mt="6" />
+      <Teams mt="10" />
       <Features mt="6" />
       <Section
         mt="12"
