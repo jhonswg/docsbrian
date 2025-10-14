@@ -41,32 +41,32 @@ const features: Feature[] = [
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
     icon: RiFingerprintFill,
   },
-  {
-    title: "Awesome Feature # 4",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-    icon: RiNavigationFill,
-  },
-  {
-    title: "Awesome Feature # 5",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-    icon: RiRefreshFill,
-  },
-  {
-    title: "Awesome Feature # 6",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-    icon: RiFlashlightFill,
-  },
+  // {
+  //   title: "Awesome Feature # 4",
+  //   description:
+  //     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
+  //   icon: RiNavigationFill,
+  // },
+  // {
+  //   title: "Awesome Feature # 5",
+  //   description:
+  //     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
+  //   icon: RiRefreshFill,
+  // },
+  // {
+  //   title: "Awesome Feature # 6",
+  //   description:
+  //     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
+  //   icon: RiFlashlightFill,
+  // },
 ];
 
 const Features: FC<FeaturesProps> = ({ ...props }) => {
   return (
     <Box {...props}>
       <Section
-        title="For developers. For designers. For everyone."
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sed consequatur."
+        title="What we offer"
+        text=""
       />
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="8">
         {features.map(({ title, description, icon }, index) => (

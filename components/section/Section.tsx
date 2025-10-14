@@ -14,7 +14,7 @@ interface SectionProps extends BoxProps {
   text: string;
 }
 
-const Section: FC<SectionProps> = ({ title, subtitle, text, ...props }) => {
+const Section: FC<SectionProps> = ({ title, subtitle, ...props }) => {
   return (
     <Stack spacing="4" maxW="container.md" mx="auto" py="12" {...props}>
       {subtitle && (
@@ -45,7 +45,7 @@ const Section: FC<SectionProps> = ({ title, subtitle, text, ...props }) => {
         color={useColorModeValue("gray.500", "gray.200")}
         letterSpacing="tight"
       >
-        {text}
+        
       </Text>
     </Stack>
   );
