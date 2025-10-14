@@ -99,8 +99,15 @@ const networks = [
 
 const Home = () => {
   const [selected, setSelected] = useState<"Mainnet" | "Testnet">("Mainnet");
+
+  // Chakra color hooks (hanya di top-level)
   const cardBg = useColorModeValue("gray.900", "gray.900");
   const borderColor = useColorModeValue("gray.800", "gray.700");
+  const toggleBg = useColorModeValue("gray.100", "gray.700");
+  const activeBg = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
+  const inactiveColor = useColorModeValue("gray.400", "gray.400");
+  const hoverBg = useColorModeValue("gray.600", "gray.600");
+  const hoverColor = useColorModeValue("white", "white");
 
   // Filter network berdasarkan pilihan
   const filteredNetworks = networks.filter((net) =>
@@ -112,6 +119,7 @@ const Home = () => {
       <Hero />
       <Teams mt="10" />
       <Features mt="6" />
+
       <Section
         mt="8"
         title="Portofolio Project"
@@ -120,43 +128,37 @@ const Home = () => {
       />
 
       {/* Toggle Buttons */}
-      <Stack textAlign="center" spacing="6" mt="-8" mb="6">
+      <Stack textAlign="center" spacing="6" mt="2" mb="6">
         <Center>
-          <HStack
-            bg={useColorModeValue("gray.100", "gray.700")}
-            p="1"
-            borderRadius="full"
-            spacing="1"
-          >
-            {["Mainnet", "Testnet"].map((item) => (
-              <Button
-                key={item}
-                size="sm"
-                borderRadius="full"
-                px="5"
-                fontWeight="medium"
-                bg={
-                  selected === item
-                    ? useColorModeValue("whiteAlpha.300", "whiteAlpha.200")
-                    : "transparent"
-                }
-                color={selected === item ? "white" : "gray.400"}
-                _hover={{ bg: "gray.600", color: "white" }}
-                onClick={() => setSelected(item as "Mainnet" | "Testnet")}
-              >
-                {item}
-                <Text ml="1" fontSize="sm" opacity="0.6">
-                  {item === "Mainnet"
-                    ? networks.filter((n) => n.type === "mainnet").length
-                    : networks.filter((n) => n.type === "testnet").length}
-                </Text>
-              </Button>
-            ))}
+          <HStack bg={toggleBg} p="1" borderRadius="full" spacing="1">
+            {["Mainnet", "Testnet"].map((item) => {
+              const isActive = selected === item;
+              return (
+                <Button
+                  key={item}
+                  size="sm"
+                  borderRadius="full"
+                  px="5"
+                  fontWeight="medium"
+                  bg={isActive ? activeBg : "transparent"}
+                  color={isActive ? "white" : inactiveColor}
+                  _hover={{ bg: hoverBg, color: hoverColor }}
+                  onClick={() => setSelected(item as "Mainnet" | "Testnet")}
+                >
+                  {item}
+                  <Text ml="1" fontSize="sm" opacity="0.6">
+                    {item === "Mainnet"
+                      ? networks.filter((n) => n.type === "mainnet").length
+                      : networks.filter((n) => n.type === "testnet").length}
+                  </Text>
+                </Button>
+              );
+            })}
           </HStack>
         </Center>
       </Stack>
 
-      {/* Grid */}
+      {/* Grid Network Cards */}
       <SimpleGrid
         columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         spacing="6"
