@@ -100,7 +100,7 @@ const networks = [
 const Home = () => {
   const [selected, setSelected] = useState<"Mainnet" | "Testnet">("Mainnet");
 
-  // Chakra color hooks (hanya di top-level)
+  // ✅ Hooks Chakra harus di top-level
   const cardBg = useColorModeValue("gray.900", "gray.900");
   const borderColor = useColorModeValue("gray.800", "gray.700");
   const toggleBg = useColorModeValue("gray.100", "gray.700");
@@ -109,7 +109,7 @@ const Home = () => {
   const hoverBg = useColorModeValue("gray.600", "gray.600");
   const hoverColor = useColorModeValue("white", "white");
 
-  // Filter network berdasarkan pilihan
+  // ✅ Filter data berdasarkan pilihan
   const filteredNetworks = networks.filter((net) =>
     selected === "Mainnet" ? net.type === "mainnet" : net.type === "testnet"
   );
@@ -120,6 +120,7 @@ const Home = () => {
       <Teams mt="10" />
       <Features mt="6" />
 
+      {/* Section Judul */}
       <Section
         mt="8"
         title="Portofolio Project"
@@ -128,7 +129,7 @@ const Home = () => {
       />
 
       {/* Toggle Buttons */}
-      <Stack textAlign="center" spacing="6" mt="2" mb="6">
+      <Stack textAlign="center" spacing="4" mt="1" mb="6">
         <Center>
           <HStack bg={toggleBg} p="1" borderRadius="full" spacing="1">
             {["Mainnet", "Testnet"].map((item) => {
