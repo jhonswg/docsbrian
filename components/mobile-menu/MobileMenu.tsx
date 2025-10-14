@@ -8,7 +8,7 @@ import {
   PopoverBody,
   PopoverCloseButton,
   PopoverContent,
-  PopoverTrigger as ChakraPopoverTrigger,
+  PopoverTrigger,
   Portal,
   UnorderedList,
   useColorModeValue,
@@ -17,15 +17,12 @@ import { Link } from "@/components/link";
 import { ThemeSelect } from "@/components/theme-toggle";
 import { MobileSearchButton } from "@/components/search-button";
 import { RiMore2Fill } from "react-icons/ri";
-import { Route, WithChildren } from "@/types";
+import { Route } from "@/types";
 import { siteConfig } from "@/config";
 
 interface MobileOptionsMenuProps {
   routes: Route[];
 }
-
-// Temp path related to: https://github.com/chakra-ui/chakra-ui/issues/5896
-const PopoverTrigger: FC<WithChildren> = ChakraPopoverTrigger;
 
 const MobileOptionsMenu: FC<MobileOptionsMenuProps> = ({ routes }) => {
   return (
