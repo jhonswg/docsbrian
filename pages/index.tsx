@@ -22,77 +22,41 @@ import { Tweets } from "@/components/tweets";
 const networks = [
   // === Mainnet ===
   {
-    name: "Atomone",
-    id: "atomone-1",
-    logo: "https://pbs.twimg.com/profile_images/1891894823390429185/9swkoZNn_400x400.png",
+    name: "CrossFi",
+    id: "crossfi-testnet-1",
+    logo: "https://pbs.twimg.com/profile_images/1719733805483790336/9rtdiMS-_400x400.jpg",
     type: "mainnet",
   },
   {
-    name: "Autonity",
-    id: "autonity",
-    logo: "https://pbs.twimg.com/profile_images/1627678067459063811/pICOOrh-_400x400.jpg",
+    name: "Self Chain",
+    id: "self-testnet",
+    logo: "https://pbs.twimg.com/profile_images/1879603544120008704/z2WKYx3z_400x400.jpg",
     type: "mainnet",
   },
   {
-    name: "Babylon",
-    id: "bbn-1",
-    logo: "https://pbs.twimg.com/profile_images/1877371944636485632/kzLetgFB_400x400.jpg",
-    type: "mainnet",
-  },
-  {
-    name: "Bitway",
-    id: "bitway-1",
-    logo: "/logos/bitway.svg",
-    type: "mainnet",
-  },
-  {
-    name: "Cosmos",
-    id: "cosmoshub-4",
-    logo: "/logos/cosmos.svg",
-    type: "mainnet",
-  },
-  {
-    name: "Crossfi",
-    id: "crossfi-mainnet-1",
-    logo: "/logos/crossfi.svg",
-    type: "mainnet",
-  },
-  {
-    name: "Doravota",
-    id: "vota-ash",
-    logo: "/logos/doravota.svg",
-    type: "mainnet",
-  },
-  {
-    name: "Humans",
-    id: "humans_1089-1",
-    logo: "/logos/humans.svg",
+    name: "Initia",
+    id: "initia-mainnet",
+    logo: "https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png",
     type: "mainnet",
   },
 
   // === Testnet ===
   {
-    name: "Elys",
-    id: "elys-testnet-1",
-    logo: "/logos/elys.svg",
+    name: "Empeiria",
+    id: "empe-testnet",
+    logo: "https://pbs.twimg.com/profile_images/1887069794798632960/IvxbLJcg_400x400.jpg",
     type: "testnet",
   },
   {
-    name: "Celestia",
-    id: "celestia-testnet",
-    logo: "/logos/celestia.svg",
+    name: "Symphony Labs",
+    id: "sympn-testnet",
+    logo: "https://pbs.twimg.com/profile_images/1896255605909725184/rC9pD5EQ_400x400.jpg",
     type: "testnet",
   },
   {
-    name: "Empower",
-    id: "empowerchain-testnet",
-    logo: "/logos/empower.svg",
-    type: "testnet",
-  },
-  {
-    name: "Fuel",
-    id: "fuel-testnet",
-    logo: "/logos/fuel.svg",
+    name: "Warden",
+    id: "warden-testnet",
+    logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg",
     type: "testnet",
   },
 ];
@@ -172,6 +136,8 @@ const Home = () => {
             bg={cardBg}
             borderRadius="2xl"
             p="5"
+            position="relative"
+            overflow="hidden"
             border="1px solid"
             borderColor={borderColor}
             _hover={{
@@ -180,14 +146,18 @@ const Home = () => {
               transition: "all 0.2s ease-in-out",
             }}
           >
-            <HStack justify="space-between" mb="4">
+            <HStack spacing="2" zIndex="2" position="relative">
               <Text fontWeight="bold" fontSize="lg" color="white">
                 {net.name}
               </Text>
               <ChakraImage
                 src={net.logo}
                 alt={net.name}
-                boxSize="8"
+                position="absolute"
+                bottom="-20"
+                right="-16"
+                boxSize="120px"
+                opacity="0.9"
                 borderRadius="full"
               />
             </HStack>
