@@ -26,6 +26,8 @@ const networks = [
     id: "crossfi-testnet-1",
     logo: "https://pbs.twimg.com/profile_images/1719733805483790336/9rtdiMS-_400x400.jpg",
     type: "mainnet",
+    serviceUrl: "https://atomone.network/",
+    explorerUrl: "https://www.mintscan.io/atomone",
   },
   {
     name: "Self Chain",
@@ -168,6 +170,10 @@ const Home = () => {
 
             <HStack spacing="3">
               <Button
+                as="a"
+                href={net.serviceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 size="sm"
                 bg="purple.600"
                 color="white"
@@ -177,6 +183,10 @@ const Home = () => {
                 Services
               </Button>
               <Button
+                as="a"
+                href={net.explorerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 size="sm"
                 bg="black"
                 color="white"
