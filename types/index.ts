@@ -9,6 +9,7 @@ export type WithClassName<T = {}> = T & {
 export interface Route {
   title: string;
   path: string;
+  children?: Route[];
 }
 
 export interface RouteContext {

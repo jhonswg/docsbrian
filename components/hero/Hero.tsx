@@ -19,6 +19,7 @@ import { FC } from "react";interface HeroProps extends StackProps {}const Hero: 
       maxW="container.md"
       py="12"
       mx="auto"
+      mt="70"
       spacing="6"
       align="center"
       minHeight="60vh"
