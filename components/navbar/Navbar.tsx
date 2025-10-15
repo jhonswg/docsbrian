@@ -69,7 +69,7 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
               alignItems="center"
             >
               <Flex as="nav">
-                <Stack as="ul" listStyleType="none" direction="row" spacing="6">
+                <Stack as="ul" listStyleType="none" direction="row" spacing="5">
                   {routes.map((route) => (
                     <Box as="li" key={route.title} position="relative">
                       {route.children ? (
@@ -82,13 +82,29 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                             _hover={{ color: "brand.500" }}
                             onMouseEnter={() => setOpenMenu(route.title)}
                             onMouseLeave={() => setOpenMenu(null)}
+                            onClick={() => {
+                              if (route.path) {
+                                window.location.href = route.path;
+                              }
+                            }}
                           >
                             {route.title}
+                            <Icon
+                              as={require("@chakra-ui/icons").ChevronUpIcon}
+                              boxSize="3"
+                              ml="1"
+                              mr="-1"
+                              transform="rotate(180deg)"
+                              transition="transform 0.2s ease"
+                            />
                           </MenuButton>
 
                           <MenuList
                             onMouseEnter={() => setOpenMenu(route.title)}
                             onMouseLeave={() => setOpenMenu(null)}
+                            position="absolute"
+                            left="0"
+                            w="100vw"
                             bg="transparent"
                             borderColor="gray.700"
                             py="2"
@@ -98,17 +114,17 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                             {route.children.map((child) => (
                               <MenuItem
                                 key={child.path}
-                                as={Link} // gunakan komponen Link kamu
+                                as={Link}
                                 href={child.path}
-                                bg="transparent" // default transparan
+                                bg="transparent"
                                 fontSize="sm"
                                 fontWeight="medium"
                                 color="gray.300"
                                 _hover={{
-                                  bg: "brand.500", // warna background saat hover
-                                  color: "white", // teks jadi putih saat hover
+                                  bg: "brand.500",
+                                  color: "white",
                                 }}
-                                _focus={{ bg: "brand.500", color: "white" }} // efek saat focus (keyboard/tab)
+                                _focus={{ bg: "brand.500", color: "white" }}
                                 transition="background-color 0.2s ease"
                               >
                                 {child.title}
