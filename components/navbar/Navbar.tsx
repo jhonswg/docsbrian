@@ -87,6 +87,10 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                                 window.location.href = route.path;
                               }
                             }}
+                            px="0" // ✅ hilangkan padding default MenuButton
+                            py="0" // agar tinggi teks pas
+                            bg="transparent" // hilangkan background bawaan Chakra
+                            _expanded={{ color: "brand.500" }} // warna saat menu terbuka
                           >
                             {route.title}
                             <Icon
@@ -118,6 +122,8 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                                 href={child.path}
                                 bg="transparent"
                                 fontSize="sm"
+                                margin="2"
+                                borderRadius="5"
                                 fontWeight="medium"
                                 color="gray.300"
                                 _hover={{
