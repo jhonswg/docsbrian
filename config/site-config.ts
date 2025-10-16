@@ -17,7 +17,7 @@ const siteConfig: SiteConfig = {
     email: "bryansbarrios@outlook.com",
   },
   seo: {
-    title: "Lil Docs Template",
+    title: "Jhonswg - Stake and Earn with us",
     description: "A lil docs template for lil projects.",
     openGraph: {
       url: websiteUrl,
@@ -30,7 +30,7 @@ const siteConfig: SiteConfig = {
         type: "image/png",
       },
       locale: "en_US",
-      siteName: "Lil Docs Template",
+      siteName: "Jhonswg - Stake and Earn with us",
     },
     twitter: {
       site: "@bryanbarrios__",
