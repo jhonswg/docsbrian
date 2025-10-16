@@ -125,7 +125,7 @@ const Home = () => {
               transparent 40px
             ),
             /* bottom: gradient from top (black) -> bottom (gray.800) */
-            linear-gradient(to bottom, #000000 0%, var(--chakra-colors-gray-800) 100%)
+            linear-gradient(to bottom, #000000 30%, var(--chakra-colors-gray-800) 100%)
           `,
           backgroundRepeat: "repeat, repeat, no-repeat",
           backgroundSize: "40px 40px, 40px 40px, 100% 100%",
