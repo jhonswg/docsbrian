@@ -2,79 +2,62 @@ import { FC } from "react";
 import {
   Box,
   BoxProps,
-  Heading,
-  Icon,
   SimpleGrid,
-  Text,
-  useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import FeatureCard from "./FeatureCard";
 import { Section } from "@/components/section";
-import {
-  RiStackFill,
-  RiAppsFill,
-  RiFingerprintFill,
-  RiNavigationFill,
-  RiRefreshFill,
-  RiFlashlightFill,
-} from "react-icons/ri";
 import { Feature } from "@/types";
 
 interface FeaturesProps extends BoxProps {}
 
 const features: Feature[] = [
   {
-    title: "Awesome Feature # 1",
+    title: "High Security",
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-    icon: RiStackFill,
+      "Jhonswg Staking Service is highly secure with 24/7 monitoring, giving you peace of mind while your assets earn rewards effortlessly.",
+    icon: "/icons/lock.svg",
   },
   {
-    title: "Awesome Feature # 2",
+    title: "Low Fees Commission",
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-    icon: RiAppsFill,
+      "We offer staking services with competitive commissions ranging between 5–10% across all supported chains, providing flexibility and fair rewards for every delegator.",
+    icon: "/icons/coins.svg",
   },
   {
-    title: "Awesome Feature # 3",
+    title: "Non Custodial",
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-    icon: RiFingerprintFill,
+      "Our staking service is fully non-custodial — you always maintain full control over your funds, ensuring complete ownership and security.",
+    icon: "/icons/fingerprint.svg",
   },
-  // {
-  //   title: "Awesome Feature # 4",
-  //   description:
-  //     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-  //   icon: RiNavigationFill,
-  // },
-  // {
-  //   title: "Awesome Feature # 5",
-  //   description:
-  //     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-  //   icon: RiRefreshFill,
-  // },
-  // {
-  //   title: "Awesome Feature # 6",
-  //   description:
-  //     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis",
-  //   icon: RiFlashlightFill,
-  // },
 ];
 
 const Features: FC<FeaturesProps> = ({ ...props }) => {
   return (
     <Box {...props}>
-      <Section
-        title="What we offer"
-        text=""
-      />
+      <Section title="What we offer" text="" />
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="8">
         {features.map(({ title, description, icon }, index) => (
           <FeatureCard
             key={index}
             title={title}
+            textAlign="center"
             description={description}
-            icon={<Icon as={icon} boxSize="6" />}
+            icon={
+              <Image
+                src={icon}
+                alt={title}
+                boxSize="64px"
+                mx="auto"
+                mb={4}
+                filter="invert(100%)" 
+                transition="all 0.3s ease-in-out"
+                _hover={{
+                  filter: "invert(45%) sepia(95%) saturate(3000%) hue-rotate(235deg)", 
+                  transform: "translateY(-4px)", 
+                }}
+              />
+            }
           />
         ))}
       </SimpleGrid>

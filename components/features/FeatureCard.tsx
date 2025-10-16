@@ -37,14 +37,14 @@ const FeatureCard: FC<FeatureCardProps> = ({
         bgColor={useColorModeValue("white", "gray.800")}
         borderRadius="inherit"
       />
-      <Stack position="relative" p="6" spacing="4">
+      <Stack position="relative" p="6" spacing="4" textAlign="center">
         <Flex
-          boxSize="10"
-          borderRadius="full"
+          w="64px"
+          h="64px"
           justifyContent="center"
           alignItems="center"
-          bgColor={useColorModeValue("gray.50", "gray.700")}
-          color="gray.500"
+          color={useColorModeValue("gray.600", "gray.300")}
+          mx="auto"
         >
           {icon}
         </Flex>
