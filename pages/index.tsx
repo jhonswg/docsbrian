@@ -63,6 +63,8 @@ const networks = [
   },
 ];
 
+
+
 const Home = () => {
   const [selected, setSelected] = useState<"Mainnet" | "Testnet">("Mainnet");
 
@@ -82,6 +84,22 @@ const Home = () => {
 
   return (
     <DefaultLayout>
+      <Box
+        position="fixed"
+        inset={0}
+        zIndex={0}
+        pointerEvents="none"
+        background={`
+          radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.9) 50%, transparent 50%),
+          radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.7) 50%, transparent 50%),
+          radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.8) 50%, transparent 50%),
+          radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.6) 50%, transparent 50%),
+          radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.8) 50%, transparent 50%),
+          radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.5) 50%, transparent 50%)
+        `}
+        animation="twinkle 6s infinite alternate"
+        opacity={0.6}
+      />
       <Hero />
       <Teams mt="10" />
       <Features mt="6" />
@@ -250,7 +268,7 @@ const Home = () => {
         </Box>
       </Box>
 
-      <Tweets mt="12" />
+      <Tweets />
     </DefaultLayout>
   );
 };

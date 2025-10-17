@@ -1,53 +1,50 @@
 import { FC } from "react";
 import {
   Box,
-  Image,
-  LinkBoxProps,
-  Stack,
+  Heading,
   Text,
+  VStack,
   useColorModeValue,
+  LinkBoxProps,
 } from "@chakra-ui/react";
-import { LinkBox } from "@/components/link-box";
-import { TweetData } from "@/types";
 
-interface TweetProps extends LinkBoxProps {
-  tweet: TweetData;
+interface StatCardProps extends LinkBoxProps {
+  value: string;
+  title: string;
+  description: string;
 }
 
-export const Tweet: FC<TweetProps> = ({ tweet, ...props }) => {
-  const fontColor = useColorModeValue("gray.500", "gray.300");
-
+export const Tweet: FC<StatCardProps> = ({ value, title, description, ...props }) => {
   return (
-    <LinkBox
-      href={tweet.url}
-      isExternal
-      w="full"
-      maxW={{ base: "xs", lg: "md" }}
-      h="full"
-      bgColor={useColorModeValue("gray.50", "gray.700")}
-      border="1px"
-      borderColor={useColorModeValue("gray.100", "gray.600")}
-      borderRadius="3xl"
-      p="7"
+    <VStack
+      align="start"
+      spacing={3}
+      p={8}
+      borderRadius="2xl"
+      bg={useColorModeValue(
+        "rgba(255,255,255,0.08)",
+        "rgba(255,255,255,0.05)"
+      )}
+      border="1px solid rgba(255,255,255,0.1)"
+      backdropFilter="blur(16px)"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: "translateY(-5px)",
+        borderColor: "rgba(255,255,255,0.3)",
+      }}
+      boxShadow="0 4px 30px rgba(0, 0, 0, 0.3)"
       {...props}
     >
-      <Stack spacing="2" h="full">
-        <Stack direction="row" alignItems="center" spacing="1">
-          <Image
-            src={tweet.author.avatar}
-            alt={tweet.author.name}
-            borderRadius="full"
-            boxSize="12"
-            mr="2"
-          />
-          <Box fontSize="sm" color={fontColor}>
-            <Text>{tweet.author.name}</Text>
-            <Text>{tweet.author.bio}</Text>
-          </Box>
-        </Stack>
-        <Text color={fontColor}>{tweet.text}</Text>
-      </Stack>
-    </LinkBox>
+      <Heading fontSize="3xl" fontWeight="bold" color="white">
+        {value}
+      </Heading>
+      <Text fontWeight="semibold" color="gray.200">
+        {title}
+      </Text>
+      <Text fontSize="sm" color="gray.400" maxW="sm">
+        {description}
+      </Text>
+    </VStack>
   );
 };
 

@@ -1,6 +1,11 @@
 /* FONTS */
 
 /* HEADING FONT */
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
 
 @font-face {
   font-family: "Cal Sans";
@@ -257,3 +262,4 @@ code.language-css .token.selector>.token.pseudo-element {
   color: rgb(156, 163, 175);
   content: attr(line);
 }
+

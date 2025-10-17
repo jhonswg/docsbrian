@@ -1,10 +1,5 @@
 import { FC } from "react";
-import {
-  Box,
-  BoxProps,
-  SimpleGrid,
-  Image,
-} from "@chakra-ui/react";
+import { Box, BoxProps, SimpleGrid, Image } from "@chakra-ui/react";
 import FeatureCard from "./FeatureCard";
 import { Section } from "@/components/section";
 import { Feature } from "@/types";
@@ -34,9 +29,29 @@ const features: Feature[] = [
 
 const Features: FC<FeaturesProps> = ({ ...props }) => {
   return (
-    <Box {...props}>
-      <Section title="What we offer" text="" />
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="8">
+    <Box position="relative" {...props}>
+      <Box
+        position="absolute"
+        boxSize="72"
+        borderRadius="full"
+        top="70%"
+        left="40%"
+
+        bg="brand.500"
+        filter="blur(160px)"
+        opacity={0.7}
+        zIndex={0}
+      />
+
+      <Section title="What we offer" text="" position="relative" zIndex={1} />
+
+      <SimpleGrid
+        columns={{ base: 1, md: 2, lg: 3 }}
+        spacing="8"
+        position="relative"
+        zIndex={1}
+        mb="-5"
+      >
         {features.map(({ title, description, icon }, index) => (
           <FeatureCard
             key={index}
@@ -50,11 +65,12 @@ const Features: FC<FeaturesProps> = ({ ...props }) => {
                 boxSize="64px"
                 mx="auto"
                 mb={4}
-                filter="invert(100%)" 
+                filter="invert(100%)"
                 transition="all 0.3s ease-in-out"
                 _hover={{
-                  filter: "invert(45%) sepia(95%) saturate(3000%) hue-rotate(235deg)", 
-                  transform: "translateY(-4px)", 
+                  filter:
+                    "invert(45%) sepia(95%) saturate(3000%) hue-rotate(235deg)",
+                  transform: "translateY(-4px)",
                 }}
               />
             }
