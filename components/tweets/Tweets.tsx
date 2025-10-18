@@ -7,6 +7,7 @@ import {
   Container,
   keyframes,
   Image,
+  Tooltip,
 } from "@chakra-ui/react";
 import { Section } from "@/components/section";
 import Tweet from "./Tweet";
@@ -82,24 +83,55 @@ interface GlowingPointProps {
   size?: string; // default '12px'
 }
 
+// 🔹 Komponen baru: Titik menyala (glowing point) dengan tooltip
+interface GlowingPointProps {
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  color: string; // e.g., 'blue.400', 'red.400', 'green.400'
+  size?: string; // default '12px'
+  label: string; // Label wilayah untuk tooltip
+}
+
 const GlowingPoint: FC<GlowingPointProps> = ({ 
-  top, left, right, bottom, color, size = '12px' 
+  top, left, right, bottom, color, size = '12px', label 
 }) => {
   return (
-    <Box
-      position="absolute"
-      top={top}
-      left={left}
-      right={right}
-      bottom={bottom}
-      w={size}
-      h={size}
-      bg={color}
-      borderRadius="full"
-      animation={`${glowPulse} 2s ease-in-out infinite`}
-      zIndex={2}
-      pointerEvents="none" // Biar tidak ganggu interaksi
-    />
+    <Tooltip
+      label={label}
+      aria-label={label}
+      placement="top"
+      bg="transparent"
+      color="white"
+      hasArrow
+      fontSize="sm"
+      fontWeight="medium"
+      px={3}
+      py={2}
+      borderRadius="md"
+      boxShadow="md"
+    >
+      <Box
+        position="absolute"
+        top={top}
+        left={left}
+        right={right}
+        bottom={bottom}
+        w={size}
+        h={size}
+        bg={color}
+        borderRadius="full"
+        animation={`${glowPulse} 2s ease-in-out infinite`}
+        zIndex={2}
+        cursor="pointer"
+        _hover={{
+          transform: "scale(1.5)",
+          transition: "transform 0.2s ease",
+        }}
+        // Hapus pointerEvents="none" agar bisa di-hover
+      />
+    </Tooltip>
   );
 };
 
@@ -223,30 +255,34 @@ const Tweets: FC = () => {
                     objectFit="contain"
                   />
                   
-                  {/* Titik menyala - sesuaikan posisi berdasarkan gambar */}
+                  {/* Titik menyala - sesuaikan posisi berdasarkan gambar, dengan label wilayah */}
                   <GlowingPoint 
-                    top="49%"  // Eropa Utara (biru)
+                    top="49%"  // Eropa Utara (hijau)
                     left="29%"
                     color="green.400"
                     size="10px"
+                    label="Virginia, US"  // Contoh: Stockholm, Sweden
                   />
                   <GlowingPoint 
-                    top="35%"  // Eropa Tengah/Polandia (merah)
+                    top="35%"  // Eropa Tengah (hijau)
                     right="45%"
                     color="green.400"
                     size="10px"
+                    label="Helsinki, Finlandia"  // Contoh: Warsaw, Poland
                   />
-                     <GlowingPoint 
-                    top="43%"  // Eropa Tengah/Polandia (merah)
+                  <GlowingPoint 
+                    top="43%"  // Eropa Tengah (hijau)
                     right="48%"
                     color="green.400"
                     size="10px"
+                    label="Nurnberg, Germany"  // Contoh: Berlin, Germany
                   />
                   <GlowingPoint 
-                    top="68%"  // Singapore (hijau)
-                    right="25%"
+                    top="69%"  // Singapore (hijau)
+                    right="26%"
                     color="green.400"
                     size="10px"
+                    label="Singapore"  // Sesuai contoh
                   />
                 </Box>
               </Tweet>
