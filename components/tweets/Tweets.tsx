@@ -11,21 +11,36 @@ import {
 import { Section } from "@/components/section";
 import Tweet from "./Tweet";
 import { FiSettings } from "react-icons/fi";
+import mapsImage from "./Image/maps.png";
 
-// 🔹 Animasi sinyal (berkedip naik-turun)
+// 🔹 Animasi sinyal (berkedip naik-turun) - sudah ada
 const signalPulse = keyframes`
   0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
   50% { transform: scaleY(1); opacity: 1; }
 `;
 
-// 🔹 Animasi kunci inggris (FiSettings) berputar bolak-balik
+// 🔹 Animasi kunci inggris - sudah ada
 const wrenchSpin = keyframes`
   0% { transform: rotate(0deg); }
   50% { transform: rotate(25deg); }
   100% { transform: rotate(0deg); }
 `;
 
-// 🔹 Komponen indikator sinyal
+// 🔹 Animasi baru: Pulse untuk titik menyala (scale + opacity)
+const glowPulse = keyframes`
+  0%, 100% { 
+    transform: scale(0.8); 
+    opacity: 0.7; 
+    box-shadow: 0 0 5px currentColor, 0 0 20px currentColor; 
+  }
+  50% { 
+    transform: scale(1.2); 
+    opacity: 1; 
+    box-shadow: 0 0 10px currentColor, 0 0 30px currentColor, 0 0 50px currentColor; 
+  }
+`;
+
+// 🔹 Komponen indikator sinyal - sudah ada
 const SignalIndicator: FC = () => {
   return (
     <HStack spacing="3px" justify="center" mb={2}>
@@ -43,7 +58,7 @@ const SignalIndicator: FC = () => {
   );
 };
 
-// 🔹 Komponen animasi kunci inggris untuk Network Support
+// 🔹 Komponen animasi kunci inggris - sudah ada
 const WrenchAnimation: FC = () => {
   return (
     <Box
@@ -53,6 +68,37 @@ const WrenchAnimation: FC = () => {
       mx="auto"
       mb={2}
       animation={`${wrenchSpin} 1.8s ease-in-out infinite`}
+    />
+  );
+};
+
+// 🔹 Komponen baru: Titik menyala (glowing point)
+interface GlowingPointProps {
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  color: string; // e.g., 'blue.400', 'red.400', 'green.400'
+  size?: string; // default '12px'
+}
+
+const GlowingPoint: FC<GlowingPointProps> = ({ 
+  top, left, right, bottom, color, size = '12px' 
+}) => {
+  return (
+    <Box
+      position="absolute"
+      top={top}
+      left={left}
+      right={right}
+      bottom={bottom}
+      w={size}
+      h={size}
+      bg={color}
+      borderRadius="full"
+      animation={`${glowPulse} 2s ease-in-out infinite`}
+      zIndex={2}
+      pointerEvents="none" // Biar tidak ganggu interaksi
     />
   );
 };
@@ -77,10 +123,10 @@ const tweets = [
       "Since 2021, we have consistently delivered secure, reliable, and efficient validator operations.",
   },
   {
-    value: "12k",
-    title: "Community Members Involved",
+    value: "",
+    title: "Infrastructure Geolocation",
     description:
-      "Our community thrives with over 12,000+ active members engaged in collaborative discussions, fostering innovation and growth.",
+      "The right servers. The right places.",
   },
 ];
 
@@ -109,15 +155,18 @@ const Tweets: FC = () => {
           spacing={8}
           alignItems="stretch"
         >
-          {/* Kolom kiri (1, 2, 3) */}
+          {/* Kolom kiri (1, 2, 3) - tidak berubah */}
           <VStack
             spacing={8}
             align="stretch"
             ml={{ base: 0, md: "-70px" }}
           >
-            <HStack spacing={6} align="stretch" w="90%">
-              {/* 🔹 Uptime + indikator sinyal */}
-              <Box w="45%">
+            <HStack spacing={6} align="stretch" w="90%" alignItems="stretch">
+              <Box 
+                w="45%"
+                transition="transform 0.3s ease"
+                _hover={{ transform: "translateY(-10px)" }}
+              >
                 <Tweet {...tweets[0]} h="100%">
                   <Box mb={2} ml="40%">
                     <SignalIndicator />
@@ -125,29 +174,83 @@ const Tweets: FC = () => {
                 </Tweet>
               </Box>
 
-              {/* 🔧 Networks Supported + animasi wrench */}
-              <Tweet {...tweets[1]} w="55%" h="100%">
-                <WrenchAnimation />
-              </Tweet>
+              <Box 
+                w="55%"
+                transition="transform 0.3s ease"
+                _hover={{ transform: "translateY(-10px)" }}
+              >
+                <Tweet {...tweets[1]} w="100%" h="100%">
+                  <WrenchAnimation />
+                </Tweet>
+              </Box>
             </HStack>
 
-            {/* Founded */}
-            <Tweet
-              {...tweets[2]}
-              w="90%"
-              h="100%"
-              mt={{ base: 6, md: 12 }}
-            />
+            <Box
+              transition="transform 0.3s ease"
+              _hover={{ transform: "translateY(-10px)" }}
+              mt={{ base: 0, md: "-16px" }}
+            >
+              <Tweet
+                {...tweets[2]}
+                w="90%"
+                h="100%"
+              />
+            </Box>
           </VStack>
 
-          {/* Kolom kanan */}
-          <VStack spacing={8} align="stretch">
-            <Tweet
-              {...tweets[3]}
-              w={{ base: "100%", md: "125%" }}
+          {/* Kolom kanan - Infrastructure Geolocation + gambar maps dengan titik menyala */}
+          <VStack spacing={8} align="stretch" h="100%">
+            <Box
+              transition="transform 0.3s ease"
+              _hover={{ transform: "translateY(-10px)" }}
               h="100%"
-              ml={{ base: 0, md: "-75px" }}
-            />
+            >
+              <Tweet
+                {...tweets[3]}
+                w={{ base: "100%", md: "125%" }}
+                h="100%"
+                ml={{ base: 0, md: "-75px" }}
+                childrenPosition="bottom"
+              >
+                {/* Wrapper relative untuk overlay titik */}
+                <Box position="relative" w="100%" h="auto" mt={2}>
+                  <Image 
+                    src={typeof mapsImage === 'string' ? mapsImage : mapsImage.src} 
+                    alt="Infrastructure Map"
+                    w="100%"
+                    h="auto"
+                    color="green.700"
+                    objectFit="contain"
+                  />
+                  
+                  {/* Titik menyala - sesuaikan posisi berdasarkan gambar */}
+                  <GlowingPoint 
+                    top="49%"  // Eropa Utara (biru)
+                    left="29%"
+                    color="green.400"
+                    size="10px"
+                  />
+                  <GlowingPoint 
+                    top="35%"  // Eropa Tengah/Polandia (merah)
+                    right="45%"
+                    color="green.400"
+                    size="10px"
+                  />
+                     <GlowingPoint 
+                    top="43%"  // Eropa Tengah/Polandia (merah)
+                    right="48%"
+                    color="green.400"
+                    size="10px"
+                  />
+                  <GlowingPoint 
+                    top="68%"  // Singapore (hijau)
+                    right="25%"
+                    color="green.400"
+                    size="10px"
+                  />
+                </Box>
+              </Tweet>
+            </Box>
           </VStack>
         </SimpleGrid>
       </Container>

@@ -7,18 +7,20 @@ import {
   LinkBoxProps,
 } from "@chakra-ui/react";
 
-interface StatCardProps extends LinkBoxProps {
+export interface StatCardProps extends LinkBoxProps {
   value: string;
   title: string;
   description: string;
-  children?: ReactNode; // ⬅️ tambahkan ini
+  children?: ReactNode;
+  childrenPosition?: "top" | "bottom"; // Posisi children: atas atau bawah
 }
 
 export const Tweet: FC<StatCardProps> = ({
   value,
   title,
   description,
-  children, // ⬅️ tambahkan ini
+  children,
+  childrenPosition = "top", // Default: children di atas
   ...props
 }) => {
   return (
@@ -41,8 +43,8 @@ export const Tweet: FC<StatCardProps> = ({
       boxShadow="0 4px 30px rgba(0, 0, 0, 0.3)"
       {...props}
     >
-      {/* 🔹 Tambahkan children di sini */}
-      {children}
+      {/* 🔹 Children di atas jika childrenPosition = "top" */}
+      {childrenPosition === "top" && children}
 
       <Heading fontSize="3xl" fontWeight="bold" color="white">
         {value}
@@ -53,6 +55,9 @@ export const Tweet: FC<StatCardProps> = ({
       <Text fontSize="sm" color="gray.400" maxW="sm">
         {description}
       </Text>
+
+      {/* 🔹 Children di bawah jika childrenPosition = "bottom" */}
+      {childrenPosition === "bottom" && children}
     </VStack>
   );
 };
