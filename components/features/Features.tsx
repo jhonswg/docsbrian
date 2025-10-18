@@ -36,7 +36,6 @@ const Features: FC<FeaturesProps> = ({ ...props }) => {
         borderRadius="full"
         top="70%"
         left="40%"
-
         bg="brand.500"
         filter="blur(160px)"
         opacity={0.7}

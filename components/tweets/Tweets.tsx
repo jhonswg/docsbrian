@@ -73,17 +73,7 @@ const WrenchAnimation: FC = () => {
   );
 };
 
-// 🔹 Komponen baru: Titik menyala (glowing point)
-interface GlowingPointProps {
-  top?: string;
-  left?: string;
-  right?: string;
-  bottom?: string;
-  color: string; // e.g., 'blue.400', 'red.400', 'green.400'
-  size?: string; // default '12px'
-}
-
-// 🔹 Komponen baru: Titik menyala (glowing point) dengan tooltip
+// 🔹 Interface untuk GlowingPoint (hapus duplikasi, tambah delay)
 interface GlowingPointProps {
   top?: string;
   left?: string;
@@ -92,10 +82,19 @@ interface GlowingPointProps {
   color: string; // e.g., 'blue.400', 'red.400', 'green.400'
   size?: string; // default '12px'
   label: string; // Label wilayah untuk tooltip
+  delay?: number; // Delay animasi dalam detik, default 0
 }
 
-const GlowingPoint: FC<GlowingPointProps> = ({ 
-  top, left, right, bottom, color, size = '12px', label 
+// 🔹 Komponen: Titik menyala (glowing point) dengan tooltip dan delay animasi
+const GlowingPoint: FC<GlowingPointProps> = ({
+  top,
+  left,
+  right,
+  bottom,
+  color,
+  size = "12px",
+  label,
+  delay = 0,
 }) => {
   return (
     <Tooltip
@@ -122,7 +121,7 @@ const GlowingPoint: FC<GlowingPointProps> = ({
         h={size}
         bg={color}
         borderRadius="full"
-        animation={`${glowPulse} 2s ease-in-out infinite`}
+        animation={`${glowPulse} 2s ease-in-out ${delay}s infinite`}
         zIndex={2}
         cursor="pointer"
         _hover={{
@@ -157,8 +156,7 @@ const tweets = [
   {
     value: "",
     title: "Infrastructure Geolocation",
-    description:
-      "The right servers. The right places.",
+    description: "The right servers. The right places.",
   },
 ];
 
@@ -166,16 +164,24 @@ const Tweets: FC = () => {
   return (
     <Box position="relative" py={{ base: 16, md: 24 }} px={{ base: 6, md: 16 }}>
       <Box
+        boxSize="72"
         position="absolute"
-        bottom="1%"
-        left="30%"
-        w="80"
-        h="80"
-        bg="pink.600"
-        filter="blur(160px)"
-        opacity={0.25}
+        bottom="10%"
+        left="15%"
+        bg="pink.500"
+        filter="blur(170px)"
+        opacity={0.5}
       />
-
+      <Box
+        boxSize="72"
+        position="absolute"
+        bottom="0"
+        right="0"
+        bg="brand.500"
+        borderRadius="full"
+        filter="blur(140px)"
+        opacity={0.5}
+      />
       <Section
         title="Loved by Communities"
         text="Empowering blockchain networks with performance, uptime, and trust."
@@ -188,13 +194,9 @@ const Tweets: FC = () => {
           alignItems="stretch"
         >
           {/* Kolom kiri (1, 2, 3) - tidak berubah */}
-          <VStack
-            spacing={8}
-            align="stretch"
-            ml={{ base: 0, md: "-70px" }}
-          >
+          <VStack spacing={8} align="stretch" ml={{ base: 0, md: "-70px" }}>
             <HStack spacing={6} align="stretch" w="90%" alignItems="stretch">
-              <Box 
+              <Box
                 w="45%"
                 transition="transform 0.3s ease"
                 _hover={{ transform: "translateY(-10px)" }}
@@ -206,7 +208,7 @@ const Tweets: FC = () => {
                 </Tweet>
               </Box>
 
-              <Box 
+              <Box
                 w="55%"
                 transition="transform 0.3s ease"
                 _hover={{ transform: "translateY(-10px)" }}
@@ -222,11 +224,7 @@ const Tweets: FC = () => {
               _hover={{ transform: "translateY(-10px)" }}
               mt={{ base: 0, md: "-16px" }}
             >
-              <Tweet
-                {...tweets[2]}
-                w="90%"
-                h="100%"
-              />
+              <Tweet {...tweets[2]} w="90%" h="100%" />
             </Box>
           </VStack>
 
@@ -246,43 +244,49 @@ const Tweets: FC = () => {
               >
                 {/* Wrapper relative untuk overlay titik */}
                 <Box position="relative" w="100%" h="auto" mt={2}>
-                  <Image 
-                    src={typeof mapsImage === 'string' ? mapsImage : mapsImage.src} 
+                  <Image
+                    src={
+                      typeof mapsImage === "string" ? mapsImage : mapsImage.src
+                    }
                     alt="Infrastructure Map"
                     w="100%"
                     h="auto"
                     color="green.700"
                     objectFit="contain"
                   />
-                  
-                  {/* Titik menyala - sesuaikan posisi berdasarkan gambar, dengan label wilayah */}
-                  <GlowingPoint 
-                    top="49%"  // Eropa Utara (hijau)
+
+                  {/* Titik menyala - sesuaikan posisi berdasarkan gambar, dengan label wilayah dan delay berbeda */}
+                  <GlowingPoint
+                    top="49%" // Eropa Utara (hijau)
                     left="29%"
                     color="green.400"
                     size="10px"
-                    label="Virginia, US"  // Contoh: Stockholm, Sweden
+                    label="Virginia, US"
+                    delay={0} // Delay 0s
                   />
-                  <GlowingPoint 
-                    top="35%"  // Eropa Tengah (hijau)
+                  <GlowingPoint
+                    top="35%" // Eropa Tengah (hijau)
                     right="45%"
                     color="green.400"
                     size="10px"
-                    label="Helsinki, Finlandia"  // Contoh: Warsaw, Poland
+                    label="Helsinki, Finlandia"
+                    delay={0.5} // Delay 0.5s
                   />
-                  <GlowingPoint 
-                    top="43%"  // Eropa Tengah (hijau)
+                  <GlowingPoint
+                    top="43%" // Eropa Tengah (hijau)
                     right="48%"
                     color="green.400"
                     size="10px"
-                    label="Nurnberg, Germany"  // Contoh: Berlin, Germany
+                    label="Nurnberg, Germany"
+                    delay={1} // Delay 1s
                   />
-                  <GlowingPoint 
-                    top="69%"  // Singapore (hijau)
+                  <GlowingPoint
+                    top="69%" // Singapore (hijau)
                     right="26%"
                     color="green.400"
                     size="10px"
-                    label="Singapore"  // Sesuai contoh
+                    label="Singapore"
+                    delay={1.5} // Delay 1.5s
                   />
                 </Box>
               </Tweet>
