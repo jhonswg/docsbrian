@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import {
   Box,
   BoxProps,
@@ -8,29 +8,42 @@ import {
   Flex,
   Icon,
   Stack,
-  useDisclosure,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
 } from "@chakra-ui/react";
 import { Logo } from "@/components/logo";
 import { Link } from "@/components/link";
 import { LinkBox } from "@/components/link-box";
 import { ThemeMenu } from "@/components/theme-toggle";
 import { MobileMenu } from "@/components/mobile-menu";
-import { MobileDrawer, MobileDrawerButton } from "@/components/mobile-drawer";
-import { RiGithubFill } from "react-icons/ri";
+import { MobileDrawerButton } from "@/components/mobile-drawer";
+import { RiGithubFill, RiArrowDownSLine } from "react-icons/ri";
 import { Route } from "@/types";
 import { siteConfig } from "@/config";
+import { useRouter } from "next/router";
 
 interface NavbarProps extends BoxProps {
   routes: Route[];
 }
 
 const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const router = useRouter();
+
+  const handleMouseEnter = (title: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenMenu(title);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpenMenu(null), 200);
+  };
+
+  const handleClick = (route: Route) => {
+    if (route.path) {
+      router.push(route.path);
+      setOpenMenu(null);
+    }
+  };
 
   return (
     <>
@@ -47,21 +60,16 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
         {...props}
       >
         <Container maxW="8xl" mx="auto" px="4">
-          <Flex
-            flexDir="row"
-            justifyContent="space-between"
-            alignItems="center"
-            py="3"
-          >
-            {/* LEFT SIDE (Logo + Drawer Button) */}
+          <Flex justifyContent="space-between" alignItems="center" py="3">
+            {/* LEFT SIDE */}
             <Flex flex="1" alignItems="center">
-              <MobileDrawerButton aria-label="Open drawer" onClick={onOpen} />
+              <MobileDrawerButton aria-label="Open drawer" />
               <LinkBox href="/">
                 <Logo />
               </LinkBox>
             </Flex>
 
-            {/* CENTER NAV LINKS */}
+            {/* CENTER LINKS */}
             <Box
               display={{ base: "none", lg: "flex" }}
               flex="1"
@@ -69,85 +77,77 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
               alignItems="center"
             >
               <Flex as="nav">
-                <Stack as="ul" listStyleType="none" direction="row" spacing="5">
+                <Stack as="ul" listStyleType="none" direction="row" spacing="6">
                   {routes.map((route) => (
-                    <Box as="li" key={route.title} position="relative">
-                      {route.children ? (
-                        <Menu isOpen={openMenu === route.title}>
-                          <MenuButton
-                            fontSize="sm"
-                            fontWeight="semibold"
-                            cursor="pointer"
-                            color="gray.400"
-                            _hover={{ color: "brand.500" }}
-                            onMouseEnter={() => setOpenMenu(route.title)}
-                            onMouseLeave={() => setOpenMenu(null)}
-                            onClick={() => {
-                              if (route.path) {
-                                window.location.href = route.path;
-                              }
-                            }}
-                            px="0" // ✅ hilangkan padding default MenuButton
-                            py="0" // agar tinggi teks pas
-                            bg="transparent" // hilangkan background bawaan Chakra
-                            _expanded={{ color: "brand.500" }} // warna saat menu terbuka
-                          >
-                            {route.title}
-                            <Icon
-                              as={require("@chakra-ui/icons").ChevronUpIcon}
-                              boxSize="3"
-                              ml="1"
-                              mr="-1"
-                              transform="rotate(180deg)"
-                              transition="transform 0.2s ease"
-                            />
-                          </MenuButton>
+                    <Box
+                      as="li"
+                      key={route.title}
+                      position="relative"
+                      onMouseEnter={() => handleMouseEnter(route.title)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      {/* Main Link */}
+                      <Flex
+                        align="center"
+                        fontSize="sm"
+                        fontWeight="semibold"
+                        color="gray.400"
+                        cursor="pointer"
+                        _hover={{ color: "brand.500" }}
+                        onClick={() => handleClick(route)} 
+                      >
+                        {route.title}
+                        {route.children && (
+                          <Icon
+                            as={RiArrowDownSLine}
+                            boxSize="4"
+                            ml="1"
+                            transition="transform 0.2s"
+                            transform={
+                              openMenu === route.title
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)"
+                            }
+                          />
+                        )}
+                      </Flex>
 
-                          <MenuList
-                            onMouseEnter={() => setOpenMenu(route.title)}
-                            onMouseLeave={() => setOpenMenu(null)}
-                            position="absolute"
-                            left="0"
-                            w="100vw"
-                            bg="transparent"
-                            borderColor="gray.700"
-                            py="2"
-                            px="1"
-                            mt="2"
-                          >
-                            {route.children.map((child) => (
-                              <MenuItem
-                                key={child.path}
-                                as={Link}
-                                href={child.path}
-                                bg="transparent"
-                                fontSize="sm"
-                                margin="2"
-                                borderRadius="5"
-                                fontWeight="medium"
-                                color="gray.300"
-                                _hover={{
-                                  bg: "brand.500",
-                                  color: "white",
-                                }}
-                                _focus={{ bg: "brand.500", color: "white" }}
-                                transition="background-color 0.2s ease"
-                              >
-                                {child.title}
-                              </MenuItem>
-                            ))}
-                          </MenuList>
-                        </Menu>
-                      ) : (
-                        <Link
-                          fontSize="sm"
-                          fontWeight="semibold"
-                          href={route.path}
-                          color="gray.400"
-                          _hover={{ color: "brand.500" }}
+                      {/* Dropdown */}
+                      {route.children && openMenu === route.title && (
+                        <Box
+                          position="absolute"
+                          top="180%" 
+                          left="0"
+                          w="90vw" 
+                          bg="gray.900"
+                          border="1px solid"
+                          borderColor="gray.700"
+                          borderRadius="md"
+                          boxShadow="lg"
+                          p="2"
+                          minW="180px"
+                          zIndex={999}
+                          onMouseEnter={() => handleMouseEnter(route.title)}
+                          onMouseLeave={handleMouseLeave}
+                          transition="opacity 0.15s ease-in-out"
                         >
-                          {route.title}
-                        </Link>
+                          {route.children.map((child) => (
+                            <Box
+                              as={Link}
+                              key={child.path}
+                              href={child.path}
+                              display="block"
+                              px="3"
+                              py="2"
+                              fontSize="sm"
+                              color="gray.300"
+                              borderRadius="md"
+                              _hover={{ bg: "brand.500", color: "white" }}
+                            >
+                              {child.title}
+                            </Box>
+                          ))}
+                        </Box>
                       )}
                     </Box>
                   ))}
@@ -175,20 +175,13 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
               </Flex>
             </Box>
 
-            {/* MOBILE MENU */}
-            <Box
-              display={{ base: "flex", lg: "none" }}
-              flex="1"
-              justifyContent="end"
-            >
+            {/* MOBILE */}
+            <Box display={{ base: "flex", lg: "none" }} flex="1" justifyContent="end">
               <MobileMenu routes={routes} />
             </Box>
           </Flex>
         </Container>
       </Box>
-
-      {/* MOBILE DRAWER */}
-      <MobileDrawer isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

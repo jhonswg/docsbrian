@@ -63,12 +63,10 @@ const networks = [
   },
 ];
 
-
-
 const Home = () => {
   const [selected, setSelected] = useState<"Mainnet" | "Testnet">("Mainnet");
 
-  // ✅ Hooks Chakra harus di top-level
+  // ✅ Chakra UI hooks
   const cardBg = useColorModeValue("gray.900", "gray.900");
   const borderColor = useColorModeValue("gray.800", "gray.700");
   const toggleBg = useColorModeValue("gray.100", "gray.700");
@@ -77,34 +75,20 @@ const Home = () => {
   const hoverBg = useColorModeValue("gray.600", "gray.600");
   const hoverColor = useColorModeValue("white", "white");
 
-  // ✅ Filter data berdasarkan pilihan
+  // ✅ Filter data
   const filteredNetworks = networks.filter((net) =>
     selected === "Mainnet" ? net.type === "mainnet" : net.type === "testnet"
   );
 
   return (
     <DefaultLayout>
-      <Box
-        position="fixed"
-        inset={0}
-        zIndex={0}
-        pointerEvents="none"
-        background={`
-          radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.9) 50%, transparent 50%),
-          radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.7) 50%, transparent 50%),
-          radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.8) 50%, transparent 50%),
-          radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.6) 50%, transparent 50%),
-          radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.8) 50%, transparent 50%),
-          radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.5) 50%, transparent 50%)
-        `}
-        animation="twinkle 6s infinite alternate"
-        opacity={0.6}
-      />
+      {/* 🚫 Efek bintang dihapus */}
+
       <Hero />
       <Teams mt="10" />
       <Features mt="6" />
 
-      {/* Section Judul */}
+      {/* Section Portfolio */}
       <Box
         position="relative"
         bg="black"
@@ -126,7 +110,7 @@ const Home = () => {
           height: "100%",
           zIndex: 0,
           background: `
-            /* top: vertical grid lines */
+            /* grid lines + gradient */
             repeating-linear-gradient(
               90deg,
               rgba(0,0,0,0.2) 0px,
@@ -134,7 +118,6 @@ const Home = () => {
               transparent 1px,
               transparent 40px
             ),
-            /* top: horizontal grid lines */
             repeating-linear-gradient(
               0deg,
               rgba(0,0,0,0.2) 0px,
@@ -142,13 +125,12 @@ const Home = () => {
               transparent 1px,
               transparent 40px
             ),
-            /* bottom: gradient from top (black) -> bottom (gray.800) */
             linear-gradient(to bottom, #000000 30%, var(--chakra-colors-gray-800) 100%)
           `,
           backgroundRepeat: "repeat, repeat, no-repeat",
           backgroundSize: "40px 40px, 40px 40px, 100% 100%",
           backgroundPosition: "0 0, 0 0, 0 0",
-          backgroundBlendMode: "normal", 
+          backgroundBlendMode: "normal",
         }}
       >
         <Box position="relative" zIndex={1}>
