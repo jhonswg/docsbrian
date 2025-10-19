@@ -13,6 +13,7 @@ import { Section } from "@/components/section";
 import Tweet from "./Tweet";
 import { FiSettings } from "react-icons/fi";
 import mapsImage from "./Image/maps.png";
+import grafanaImage from "./Image/grafana.png";
 
 // 🔹 Animasi sinyal (berkedip naik-turun) - sudah ada
 const signalPulse = keyframes`
@@ -148,10 +149,10 @@ const tweets = [
       "We have effectively served more than 50 networks, including Ethereum, Solana, Cosmos, Polkadot, Avalanche, and others.",
   },
   {
-    value: "2021",
-    title: "Founded",
+    value: "24/7",
+    title: "Monitoring & Alerts",
     description:
-      "Since 2021, we have consistently delivered secure, reliable, and efficient validator operations.",
+      "Automated systems and AI-powered bots ensure real-time detection and instant alerts for any network anomaly.",
   },
   {
     value: "",
@@ -220,11 +221,49 @@ const Tweets: FC = () => {
             </HStack>
 
             <Box
+              position="relative"
               transition="transform 0.3s ease"
               _hover={{ transform: "translateY(-10px)" }}
-              mt={{ base: 0, md: "-16px" }}
+              mt={{ base: 0, md: "-10px" }}
+              overflow="hidden"
             >
-              <Tweet {...tweets[2]} w="90%" h="100%" />
+              <Tweet
+                {...tweets[2]}
+                w="90%"
+                h="100%"
+                position="relative"
+                overflow="hidden"
+              >
+                {/* Background logo grafana di kanan */}
+                <Box
+                  position="absolute"
+                  top="50%"
+                  right="0"
+                  transform="translateY(-50%)"
+                  w="55%"
+                  h="100%"
+                  opacity={0.15}
+                  zIndex={0}
+                  pointerEvents="none"
+                >
+                  <Image
+                    src={
+                      typeof grafanaImage === "string"
+                        ? grafanaImage
+                        : grafanaImage.src
+                    }
+                    alt="Grafana Logo"
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
+                  />
+                </Box>
+
+                {/* Isi utama card tetap di atas gambar */}
+                <Box position="relative" zIndex={1}>
+                  {/* Kamu bisa tambahkan teks, icon, atau button di sini */}
+                </Box>
+              </Tweet>
             </Box>
           </VStack>
 
