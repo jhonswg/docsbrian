@@ -92,13 +92,13 @@ const TestnetArchive: FC = () => {
       {/* Header Section */}
       <VStack spacing={4} mb={2} textAlign="center">
         <Heading
-          fontSize={{ base: "3xl", md: "5xl" }}
+          fontSize={{ base: "4xl", md: "5xl" }}
           bgGradient="linear(to-r, brand.400, orange.400)"
           bgClip="text"
           fontWeight="bold"
           opacity={1}
         >
-          Testnet Archive
+          TESTNET ARCHIVE
         </Heading>
       </VStack>
 
@@ -114,7 +114,7 @@ const TestnetArchive: FC = () => {
         <VStack align="start" spacing={6}>
           <Heading
             as="h2"
-            fontSize={{ base: "3xl", md: "5xl" }}
+            fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
             lineHeight="shorter"
           >
@@ -128,7 +128,7 @@ const TestnetArchive: FC = () => {
             </Text>
           </Heading>
 
-          <Text fontSize={{ base: "md", md: "lg" }} color={textColor} maxW="lg">
+          <Text fontSize={{ base: "md", md: "md" }} color={textColor} maxW="lg">
             We have participated in over Engaging in 50+ testnets across
             Ethereum, Solana, Cosmos, and beyond, we specialize in validating
             next-generation protocols and strengthening Web3 infrastructure.
@@ -142,7 +142,7 @@ const TestnetArchive: FC = () => {
             border="1px solid rgba(255,255,255,0.1)"
             color="pink.500"
             borderRadius="2xl"
-            size="lg"
+            size="md"
             rightIcon={<ExternalLinkIcon />}
             mt={4}
             _hover={{ transform: "scale(1.05)", transition: "0.2s" }}
