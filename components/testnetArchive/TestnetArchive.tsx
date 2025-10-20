@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   Box,
   VStack,
@@ -76,6 +76,25 @@ const networks = [
 // 🔹 Komponen utama
 const TestnetArchive: FC = () => {
   const textColor = useColorModeValue("gray.600", "gray.300");
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  // 🔹 Gradient eksplisit untuk match body bg (dari inspect, hindari var chakra-body-bg)
+  const horizontalFadeLeft = useColorModeValue(
+    "linear(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 50%, transparent 95%)",
+    "linear(to right, rgba(17,24,39,0.95) 0%, rgba(17,24,39,0.7) 50%, transparent 95%)"
+  );
+  const horizontalFadeRight = useColorModeValue(
+    "linear(to left, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 50%, transparent 95%)",
+    "linear(to left, rgba(17,24,39,0.95) 0%, rgba(17,24,39,0.7) 50%, transparent 95%)"
+  );
+  const verticalFadeTop = useColorModeValue(
+    "linear(to bottom, rgba(255,255,255,0.8) 0%, transparent 80%)",
+    "linear(to bottom, rgba(17,24,39,0.8) 0%, transparent 80%)"
+  );
+  const verticalFadeBottom = useColorModeValue(
+    "linear(to top, rgba(255,255,255,0.8) 0%, transparent 80%)",
+    "linear(to top, rgba(17,24,39,0.8) 0%, transparent 80%)"
+  );
 
   // Bagi logo menjadi 2 baris
   const perRow = 5;
@@ -159,19 +178,60 @@ const TestnetArchive: FC = () => {
           borderRadius="2xl"
           bg="transparent"
         >
-          {/* 🌈 Efek fade kiri/kanan */}
+          {/* 🔹 Fade horizontal (left-right) - super opaque & gradual dari inspect */}
           <Box
             position="absolute"
-            inset={0}
+            left={0}
+            top={0}
+            bottom={0}
+            width="300px" // 🔹 Super lebar untuk cover full scroll + gap
             pointerEvents="none"
             zIndex={1}
-            _before={{
-              content: '""',
-              position: "absolute",
-              inset: 0,
-              bgGradient:
-                "linear(to right, chakra.bodyBg 10%, transparent 30%, transparent 70%, chakra.bodyBg 90%)",
-            }}
+            bg={horizontalFadeLeft}
+            borderRadius="2xl 0 0 2xl"
+            opacity={1}
+            // sx={{ "-webkit-backdrop-filter": "blur(20px)" }} // 🔹 Uncomment jika mau blur, tapi test dulu
+          />
+          <Box
+            position="absolute"
+            right={0}
+            top={0}
+            bottom={0}
+            width="300px"
+            pointerEvents="none"
+            zIndex={1}
+            bg={horizontalFadeRight}
+            borderRadius="0 2xl 2xl 0"
+            opacity={1}
+            // sx={{ "-webkit-backdrop-filter": "blur(20px)" }}
+          />
+
+          {/* 🌈 Fade vertical (atas-bawah) - subtle untuk depth */}
+          <Box
+            position="absolute"
+            top={0}
+            left={0}
+            right={0}
+            height="80px"
+            pointerEvents="none"
+            zIndex={1}
+            bg={verticalFadeTop}
+            borderRadius="2xl 2xl 0 0"
+            opacity={0.8}
+            // sx={{ "-webkit-backdrop-filter": "blur(12px)" }}
+          />
+          <Box
+            position="absolute"
+            bottom={0}
+            left={0}
+            right={0}
+            height="80px"
+            pointerEvents="none"
+            zIndex={1}
+            bg={verticalFadeBottom}
+            borderRadius="0 0 2xl 2xl"
+            opacity={0.8}
+            // sx={{ "-webkit-backdrop-filter": "blur(12px)" }}
           />
 
           {/* 🌀 Container baris */}
@@ -214,6 +274,8 @@ const TestnetArchive: FC = () => {
                       animation={`${floatAnim} ${
                         3 + (i % 3)
                       }s ease-in-out infinite`}
+                      onMouseEnter={() => setHovered(network.name)}
+                      onMouseLeave={() => setHovered(null)}
                     >
                       <Image
                         src={network.logo}
@@ -221,10 +283,14 @@ const TestnetArchive: FC = () => {
                         boxSize={{ base: "60px", md: "85px" }}
                         borderRadius="full"
                         objectFit="cover"
+                        sx={{
+                          filter: hovered && hovered !== network.name ? "blur(4px)" : "none",
+                          transition: "filter 0.2s ease",
+                        }}
                         _hover={{
                           transform: "scale(1.1)",
                           transition: "0.25s",
-                          boxShadow: "0 0 25px rgba(255,182,193,0.6)",
+                          // boxShadow: "0 0 25px rgba(255,182,193,0.6)",
                         }}
                       />
                     </Box>
@@ -263,6 +329,8 @@ const TestnetArchive: FC = () => {
                       animation={`${floatAnim} ${
                         3 + (i % 3)
                       }s ease-in-out infinite`}
+                      onMouseEnter={() => setHovered(network.name)}
+                      onMouseLeave={() => setHovered(null)}
                     >
                       <Image
                         src={network.logo}
@@ -270,10 +338,14 @@ const TestnetArchive: FC = () => {
                         boxSize={{ base: "60px", md: "85px" }}
                         borderRadius="full"
                         objectFit="cover"
+                        sx={{
+                          filter: hovered && hovered !== network.name ? "blur(4px)" : "none",
+                          transition: "filter 0.2s ease",
+                        }}
                         _hover={{
                           transform: "scale(1.1)",
                           transition: "0.25s",
-                          boxShadow: "0 0 25px rgba(255,182,193,0.6)",
+                          // boxShadow: "0 0 5px rgba(255,182,193,0.6)",
                         }}
                       />
                     </Box>
