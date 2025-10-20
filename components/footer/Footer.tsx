@@ -7,75 +7,173 @@ import {
   Text,
   Link as ChakraLink,
   useColorModeValue,
+  Icon,
+  IconButton,
 } from "@chakra-ui/react";
 import { Logo } from "@/components/logo";
-import { siteConfig } from "@/config";
+import { FaLinkedin, FaTelegram, FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 const Footer: FC = (props) => {
   const borderColor = useColorModeValue("gray.200", "gray.700");
-  const textColor = useColorModeValue("gray.600", "gray.300");
-  const linkHover = useColorModeValue("brand.600", "brand.300");
-  
+  const textColor = useColorModeValue("gray.600", "gray.400");
+  const linkHover = useColorModeValue("brand.600", "brand.500");
 
   return (
-    <Box as="footer" mt="10" {...props}>
+    <Box as="footer" mt="20" {...props}>
       <Flex
         px={{ base: 6, md: 4 }}
         py={{ base: 10, md: 16 }}
         direction={{ base: "column", md: "row" }}
         justify="space-between"
         align={{ base: "start", md: "start" }}
-        gap={10}
-
+        gap={{ base: 10, md: 20 }}
+        maxW="1400px"
+        mx="auto"
       >
-        {/* LEFT: Logo + Description */}
-        <VStack align="start" spacing={4} maxW="lg">
+        {/* LEFT: Logo + Tagline + Social Icons */}
+        <VStack align="start" spacing={4} maxW="500px">
           <Logo />
-          <Text color={textColor}>
-            Jhonswg offers reliable blockchain infrastructure with a focus on
-            security, performance, and validator node services.
+          <Text color={textColor} fontSize="md">
+          Jhonswg offers reliable blockchain infrastructure with a focus on
+          security, performance, and validator node services.
           </Text>
-          <ChakraLink href="mailto:me@jhonswg.com" color="pink.500" _hover={{ color: linkHover }}>
-              me@jhonswg.com
-            </ChakraLink>
+          <HStack spacing={3} pt={2} ml={-3}>
+            <IconButton
+              as="a"
+              href="https://linkedin.com"
+              target="_blank"
+              aria-label="LinkedIn"
+              icon={<Icon as={FaLinkedin} />}
+              variant="ghost"
+              size="lg"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            />
+            <IconButton
+              as="a"
+              href="https://twitter.com/jhonswgg"
+              target="_blank"
+              aria-label="Twitter"
+              icon={<Icon as={FaXTwitter} />}
+              variant="ghost"
+              size="lg"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            />
+            <IconButton
+              as="a"
+              href="https://www.t.me/jhonswg/"
+              target="_blank"
+              aria-label="Telegram"
+              icon={<Icon as={FaTelegram} />}
+              variant="ghost"
+              size="lg"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            />
+            <IconButton
+              as="a"
+              href="https://facebook.com"
+              target="_blank"
+              aria-label="Facebook"
+              icon={<Icon as={FaFacebook} />}
+              variant="ghost"
+              size="lg"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            />
+          </HStack>
         </VStack>
 
         {/* RIGHT: Link sections */}
-        <Flex wrap="wrap" gap={8} justify="flex-end">
-          <VStack align="start">
-            <Text fontWeight="bold">Products</Text>
-            <ChakraLink href="/staking" _hover={{ color: linkHover }}>
+        <Flex wrap="wrap" gap={{ base: 8, md: 12, lg: 20 }} justify="flex-end" flex="1">
+          {/* Services */}
+          <VStack align="start" spacing={3}>
+            <Text fontWeight="bold" fontSize="lg" mb={1}>
+              Services
+            </Text>
+            <ChakraLink
+              href="/staking"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
               Staking
             </ChakraLink>
-            <ChakraLink href="/nodes" _hover={{ color: linkHover }}>
-              Nodes
+            <ChakraLink
+              href="/ibc-relayer"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
+              IBC Relayer
             </ChakraLink>
-            <ChakraLink href="/validators" _hover={{ color: linkHover }}>
-              Validators
+            <ChakraLink
+              href="/monitoring"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
+              Monitoring
+            </ChakraLink>
+            <ChakraLink
+              href="/rpc-endpoint"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
+              RPC Endpoint
             </ChakraLink>
           </VStack>
-          <VStack align="start">
-            <Text fontWeight="bold">Company</Text>
-            <ChakraLink href="/about" _hover={{ color: linkHover }}>
-              About Us
+
+          {/* Support */}
+          <VStack align="start" spacing={3}>
+            <Text fontWeight="bold" fontSize="lg" mb={1}>
+              Support
+            </Text>
+            <ChakraLink
+              href="/feedback"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
+              Feedback & Bug Report
             </ChakraLink>
-            <ChakraLink href="/team" _hover={{ color: linkHover }}>
-              Team
+            <ChakraLink
+              href="/terms"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
+              Terms
             </ChakraLink>
-            <ChakraLink href="/careers" _hover={{ color: linkHover }}>
-              Careers
+            <ChakraLink
+              href="/privacy"
+              fontSize="md"
+              color={textColor}
+              _hover={{ color: linkHover }}
+            >
+              Privacy
             </ChakraLink>
           </VStack>
-          <VStack align="start">
-            <Text fontWeight="bold">Resources</Text>
-            <ChakraLink href="/blog" _hover={{ color: linkHover }}>
-              Blog
-            </ChakraLink>
-            <ChakraLink href="/docs" _hover={{ color: linkHover }}>
-              Documentation
-            </ChakraLink>
-            <ChakraLink href="/contact" _hover={{ color: linkHover }}>
+
+          {/* Contact */}
+          <VStack align="start" spacing={3}>
+            <Text fontWeight="bold" fontSize="lg" mb={1}>
               Contact
+            </Text>
+            <Text fontSize="md" color={textColor}>
+              Feel free to reach out
+            </Text>
+            <ChakraLink
+              href="mailto:me@jhonswg.com"
+              fontSize="md"
+              color="pink.500"
+              _hover={{ color: "brand.500" }}
+            >
+              me@jhonswg.com
             </ChakraLink>
           </VStack>
         </Flex>
@@ -89,28 +187,24 @@ const Footer: FC = (props) => {
           justify="space-between"
           direction={{ base: "column", md: "row" }}
           gap={4}
+          maxW="1400px"
+          mx="auto"
         >
           <Text fontSize="sm" color={textColor}>
-            &copy; {new Date().getFullYear()} Jhonswg. All rights reserved.
+            © {new Date().getFullYear()} Jhonswg. All rights reserved.
           </Text>
-          <HStack spacing={4}>
-            <ChakraLink
-              href="/privacy"
-              fontSize="sm"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
-              Privacy Policy
-            </ChakraLink>
-            <ChakraLink
-              href="/terms"
-              fontSize="sm"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
-              Terms of Service
-            </ChakraLink>
-          </HStack>
+          <ChakraLink
+            href="#top"
+            fontSize="sm"
+            color={textColor}
+            _hover={{ color: linkHover }}
+            display="flex"
+            alignItems="center"
+            gap={2}
+          >
+            <Text>↑</Text>
+            <Text>Back to top</Text>
+          </ChakraLink>
         </Flex>
       </Box>
     </Box>
