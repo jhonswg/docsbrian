@@ -184,7 +184,7 @@ const Tweets: FC = () => {
         opacity={0.5}
       />
       <Section
-        title="Reliable Network Operations"
+        title="Operational Excellence"
         text="Empowering blockchain networks with performance, uptime, and trust."
         mb={2}
       />

@@ -83,27 +83,33 @@ const TestnetArchive: FC = () => {
   const row2 = networks.slice(perRow);
 
   return (
-    <Box position="relative" py={{ base: 20, md: 28 }} px={{ base: 6, md: 20 }}>
-      {/* Header Section */}
-      <VStack spacing={4} mb={2} textAlign="center">
-        <Heading
-          fontSize={{ base: "3xl", md: "5xl" }}
-          bgGradient="linear(to-r, brand.400, orange.400)"
-          bgClip="text"
-          fontWeight="bold"
-          opacity={1}
-        >
-          Testnet Archive
-        </Heading>
-      </VStack>
-      <SimpleGrid
-        columns={{ base: 1, md: 2 }}
-        spacing={16}
-        alignItems="center"
-        zIndex={1}
-        maxW="7xl"
-        mx="auto"
-      >
+    <Box
+  position="relative"
+  py={{ base: 16, md: 10 }}
+  px={{ base: 4, md: 4 }}
+  pb="-30px" // 🔹 Kurangi padding horizontal
+>
+  {/* Header Section */}
+  <VStack spacing={4} mb={2} textAlign="center">
+    <Heading
+      fontSize={{ base: "3xl", md: "5xl" }}
+      bgGradient="linear(to-r, brand.400, orange.400)"
+      bgClip="text"
+      fontWeight="bold"
+      opacity={1}
+    >
+      Testnet Archive
+    </Heading>
+  </VStack>
+
+  <SimpleGrid
+    columns={{ base: 1, md: 2 }}
+    spacing={{ base: 10, md: 12 }} // 🔹 Kurangi jarak antar kolom
+    alignItems="center"
+    zIndex={1}
+    maxW="10xl" // 🔹 Sebelumnya 7xl, sekarang lebih sempit
+    mx="auto"
+  >
         {/* 🧩 Bagian kiri */}
         <VStack align="start" spacing={6}>
           <Heading

@@ -18,15 +18,15 @@ const Footer: FC = (props) => {
   
 
   return (
-    <Box as="footer" mt="16" {...props}>
+    <Box as="footer" mt="10" {...props}>
       <Flex
-        px={{ base: 6, md: 12 }}
+        px={{ base: 6, md: 4 }}
         py={{ base: 10, md: 16 }}
         direction={{ base: "column", md: "row" }}
         justify="space-between"
         align={{ base: "start", md: "start" }}
         gap={10}
-        mb="-5"
+
       >
         {/* LEFT: Logo + Description */}
         <VStack align="start" spacing={4} maxW="lg">
@@ -35,7 +35,7 @@ const Footer: FC = (props) => {
             Jhonswg offers reliable blockchain infrastructure with a focus on
             security, performance, and validator node services.
           </Text>
-          <ChakraLink href="mailto:me@jhonswg.com" _hover={{ color: linkHover }}>
+          <ChakraLink href="mailto:me@jhonswg.com" color="pink.500" _hover={{ color: linkHover }}>
               me@jhonswg.com
             </ChakraLink>
         </VStack>
@@ -84,7 +84,7 @@ const Footer: FC = (props) => {
       {/* Footer bottom bar */}
       <Box borderTop="1px" borderColor={borderColor} py="6">
         <Flex
-          px={{ base: 6, md: 12 }}
+          px={{ base: 6, md: 4 }}
           align="center"
           justify="space-between"
           direction={{ base: "column", md: "row" }}
