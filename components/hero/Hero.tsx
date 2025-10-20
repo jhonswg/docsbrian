@@ -171,7 +171,7 @@ const Hero: FC<HeroProps> = () => {
         left="0"
         bg="brand.500"
         borderRadius="full"
-        filter="blur(140px)"
+        filter="blur(200px)"
       />
       <Box
         boxSize="72"
@@ -180,7 +180,7 @@ const Hero: FC<HeroProps> = () => {
         right="0"
         bg="pink.500"
         borderRadius="full"
-        filter="blur(140px)"
+        filter="blur(200px)"
       />
     </Stack>
   );
