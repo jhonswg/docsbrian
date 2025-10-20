@@ -148,7 +148,7 @@ const TestnetArchive: FC = () => {
           </Heading>
 
           <Text fontSize={{ base: "md", md: "md" }} color={textColor} maxW="lg">
-            We have participated in over Engaging in 50+ testnets across
+            We have participated in over Engaging in 15+ testnets across
             Ethereum, Solana, Cosmos, and beyond, we specialize in validating
             next-generation protocols and strengthening Web3 infrastructure.
           </Text>

@@ -80,7 +80,7 @@ const Hero: FC<HeroProps> = () => {
       maxW="container.md"
       py="12"
       mx="auto"
-      mt="70"
+      mt="100"
       spacing="6"
       align="center"
       minHeight="60vh"

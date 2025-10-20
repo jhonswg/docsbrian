@@ -15,7 +15,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { DefaultLayout } from "@/layouts";
 import { Section } from "@/components/section";
 import { Hero } from "@/components/hero";
-import { Teams } from "@/components/teams";
+// import { Teams } from "@/components/teams";
 import { Features } from "@/components/features";
 import { Tweets } from "@/components/tweets";
 import { TestnetArchive} from "@/components/testnetArchive";
@@ -86,8 +86,9 @@ const Home = () => {
       {/* 🚫 Efek bintang dihapus */}
 
       <Hero />
-      <Teams mt="10" />
-      <Features mt="6" />
+      {/* <Teams mt="10" /> */}
+      {/*Features mt= 15 */}
+      <Features mt="20" />
 
       {/* Section Portfolio */}
       <Box

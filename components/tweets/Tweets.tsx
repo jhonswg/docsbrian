@@ -143,10 +143,10 @@ const tweets = [
       "Our systems are monitored 24/7 to ensure that any deviation from the norm is instantly recognized.",
   },
   {
-    value: "50+",
+    value: "5+",
     title: "Networks Supported",
     description:
-      "We have effectively served more than 50 networks, including Ethereum, Solana, Cosmos, Polkadot, Avalanche, and others.",
+      "We have effectively served more than 5 networks, including Ethereum, Solana, Cosmos, Polkadot, and others.",
   },
   {
     value: "24/7",
