@@ -84,32 +84,32 @@ const TestnetArchive: FC = () => {
 
   return (
     <Box
-  position="relative"
-  py={{ base: 16, md: 10 }}
-  px={{ base: 4, md: 4 }}
-  pb="-30px" // 🔹 Kurangi padding horizontal
->
-  {/* Header Section */}
-  <VStack spacing={4} mb={2} textAlign="center">
-    <Heading
-      fontSize={{ base: "3xl", md: "5xl" }}
-      bgGradient="linear(to-r, brand.400, orange.400)"
-      bgClip="text"
-      fontWeight="bold"
-      opacity={1}
+      position="relative"
+      py={{ base: 16, md: 10 }}
+      px={{ base: 4, md: 4 }}
+      pb="-30px" // 🔹 Kurangi padding horizontal
     >
-      Testnet Archive
-    </Heading>
-  </VStack>
+      {/* Header Section */}
+      <VStack spacing={4} mb={2} textAlign="center">
+        <Heading
+          fontSize={{ base: "3xl", md: "5xl" }}
+          bgGradient="linear(to-r, brand.400, orange.400)"
+          bgClip="text"
+          fontWeight="bold"
+          opacity={1}
+        >
+          Testnet Archive
+        </Heading>
+      </VStack>
 
-  <SimpleGrid
-    columns={{ base: 1, md: 2 }}
-    spacing={{ base: 10, md: 12 }} // 🔹 Kurangi jarak antar kolom
-    alignItems="center"
-    zIndex={1}
-    maxW="10xl" // 🔹 Sebelumnya 7xl, sekarang lebih sempit
-    mx="auto"
-  >
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        spacing={{ base: 10, md: 12 }} // 🔹 Kurangi jarak antar kolom
+        alignItems="center"
+        zIndex={1}
+        maxW="10xl" // 🔹 Sebelumnya 7xl, sekarang lebih sempit
+        mx="auto"
+      >
         {/* 🧩 Bagian kiri */}
         <VStack align="start" spacing={6}>
           <Heading
@@ -135,7 +135,13 @@ const TestnetArchive: FC = () => {
           </Text>
 
           <Button
-            colorScheme="pink"
+            bg={useColorModeValue(
+              "rgba(255,255,255,0.08)",
+              "rgba(255,255,255,0.05)"
+            )}
+            border="1px solid rgba(255,255,255,0.1)"
+            color="pink.500"
+            borderRadius="2xl"
             size="lg"
             rightIcon={<ExternalLinkIcon />}
             mt={4}
