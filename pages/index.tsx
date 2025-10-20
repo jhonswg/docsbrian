@@ -18,6 +18,7 @@ import { Hero } from "@/components/hero";
 import { Teams } from "@/components/teams";
 import { Features } from "@/components/features";
 import { Tweets } from "@/components/tweets";
+import { TestnetArchive} from "@/components/testnetArchive";
 
 const networks = [
   // === Mainnet ===
@@ -251,6 +252,7 @@ const Home = () => {
       </Box>
 
       <Tweets />
+      <TestnetArchive/>
     </DefaultLayout>
   );
 };
