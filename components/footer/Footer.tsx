@@ -21,7 +21,7 @@ const Footer: FC = (props) => {
   const linkHover = useColorModeValue("brand.600", "brand.500");
 
   return (
-    <Box as="footer" mt="20" {...props}>
+    <Box as="footer" mt="5" {...props}>
       <Flex
         px={{ base: 6, md: 4 }}
         py={{ base: 10, md: 16 }}
