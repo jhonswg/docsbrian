@@ -263,3 +263,6 @@ code.language-css .token.selector>.token.pseudo-element {
   content: attr(line);
 }
 
+html, body {
+  overflow-x: hidden;
+}

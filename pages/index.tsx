@@ -139,7 +139,7 @@ const Home = () => {
           <Section
             mt="20"
             title="Portofolio Project"
-            subtitle="Make things happen"
+            // subtitle="Make things happen"
             text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sed consequatur."
           />
 

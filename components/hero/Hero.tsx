@@ -111,7 +111,7 @@ const Hero: FC<HeroProps> = () => {
 
       <Heading
         as="h1"
-        fontSize={{ base: "4xl", md: "7xl" }}
+        fontSize={{ base: "5xl", md: "7xl" }}
         color={useColorModeValue("gray.700", "gray.100")}
         textAlign="center"
         textTransform="uppercase"
