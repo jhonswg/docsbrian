@@ -49,10 +49,18 @@ export const Tweet: FC<StatCardProps> = ({
       <Heading fontSize="3xl" fontWeight="bold" color="white">
         {value}
       </Heading>
+
       <Text fontWeight="semibold" color="gray.200">
         {title}
       </Text>
-      <Text fontSize="sm" color="gray.400" maxW="sm">
+
+      {/* 🔹 Description disembunyikan di HP */}
+      <Text
+        fontSize="sm"
+        color="gray.400"
+        maxW="sm"
+        display={{ base: "none", md: "block" }}
+      >
         {description}
       </Text>
 
