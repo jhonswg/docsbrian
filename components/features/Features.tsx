@@ -46,7 +46,8 @@ const Features: FC<FeaturesProps> = ({ ...props }) => {
 
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3 }}
-        spacing="8"
+        spacing={{ base: 6, md: 2 }}
+        justifyItems="center"
         position="relative"
         zIndex={1}
         mb="-5"
@@ -55,8 +56,10 @@ const Features: FC<FeaturesProps> = ({ ...props }) => {
           <FeatureCard
             key={index}
             title={title}
-            textAlign="center"
             description={description}
+            maxW={{ base: "90%", md: "50%", lg: "95%" }}
+            mx="auto"
+            textAlign="center"
             icon={
               <Image
                 src={icon}
