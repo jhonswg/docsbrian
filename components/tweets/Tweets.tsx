@@ -186,7 +186,7 @@ const Tweets: FC = () => {
       <Container maxW="100%" px="0" position="relative" zIndex={1}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} alignItems="stretch">
   {/* Kolom kiri */}
-  <VStack spacing={8} align="stretch" ml={{ base: 0, md: "-70px" }}>
+  <VStack spacing={8} align="stretch" ml={{ base: 0, md: "-50px" }}>
     <HStack
       spacing={6}
       align="stretch"
@@ -268,6 +268,7 @@ const Tweets: FC = () => {
       transition="transform 0.3s ease"
       _hover={{ transform: "translateY(-10px)" }}
       h={{ base: "auto", md: "100%" }}
+      mr={{ base: "auto", md:"20px"}}
     >
       <Tweet
         {...tweets[3]}
