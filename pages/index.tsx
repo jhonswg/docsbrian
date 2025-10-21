@@ -182,79 +182,92 @@ const Home = () => {
             </Stack>
 
             {/* Grid Network Cards */}
-            <SimpleGrid
-              columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
-              spacing="6"
-              pb="16"
+            <Box
+              maxW="7xl"
+              mx="auto"
+              px={{ base: 4, sm: 6, md: 8 }} // base = HP → lebih sempit
             >
-              {filteredNetworks.map((net) => (
-                <Box
-                  key={net.id}
-                  bg={cardBg}
-                  borderRadius="2xl"
-                  p="5"
-                  position="relative"
-                  overflow="hidden"
-                  border="1px solid"
-                  borderColor={borderColor}
-                  _hover={{
-                    borderColor: "purple.400",
-                    transform: "translateY(-4px)",
-                    transition: "all 0.2s ease-in-out",
-                  }}
-                >
-                  <HStack spacing="2" zIndex="2" position="relative">
-                    <Text fontWeight="bold" fontSize="lg" color="white">
-                      {net.name}
-                    </Text>
+              <SimpleGrid
+                columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                spacing="6"
+                pb="16"
+              >
+                {filteredNetworks.map((net) => (
+                  <Box
+                    key={net.id}
+                    bg={cardBg}
+                    borderRadius="2xl"
+                    p="5"
+                    position="relative"
+                    overflow="hidden"
+                    border="1px solid"
+                    borderColor={borderColor}
+                    _hover={{
+                      borderColor: "purple.400",
+                      transform: "translateY(-4px)",
+                      transition: "all 0.2s ease-in-out",
+                    }}
+                  >
+                    {/* ✅ Konten di atas logo */}
+                    <Box position="relative" zIndex={1}>
+                      <HStack spacing="2">
+                        <Text fontWeight="bold" fontSize="lg" color="white">
+                          {net.name}
+                        </Text>
+                      </HStack>
+
+                      <Text fontSize="sm" color="gray.500" mb="4">
+                        {net.id}
+                      </Text>
+
+                      <HStack spacing="3">
+                        <Button
+                          as="a"
+                          href={net.serviceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="sm"
+                          bg="purple.600"
+                          color="white"
+                          borderRadius="md"
+                          _hover={{ bg: "purple.500" }}
+                        >
+                          Services
+                        </Button>
+                        <Button
+                          as="a"
+                          href={net.explorerUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="sm"
+                          bg="black"
+                          color="white"
+                          borderRadius="md"
+                          _hover={{ bg: "gray.800" }}
+                          rightIcon={<ExternalLinkIcon />}
+                        >
+                          Explorer
+                        </Button>
+                      </HStack>
+                    </Box>
+
+                    {/* ✅ Logo di belakang konten */}
                     <ChakraImage
                       src={net.logo}
                       alt={net.name}
                       position="absolute"
+                      top="2"
                       bottom="-20"
-                      right="-16"
+                      right="-15"
                       boxSize="120px"
-                      opacity="0.9"
                       borderRadius="full"
+                      zIndex={0}
+                      pointerEvents="none"
                     />
-                  </HStack>
-
-                  <Text fontSize="sm" color="gray.500" mb="4">
-                    {net.id}
-                  </Text>
-
-                  <HStack spacing="3">
-                    <Button
-                      as="a"
-                      href={net.serviceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      size="sm"
-                      bg="purple.600"
-                      color="white"
-                      borderRadius="md"
-                      _hover={{ bg: "purple.500" }}
-                    >
-                      Services
-                    </Button>
-                    <Button
-                      as="a"
-                      href={net.explorerUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      size="sm"
-                      bg="black"
-                      color="white"
-                      borderRadius="md"
-                      _hover={{ bg: "gray.800" }}
-                      rightIcon={<ExternalLinkIcon />}
-                    >
-                      Explorer
-                    </Button>
-                  </HStack>
-                </Box>
-              ))}
-            </SimpleGrid>
+                  </Box>
+                ))}
+              </SimpleGrid>
+            </Box>
           </Box>
         </Box>
       </Box>
