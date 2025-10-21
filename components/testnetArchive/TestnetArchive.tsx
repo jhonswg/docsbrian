@@ -102,147 +102,147 @@ const TestnetArchive: FC = () => {
   const row2 = networks.slice(perRow);
 
   return (
-    <Box
-      position="relative"
-      py={{ base: 16, md: 10 }}
-      px={{ base: 4, md: 4 }}
-      pb="-30px" // 🔹 Kurangi padding horizontal
+<Box
+  position="relative"
+  py={{ base: 16, md: 10 }}
+  px={{ base: 4, md: 4 }}
+  pb="-30px"
+>
+  {/* Header Section */}
+  <VStack
+    spacing={4}
+    mb={{ base: 10, md: 2 }} // ⬅️ Tambahkan jarak bawah lebih besar di HP
+    textAlign="center"
+  >
+    <Heading
+      fontSize={{ base: "4xl", md: "5xl" }}
+      bgGradient="linear(to-r, brand.400, orange.400)"
+      bgClip="text"
+      fontWeight="bold"
+      opacity={1}
     >
-      {/* Header Section */}
-      <VStack spacing={4} mb={2} textAlign="center">
-        <Heading
-          fontSize={{ base: "4xl", md: "5xl" }}
-          bgGradient="linear(to-r, brand.400, orange.400)"
-          bgClip="text"
-          fontWeight="bold"
-          opacity={1}
-        >
-          TESTNET ARCHIVE
-        </Heading>
-      </VStack>
+      TESTNET ARCHIVE
+    </Heading>
+  </VStack>
 
-      <SimpleGrid
-        columns={{ base: 1, md: 2 }}
-        spacing={{ base: 10, md: 12 }} // 🔹 Kurangi jarak antar kolom
-        alignItems="center"
-        zIndex={1}
-        maxW="10xl" // 🔹 Sebelumnya 7xl, sekarang lebih sempit
-        mx="auto"
+  <SimpleGrid
+    columns={{ base: 1, md: 2 }}
+    spacing={{ base: 10, md: 12 }}
+    alignItems="center"
+    zIndex={1}
+    maxW="10xl"
+    mx="auto"
+  >
+    {/* 🧩 Bagian kiri */}
+    <VStack align="start" spacing={6}>
+      <Heading
+        as="h2"
+        fontSize={{ base: "2xl", md: "4xl" }}
+        fontWeight="bold"
+        lineHeight="shorter"
       >
-        {/* 🧩 Bagian kiri */}
-        <VStack align="start" spacing={6}>
-          <Heading
-            as="h2"
-            fontSize={{ base: "2xl", md: "4xl" }}
-            fontWeight="bold"
-            lineHeight="shorter"
-          >
-            Supported{" "}
-            <Text
-              as="span"
-              bgGradient="linear(to-r, pink.400, orange.400)"
-              bgClip="text"
-            >
-              blockchains.
-            </Text>
-          </Heading>
-
-          <Text fontSize={{ base: "md", md: "md" }} color={textColor} maxW="lg">
-            We have participated in over Engaging in 15+ testnets across
-            Ethereum, Solana, Cosmos, and beyond, we specialize in validating
-            next-generation protocols and strengthening Web3 infrastructure.
-          </Text>
-
-          <Button
-            bg={useColorModeValue(
-              "rgba(255,255,255,0.08)",
-              "rgba(255,255,255,0.05)"
-            )}
-            border="1px solid rgba(255,255,255,0.1)"
-            color="pink.500"
-            borderRadius="2xl"
-            size="md"
-            rightIcon={<ExternalLinkIcon />}
-            mt={4}
-            _hover={{ transform: "scale(1.05)", transition: "0.2s" }}
-          >
-            Explore Networks
-          </Button>
-        </VStack>
-
-        {/* 🪐 Bagian kanan - animasi logo berjalan */}
-        <Box
-          overflow="hidden"
-          h="450px"
-          position="relative"
-          borderRadius="2xl"
-          bg="transparent"
+        Supported{" "}
+        <Text
+          as="span"
+          bgGradient="linear(to-r, pink.400, orange.400)"
+          bgClip="text"
         >
-          {/* 🔹 Fade horizontal (left-right) - super opaque & gradual dari inspect */}
-          <Box
-            position="absolute"
-            left={0}
-            top={0}
-            bottom={0}
-            width="300px" // 🔹 Super lebar untuk cover full scroll + gap
-            pointerEvents="none"
-            zIndex={1}
-            bg={horizontalFadeLeft}
-            borderRadius="2xl 0 0 2xl"
-            opacity={1}
-            // sx={{ "-webkit-backdrop-filter": "blur(20px)" }} // 🔹 Uncomment jika mau blur, tapi test dulu
-          />
-          <Box
-            position="absolute"
-            right={0}
-            top={0}
-            bottom={0}
-            width="300px"
-            pointerEvents="none"
-            zIndex={1}
-            bg={horizontalFadeRight}
-            borderRadius="0 2xl 2xl 0"
-            opacity={1}
-            // sx={{ "-webkit-backdrop-filter": "blur(20px)" }}
-          />
+          blockchains.
+        </Text>
+      </Heading>
 
-          {/* 🌈 Fade vertical (atas-bawah) - subtle untuk depth */}
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            height="80px"
-            pointerEvents="none"
-            zIndex={1}
-            bg={verticalFadeTop}
-            borderRadius="2xl 2xl 0 0"
-            opacity={0.8}
-            // sx={{ "-webkit-backdrop-filter": "blur(12px)" }}
-          />
-          <Box
-            position="absolute"
-            bottom={0}
-            left={0}
-            right={0}
-            height="80px"
-            pointerEvents="none"
-            zIndex={1}
-            bg={verticalFadeBottom}
-            borderRadius="0 0 2xl 2xl"
-            opacity={0.8}
-            // sx={{ "-webkit-backdrop-filter": "blur(12px)" }}
-          />
+      <Text fontSize={{ base: "md", md: "md" }} color={textColor} maxW="lg">
+        We have participated in over Engaging in 15+ testnets across Ethereum,
+        Solana, Cosmos, and beyond, we specialize in validating next-generation
+        protocols and strengthening Web3 infrastructure.
+      </Text>
 
-          {/* 🌀 Container baris */}
-          <VStack
-            justify="center"
-            spacing={12}
-            h="full"
-            w="full"
-            position="relative"
-            zIndex={2}
-          >
+      <Button
+        bg={useColorModeValue(
+          "rgba(255,255,255,0.08)",
+          "rgba(255,255,255,0.05)"
+        )}
+        border="1px solid rgba(255,255,255,0.1)"
+        color="pink.500"
+        borderRadius="2xl"
+        size="md"
+        rightIcon={<ExternalLinkIcon />}
+        mt={4}
+        _hover={{ transform: "scale(1.05)", transition: "0.2s" }}
+      >
+        Explore Networks
+      </Button>
+    </VStack>
+
+    {/* 🪐 Bagian kanan - animasi logo berjalan */}
+    <Box
+      overflow="hidden"
+      h={{ base: "300px", md: "450px" }} // ⬅️ Ubah tinggi jadi 300px saat HP
+      position="relative"
+      borderRadius="2xl"
+      bg="transparent"
+    >
+      {/* 🔹 Fade horizontal (left-right) */}
+      <Box
+        position="absolute"
+        left={0}
+        top={0}
+        bottom={0}
+        width="300px"
+        pointerEvents="none"
+        zIndex={1}
+        bg={horizontalFadeLeft}
+        borderRadius="2xl 0 0 2xl"
+        opacity={1}
+      />
+      <Box
+        position="absolute"
+        right={0}
+        top={0}
+        bottom={0}
+        width="300px"
+        pointerEvents="none"
+        zIndex={1}
+        bg={horizontalFadeRight}
+        borderRadius="0 2xl 2xl 0"
+        opacity={1}
+      />
+
+      {/* 🌈 Fade vertical */}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        height="80px"
+        pointerEvents="none"
+        zIndex={1}
+        bg={verticalFadeTop}
+        borderRadius="2xl 2xl 0 0"
+        opacity={0.8}
+      />
+      <Box
+        position="absolute"
+        bottom={0}
+        left={0}
+        right={0}
+        height="80px"
+        pointerEvents="none"
+        zIndex={1}
+        bg={verticalFadeBottom}
+        borderRadius="0 0 2xl 2xl"
+        opacity={0.8}
+      />
+
+      {/* 🌀 Container baris */}
+      <VStack
+        justify="center"
+        spacing={12}
+        h="full"
+        w="full"
+        position="relative"
+        zIndex={2}
+      >
             {/* BARIS 1 - Kanan ke Kiri */}
             <Box
               display="flex"
