@@ -14,7 +14,6 @@ import { Logo } from "@/components/logo";
 import { FaLinkedin, FaTelegram, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-
 const Footer: FC = (props) => {
   const borderColor = useColorModeValue("gray.200", "gray.700");
   const textColor = useColorModeValue("gray.600", "gray.400");
@@ -27,7 +26,7 @@ const Footer: FC = (props) => {
         py={{ base: 10, md: 16 }}
         direction={{ base: "column", md: "row" }}
         justify="space-between"
-        align={{ base: "start", md: "start" }}
+        align="start"
         gap={{ base: 10, md: 20 }}
         maxW="1400px"
         mx="auto"
@@ -36,8 +35,8 @@ const Footer: FC = (props) => {
         <VStack align="start" spacing={4} maxW="500px">
           <Logo />
           <Text color={textColor} fontSize="md">
-          Jhonswg offers reliable blockchain infrastructure with a focus on
-          security, performance, and validator node services.
+            Jhonswg offers reliable blockchain infrastructure with a focus on
+            security, performance, and validator node services.
           </Text>
           <HStack spacing={3} pt={2} ml={-3}>
             <IconButton
@@ -88,80 +87,50 @@ const Footer: FC = (props) => {
         </VStack>
 
         {/* RIGHT: Link sections */}
-        <Flex wrap="wrap" gap={{ base: 8, md: 12, lg: 20 }} justify="flex-end" flex="1">
+        <Flex
+          wrap="wrap"
+          gap={{ base: 8, md: 12, lg: 20 }}
+          justify={{ base: "flex-start", md: "flex-end" }}
+          flex="1"
+        >
           {/* Services */}
           <VStack align="start" spacing={3}>
-            <Text fontWeight="bold" fontSize="lg" mb={1}>
+            <Text fontWeight="bold" fontSize="lg">
               Services
             </Text>
-            <ChakraLink
-              href="/staking"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/staking" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               Staking
             </ChakraLink>
-            <ChakraLink
-              href="/ibc-relayer"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/ibc-relayer" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               IBC Relayer
             </ChakraLink>
-            <ChakraLink
-              href="/monitoring"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/monitoring" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               Monitoring
             </ChakraLink>
-            <ChakraLink
-              href="/rpc-endpoint"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/rpc-endpoint" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               RPC Endpoint
             </ChakraLink>
           </VStack>
 
           {/* Support */}
           <VStack align="start" spacing={3}>
-            <Text fontWeight="bold" fontSize="lg" mb={1}>
+            <Text fontWeight="bold" fontSize="lg">
               Support
             </Text>
-            <ChakraLink
-              href="/feedback"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/feedback" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               Feedback & Bug Report
             </ChakraLink>
-            <ChakraLink
-              href="/terms"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/terms" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               Terms
             </ChakraLink>
-            <ChakraLink
-              href="/privacy"
-              fontSize="md"
-              color={textColor}
-              _hover={{ color: linkHover }}
-            >
+            <ChakraLink href="/privacy" fontSize="md" color={textColor} _hover={{ color: linkHover }}>
               Privacy
             </ChakraLink>
           </VStack>
 
           {/* Contact */}
           <VStack align="start" spacing={3}>
-            <Text fontWeight="bold" fontSize="lg" mb={1}>
+            <Text fontWeight="bold" fontSize="lg">
               Contact
             </Text>
             <Text fontSize="md" color={textColor}>
@@ -179,12 +148,12 @@ const Footer: FC = (props) => {
         </Flex>
       </Flex>
 
-      {/* Footer bottom bar */}
+      {/* Bottom Bar */}
       <Box borderTop="1px" borderColor={borderColor} py="6">
         <Flex
-          px={{ base: 6, md: 4 }}
+          px={{ base: 6, md: 8 }}
           align="center"
-          justify="space-between"
+          justify={{ base: "flex-start", md: "space-between" }}
           direction={{ base: "column", md: "row" }}
           gap={4}
           maxW="1400px"
