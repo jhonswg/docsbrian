@@ -71,10 +71,10 @@ const Home = () => {
   const cardBg = useColorModeValue("gray.900", "gray.900");
   const borderColor = useColorModeValue("gray.800", "gray.700");
   const toggleBg = useColorModeValue("gray.100", "gray.700");
-  const activeBg = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
-  const inactiveColor = useColorModeValue("gray.400", "gray.400");
-  const hoverBg = useColorModeValue("gray.600", "gray.600");
-  const hoverColor = useColorModeValue("white", "white");
+  const activeBg = useColorModeValue("gray.800", "whiteAlpha.200");
+  const inactiveColor = useColorModeValue("gray.800", "gray.400");
+  const hoverBg = useColorModeValue("gray.300", "gray.600");
+  const hoverColor = useColorModeValue("black", "white");
 
   // ✅ Filter data
   const filteredNetworks = networks.filter((net) =>
