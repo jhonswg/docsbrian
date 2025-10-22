@@ -8,7 +8,7 @@ import {
   Flex,
   Icon,
   Stack,
-  useColorModeValue, // 🔹 tambahkan ini
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Logo } from "@/components/logo";
 import { Link } from "@/components/link";
@@ -30,9 +30,15 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
 
-  // 🔹 Warna teks adaptif berdasarkan mode
+  // ✅ Semua useColorModeValue dipanggil di sini (level atas)
   const textColor = useColorModeValue("black", "gray.400");
   const hoverColor = useColorModeValue("brand.500", "brand.400");
+  const dropdownBg = useColorModeValue("white", "gray.900");
+  const dropdownBorder = useColorModeValue("gray.200", "gray.700");
+  const dropdownItemColor = useColorModeValue("gray.800", "gray.300");
+  const dropdownItemHoverBg = useColorModeValue("brand.100", "brand.500");
+  const dropdownItemHoverColor = useColorModeValue("black", "white");
+  const githubColor = useColorModeValue("gray.600", "gray.400");
 
   const handleMouseEnter = (title: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -95,9 +101,9 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                       align="center"
                       fontSize="sm"
                       fontWeight="semibold"
-                      color={textColor} // 🔹 warna teks adaptif
+                      color={textColor}
                       cursor="pointer"
-                      _hover={{ color: hoverColor }} // 🔹 hover adaptif juga
+                      _hover={{ color: hoverColor }}
                       onClick={() => handleClick(route)}
                     >
                       {route.title}
@@ -123,9 +129,9 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                         top="180%"
                         left="0"
                         w="90vw"
-                        bg={useColorModeValue("white", "gray.900")} // 🔹 dropdown menyesuaikan mode
+                        bg={dropdownBg}
                         border="1px solid"
-                        borderColor={useColorModeValue("gray.200", "gray.700")}
+                        borderColor={dropdownBorder}
                         borderRadius="md"
                         boxShadow="lg"
                         p="2"
@@ -144,11 +150,11 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                             px="3"
                             py="2"
                             fontSize="sm"
-                            color={useColorModeValue("gray.800", "gray.300")}
+                            color={dropdownItemColor}
                             borderRadius="md"
                             _hover={{
-                              bg: useColorModeValue("brand.100", "brand.500"),
-                              color: useColorModeValue("black", "white"),
+                              bg: dropdownItemHoverBg,
+                              color: dropdownItemHoverColor,
                             }}
                           >
                             {child.title}
@@ -171,7 +177,7 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                 <LinkBox
                   display="flex"
                   ml="4"
-                  color={useColorModeValue("gray.600", "gray.400")}
+                  color={githubColor}
                   href={siteConfig.repo.url}
                   isExternal
                   _hover={{ color: hoverColor }}
