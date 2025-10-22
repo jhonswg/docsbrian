@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, BoxProps, SimpleGrid, Image } from "@chakra-ui/react";
+import { Box, BoxProps, SimpleGrid, Image, useColorModeValue } from "@chakra-ui/react";
 import FeatureCard from "./FeatureCard";
 import { Section } from "@/components/section";
 import { Feature } from "@/types";
@@ -28,6 +28,12 @@ const features: Feature[] = [
 ];
 
 const Features: FC<FeaturesProps> = ({ ...props }) => {
+  // 🎨 Ubah filter sesuai tema
+  const iconFilter = useColorModeValue(
+    "invert(0%)", // Light mode → jangan dibalik (tetap warna asli)
+    "invert(100%)" // Dark mode → balik jadi putih
+  );
+
   return (
     <Box position="relative" {...props}>
       <Box
@@ -67,7 +73,7 @@ const Features: FC<FeaturesProps> = ({ ...props }) => {
                 boxSize="64px"
                 mx="auto"
                 mb={4}
-                filter="invert(100%)"
+                filter={iconFilter}
                 transition="all 0.3s ease-in-out"
                 _hover={{
                   filter:
