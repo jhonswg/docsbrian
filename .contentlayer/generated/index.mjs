@@ -9,5 +9,3 @@ import { allDocs } from './Doc/_index.mjs'
 export { allDocs }
 
 export const allDocuments = [...allDocs]
-
-
