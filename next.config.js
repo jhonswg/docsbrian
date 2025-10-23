@@ -1,9 +1,12 @@
 const { withContentlayer } = require("next-contentlayer");
+const redirects = require("./next-redirects");
 
 module.exports = withContentlayer({
   reactStrictMode: false,
   swcMinify: true,
-  redirects: require("./next-redirects"),
+  async redirects() {
+    return await redirects();
+  },
   images: {
     domains: ["images.unsplash.com", "pbs.twimg.com"],
   },
