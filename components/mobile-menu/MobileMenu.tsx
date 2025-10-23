@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "@/components/link";
 import { ThemeSelect } from "@/components/theme-toggle";
-import { MobileSearchButton } from "@/components/search-button";
+// import { MobileSearchButton } from "@/components/search-button";
 import { RiMore2Fill } from "react-icons/ri";
 import { Route } from "@/types";
 import { siteConfig } from "@/config";
@@ -27,7 +27,7 @@ interface MobileOptionsMenuProps {
 const MobileOptionsMenu: FC<MobileOptionsMenuProps> = ({ routes }) => {
   return (
     <>
-      <MobileSearchButton aria-label="Search" />
+      {/* <MobileSearchButton aria-label="Search" /> */}
       <Popover placement="bottom-start">
         <PopoverTrigger>
           <IconButton

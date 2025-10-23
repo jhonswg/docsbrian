@@ -15,7 +15,7 @@ import { Link } from "@/components/link";
 import { LinkBox } from "@/components/link-box";
 import { ThemeMenu } from "@/components/theme-toggle";
 import { MobileMenu } from "@/components/mobile-menu";
-import { MobileDrawerButton } from "@/components/mobile-drawer";
+// import { MobileDrawerButton } from "@/components/mobile-drawer";
 import { RiGithubFill, RiArrowDownSLine } from "react-icons/ri";
 import { Route } from "@/types";
 import { siteConfig } from "@/config";
@@ -73,7 +73,7 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
         <Flex justifyContent="space-between" alignItems="center" py="3">
           {/* LEFT SIDE */}
           <Flex flex="1" alignItems="center">
-            <MobileDrawerButton aria-label="Open drawer" />
+            {/* <MobileDrawerButton aria-label="Open drawer" /> */}
             <LinkBox href="/">
               <Logo />
             </LinkBox>

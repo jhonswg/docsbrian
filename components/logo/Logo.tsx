@@ -21,7 +21,7 @@ const Logo: FC = () => {
         ml="2"
         fontSize="2xl"
         color={textColor}
-        display={{ base: "none", md: "block" }}
+        display={{ base: "block", md: "block" }}
         cursor="pointer"
         transition="color 0.2s ease"
         _hover={{ color: useColorModeValue("brand.600", "brand.400") }}
