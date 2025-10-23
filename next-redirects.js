@@ -1,11 +1,5 @@
 async function redirects() {
-  return [
-    {
-      source: "/docs",
-      destination: "/docs/mdx",
-      permanent: true,
-    },
-  ];
+  return [];
 }
 
 module.exports = redirects;
