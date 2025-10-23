@@ -27,7 +27,7 @@ export default function EmpeiriaPage() {
     <>
       {/* 🧠 Title Tab */}
       <Head>
-        <title>Empeiria - Service</title>
+        <title>Empeiria - Services</title>
         <meta
           name="description"
           content="Empeiria Testnet — powered by Cosmos SDK"
