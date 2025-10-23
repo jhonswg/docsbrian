@@ -12,7 +12,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Logo } from "@/components/logo";
-import { SearchButton } from "@/components/search-button";
+// import { SearchButton } from "@/components/search-button";
 import { Link } from "@/components/link";
 import { LinkBox } from "@/components/link-box";
 import { ThemeMenu } from "@/components/theme-toggle";
@@ -63,7 +63,7 @@ const DocsNavbar: FC<DocsNavbarProps> = ({ routes, ...props }) => {
               flex="1"
               justifyContent="center"
             >
-              <SearchButton borderRadius="xl" />
+              {/* <SearchButton borderRadius="xl" /> */}
             </Box>
             <Box
               display={{ base: "none", lg: "flex" }}

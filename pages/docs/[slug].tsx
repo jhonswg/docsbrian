@@ -14,7 +14,7 @@ import { Prose } from "@nikolovlazar/chakra-ui-prose";
 import { DocsLayout } from "@/layouts";
 import { Pagination } from "@/components/pagination/";
 import MDXComponents from "@/components/MDXComponents";
-import { MobileTOC, TOC } from "@/components/toc";
+// import { MobileTOC, TOC } from "@/components/toc";
 import { Link } from "@/components/link";
 import { RiGithubFill } from "react-icons/ri";
 import { findRouteByPath, findSectionByPath, getRouteContext } from "@/utils";
@@ -71,7 +71,7 @@ const Document: FC<DocumentProps> = ({ document, currentRoute, section }) => {
         <Text fontSize={{ base: "md", md: "lg" }} color="gray.500">
           {document.description}
         </Text>
-        <MobileTOC headings={document.headings} mt="4" />
+        {/* <MobileTOC headings={document.headings} mt="4" /> */}
       </Stack>
       <Prose>
         <Component components={{ ...MDXComponents }} />
@@ -88,7 +88,7 @@ const Document: FC<DocumentProps> = ({ document, currentRoute, section }) => {
           Edit this page on GitHub
         </Link>
       )}
-      <TOC headings={document.headings} />
+      {/* <TOC headings={document.headings} /> */}
     </DocsLayout>
   );
 };
