@@ -1,38 +1,66 @@
 import {
-    Box,
-    Heading,
-    Text,
-    SimpleGrid,
-    Flex,
-    Image,
-    Link as ChakraLink,
-    useColorModeValue,
-  } from "@chakra-ui/react";
-  import { Navbar } from "@/components/navbar";
-  import { navbarRoutes } from "@/config/navbar-routes";
-  import NextLink from "next/link";
-  
-  export default function ServicePage() {
-    const cardBg = useColorModeValue("gray.50", "whiteAlpha.100");
-    const border = useColorModeValue("gray.200", "whiteAlpha.200");
-  
-    const mainnet = [
-      { name: "CrossFi", logo: "https://pbs.twimg.com/profile_images/1719733805483790336/9rtdiMS-_400x400.jpg" },
-      { name: "Self Chain", logo: "https://pbs.twimg.com/profile_images/1879603544120008704/z2WKYx3z_400x400.jpg" },
-      { name: "Initia", logo: "https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png" },
-    ];
-  
-    const testnet = [
-      { name: "Empeiria", logo: "https://pbs.twimg.com/profile_images/1887069794798632960/IvxbLJcg_400x400.jpg" },
-      { name: "Symphony", logo: "https://pbs.twimg.com/profile_images/1896255605909725184/rC9pD5EQ_400x400.jpg" },
-      { name: "Warden", logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg" },
-    ];
-  
-    const renderGrid = (items: { name: string; logo: string }[]) => (
-      <SimpleGrid columns={{ base: 2, sm: 3, md: 5, lg: 6 }} spacing={4}>
-        {items.map((item) => (
+  Box,
+  Heading,
+  Text,
+  SimpleGrid,
+  Flex,
+  Image,
+  useColorModeValue,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import { Navbar } from "@/components/navbar";
+import { navbarRoutes } from "@/config/navbar-routes";
+import { motion } from "framer-motion";
+import NextLink from "next/link";
+
+export default function ServicePage() {
+  const MotionBox = motion(Box);
+
+  const cardBg = useColorModeValue(
+    "rgba(255,255,255,0.05)",
+    "rgba(255,255,255,0.08)"
+  );
+  const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
+  const textColor = useColorModeValue("gray.800", "whiteAlpha.900");
+
+  const mainnet = [
+    {
+      name: "CrossFi",
+      logo: "https://pbs.twimg.com/profile_images/1719733805483790336/9rtdiMS-_400x400.jpg",
+    },
+    {
+      name: "Self Chain",
+      logo: "https://pbs.twimg.com/profile_images/1879603544120008704/z2WKYx3z_400x400.jpg",
+    },
+    {
+      name: "Initia",
+      logo: "https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png",
+    },
+  ];
+
+  const testnet = [
+    {
+      name: "Empeiria",
+      logo: "https://pbs.twimg.com/profile_images/1887069794798632960/IvxbLJcg_400x400.jpg",
+      link: "/services/testnet/empeiria",
+    },
+    {
+      name: "Symphony",
+      logo: "https://pbs.twimg.com/profile_images/1896255605909725184/rC9pD5EQ_400x400.jpg",
+    },
+    {
+      name: "Warden",
+      logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg",
+    },
+  ];
+
+  const renderGrid = (
+    items: { name: string; logo: string; link?: string }[]
+  ) => (
+    <SimpleGrid columns={{ base: 2, sm: 3, md: 5, lg: 6 }} spacing={4}>
+      {items.map((item, index) => {
+        const content = (
           <Flex
-            key={item.name}
             border="1px solid"
             borderColor={border}
             borderRadius="full"
@@ -42,54 +70,146 @@ import {
             px={3}
             bg={cardBg}
             _hover={{
-              transform: "translateY(-2px)",
+              transform: "translateY(-3px)",
               boxShadow: "md",
+              borderColor: "whiteAlpha.400",
             }}
             transition="all 0.15s ease"
+            cursor={item.link ? "pointer" : "default"}
           >
             <Image
               src={item.logo}
               alt={item.name}
-              boxSize="50px"
+              boxSize="40px"
               borderRadius="full"
               mr={2}
             />
-            <Text fontWeight="medium" fontSize="sm">
+            <Text fontWeight="medium" fontSize="sm" color={textColor}>
               {item.name}
             </Text>
           </Flex>
-        ))}
-      </SimpleGrid>
-    );
-  
-    return (
-      <>
-        <Navbar routes={navbarRoutes} />
-        <Box pt="90px" pb="16" px={{ base: 6, md: 20 }}>
-          <Heading mb={4}>Mainnet</Heading>
-          {renderGrid(mainnet)}
-  
-          <Heading mt={14} mb={4}>Testnet</Heading>
-          {renderGrid(testnet)}
-  
-          {/* <Box mt={14}>
-            <Heading as="h3" size="md" mb={2}>
-              Validator Links
-            </Heading>
-            <Text>
-              All ITRocket validator links –{" "}
+        );
+
+        return (
+          <MotionBox
+            key={item.name}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.4 }}
+          >
+            {item.link ? (
               <ChakraLink
                 as={NextLink}
-                href="https://itrocket.net/delegate"
-                color="blue.500"
-                isExternal
+                href={item.link || "#"}
+                _hover={{ textDecoration: "none" }}
               >
-                https://itrocket.net/delegate
+                <Flex
+                  border="1px solid"
+                  borderColor={border}
+                  borderRadius="full"
+                  align="center"
+                  justify="center"
+                  py={2}
+                  px={3}
+                  bg={cardBg}
+                  _hover={{
+                    transform: "translateY(-3px)",
+                    boxShadow: "md",
+                  }}
+                  transition="all 0.15s ease"
+                >
+                  <Image
+                    src={item.logo}
+                    alt={item.name}
+                    boxSize="40px"
+                    borderRadius="full"
+                    mr={2}
+                  />
+                  <Text fontWeight="medium" fontSize="sm" color={textColor}>
+                    {item.name}
+                  </Text>
+                </Flex>
               </ChakraLink>
-            </Text>
-          </Box> */}
+            ) : (
+              content
+            )}
+          </MotionBox>
+        );
+      })}
+    </SimpleGrid>
+  );
+
+  return (
+    <>
+      <Navbar routes={navbarRoutes} />
+      <Box
+        position="relative"
+        minH="100vh"
+        pt="100px"
+        pb="16"
+        px={{ base: 6, md: 20 }}
+        overflow="hidden"
+      >
+        {/* Background blur efek */}
+        <Box
+          boxSize="72"
+          position="absolute"
+          top="0"
+          left="0"
+          bg="brand.500"
+          borderRadius="full"
+          filter="blur(400px)"
+        />
+        <Box
+          boxSize="72"
+          position="absolute"
+          bottom="0"
+          right="0"
+          bg="pink.500"
+          borderRadius="full"
+          filter="blur(400px)"
+        />
+
+        {/* Border frame di sekeliling konten */}
+        <Box
+          position="relative"
+          zIndex={1}
+          border="1px solid"
+          borderColor={border}
+          borderRadius="2xl"
+          p={{ base: 6, md: 10 }}
+          boxShadow="0 0 20px rgba(0,0,0,0.1)"
+          bg="transparent"
+        >
+          <Heading
+            mb={2}
+            fontSize="4xl"
+            textAlign="center"
+            bgGradient="linear(to-r, pink.400, orange.400)"
+            bgClip="text"
+          >
+            Network Overview
+          </Heading>
+          <Text mb={8} fontSize="sm" opacity={0.7} textAlign="center">
+            Explore supported networks across both mainnet and testnet
+            environments.
+          </Text>
+
+          <Box mb={14}>
+            <Heading mb={4} fontSize="xl">
+              Mainnet
+            </Heading>
+            {renderGrid(mainnet)}
+          </Box>
+
+          <Box>
+            <Heading mb={4} fontSize="xl">
+              Testnet
+            </Heading>
+            {renderGrid(testnet)}
+          </Box>
         </Box>
-      </>
-    );
-  }
-  
+      </Box>
+    </>
+  );
+}
