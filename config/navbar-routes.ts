@@ -11,6 +11,6 @@ export const navbarRoutes: Route[] = [
   },
   {
     title: "Explorer",
-    path: "/blog",
+    path: "https://explorer.jhonswg.com",
   },
 ];
