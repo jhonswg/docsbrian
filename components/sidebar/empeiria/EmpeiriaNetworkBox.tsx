@@ -68,6 +68,7 @@ import {
       {
         name: "Symphony",
         logo: "https://pbs.twimg.com/profile_images/1896255605909725184/rC9pD5EQ_400x400.jpg",
+        link: "/services/testnet/symphony",
       },
       {
         name: "Warden",
