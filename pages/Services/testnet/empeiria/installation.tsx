@@ -13,12 +13,15 @@ import {
   AccordionIcon,
   Divider,
   Text,
+  HStack,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Navbar } from "@/components/navbar";
 import { navbarRoutes } from "@/config/navbar-routes";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { CodeBlock } from "@/components/CodeBlock";
+import EmpeiriaNetworkBox from "@/pages/services/testnet/empeiria/EmpeiriaNetworkBox";
 
 export default function EmpeiriaInstallationPage() {
   const router = useRouter();
@@ -34,13 +37,22 @@ export default function EmpeiriaInstallationPage() {
   return (
     <>
       <Head>
-        <title>Empeiria - Services</title>
-        <meta name="description" content="Empeiria Testnet Installation Guide" />
+        <title>Empeiria - Installation</title>
+        <meta
+          name="description"
+          content="Empeiria Testnet Installation Guide"
+        />
       </Head>
 
       <Navbar routes={navbarRoutes} />
 
-      <Box position="relative" minH="100vh" pt="100px" pb="16" overflow="hidden">
+      <Box
+        position="relative"
+        minH="100vh"
+        pt="100px"
+        pb="16"
+        overflow="hidden"
+      >
         {/* Background blur */}
         <Box
           boxSize="72"
@@ -190,7 +202,7 @@ export default function EmpeiriaInstallationPage() {
                     <Flex align="center" flex="1" textAlign="left" gap={3}>
                       <Text fontSize="xl">📝</Text>
                       <Text fontSize="sm" fontWeight="medium">
-                        Cheat sheet
+                        Cheat Sheet
                       </Text>
                     </Flex>
                     <AccordionIcon />
@@ -243,6 +255,9 @@ export default function EmpeiriaInstallationPage() {
 
           {/* Main Content */}
           <Box flex="1" minW="0">
+            <EmpeiriaNetworkBox />
+
+            {/* 🧩 Installation Box */}
             <Box
               bg={sidebarBg}
               borderRadius="2xl"
