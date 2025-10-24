@@ -21,7 +21,7 @@ import { navbarRoutes } from "@/config/navbar-routes";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { CodeBlock } from "@/components/CodeBlock";
-import EmpeiriaNetworkBox from "@/pages/services/testnet/empeiria/EmpeiriaNetworkBox";
+import EmpeiriaNetworkBox from "@/components/sidebar/empeiria/EmpeiriaNetworkBox";
 
 export default function EmpeiriaInstallationPage() {
   const router = useRouter();

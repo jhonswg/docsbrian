@@ -13,7 +13,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { FiCopy } from "react-icons/fi";
-import EmpeiriaLayout from "@/components/sidebar/empeiria/empeiria-layout";
+import EmpeiriaLayout from "@/components/sidebar/empeiria/EmpeiriaLayout";
 
 export default function EmpeiriaPage() {
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");

@@ -8,11 +8,11 @@ import {
 } from "@chakra-ui/react";
 import { Navbar } from "@/components/navbar";
 import { navbarRoutes } from "@/config/navbar-routes";
-import { EmpeiriaSidebar } from "@/components/sidebar/empeiria/empeiria-sidebar";
+import { EmpeiriaSidebar } from "@/components/sidebar/empeiria/EmpeiriaSidebar";
 import { ReactNode } from "react";
 import NextLink from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
-import EmpeiriaNetworkBox from "@/pages/services/testnet/empeiria/EmpeiriaNetworkBox";
+import EmpeiriaNetworkBox from "@/components/sidebar/empeiria/EmpeiriaNetworkBox";
 
 export default function EmpeiriaLayout({ children }: { children: ReactNode }) {
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
