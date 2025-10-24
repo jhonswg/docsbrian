@@ -10,12 +10,9 @@ import {
 } from "@chakra-ui/react";
 import { Navbar } from "@/components/navbar";
 import { navbarRoutes } from "@/config/navbar-routes";
-import { motion } from "framer-motion";
 import NextLink from "next/link";
 
 export default function ServicePage() {
-  const MotionBox = motion(Box);
-
   const cardBg = useColorModeValue(
     "rgba(255,255,255,0.05)",
     "rgba(255,255,255,0.08)"
@@ -58,7 +55,7 @@ export default function ServicePage() {
     items: { name: string; logo: string; link?: string }[]
   ) => (
     <SimpleGrid columns={{ base: 2, sm: 3, md: 5, lg: 6 }} spacing={4}>
-      {items.map((item, index) => {
+      {items.map((item) => {
         const content = (
           <Flex
             border="1px solid"
@@ -91,49 +88,19 @@ export default function ServicePage() {
         );
 
         return (
-          <MotionBox
-            key={item.name}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.4 }}
-          >
+          <Box key={item.name}>
             {item.link ? (
               <ChakraLink
                 as={NextLink}
-                href={item.link || "#"}
+                href={item.link}
                 _hover={{ textDecoration: "none" }}
               >
-                <Flex
-                  border="1px solid"
-                  borderColor={border}
-                  borderRadius="full"
-                  align="center"
-                  justify="center"
-                  py={2}
-                  px={3}
-                  bg={cardBg}
-                  _hover={{
-                    transform: "translateY(-3px)",
-                    boxShadow: "md",
-                  }}
-                  transition="all 0.15s ease"
-                >
-                  <Image
-                    src={item.logo}
-                    alt={item.name}
-                    boxSize="40px"
-                    borderRadius="full"
-                    mr={2}
-                  />
-                  <Text fontWeight="medium" fontSize="sm" color={textColor}>
-                    {item.name}
-                  </Text>
-                </Flex>
+                {content}
               </ChakraLink>
             ) : (
               content
             )}
-          </MotionBox>
+          </Box>
         );
       })}
     </SimpleGrid>
