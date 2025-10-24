@@ -34,7 +34,7 @@ export default function EmpeiriaInstallationPage() {
   return (
     <>
       <Head>
-        <title>Empeiria Installation - Services</title>
+        <title>Empeiria - Services</title>
         <meta name="description" content="Empeiria Testnet Installation Guide" />
       </Head>
 

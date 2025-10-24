@@ -33,7 +33,7 @@ export default function EmpeiriaPage() {
   return (
     <>
       <Head>
-        <title>Empeiria - Testnet Info</title>
+        <title>Empeiria - Services</title>
       </Head>
       <Navbar routes={navbarRoutes} />
 
