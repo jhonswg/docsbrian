@@ -126,12 +126,39 @@ export default function EmpeiriaInstallationPage() {
                         ? cardBg
                         : "transparent"
                     }
-                    onClick={() => router.push("/services/testnet/empeiria")}
+                    onClick={() =>
+                      router.push("/services/testnet/empeiria/")
+                    }
+                  >
+                    <Flex align="center" flex="1" textAlign="left" gap={3}>
+                      <Text fontSize="xl">🏠</Text>
+                      <Text fontSize="sm" fontWeight="medium">
+                        Introduction
+                      </Text>
+                    </Flex>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </AccordionItem>
+
+                <AccordionItem border="none" mb={2}>
+                  <AccordionButton
+                    borderRadius="lg"
+                    _hover={{ bg: cardBg }}
+                    px={3}
+                    py={3}
+                    bg={
+                      isActive("/services/testnet/empeiria")
+                        ? cardBg
+                        : "transparent"
+                    }
+                    onClick={() =>
+                      router.push("/services/testnet/empeiria/public-endpoint")
+                    }
                   >
                     <Flex align="center" flex="1" textAlign="left" gap={3}>
                       <Text fontSize="xl">⚙️</Text>
                       <Text fontSize="sm" fontWeight="medium">
-                        API & Sync
+                        Public Endpoint
                       </Text>
                     </Flex>
                     <AccordionIcon />

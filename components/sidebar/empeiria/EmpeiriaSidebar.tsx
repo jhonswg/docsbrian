@@ -21,7 +21,10 @@ export const EmpeiriaSidebar = () => {
   const router = useRouter();
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
   const sidebarBg = useColorModeValue("white", "gray.800");
-  const cardBg = useColorModeValue("rgba(255,255,255,0.05)", "rgba(255,255,255,0.08)");
+  const cardBg = useColorModeValue(
+    "rgba(255,255,255,0.05)",
+    "rgba(255,255,255,0.08)"
+  );
 
   const isActive = (path: string) => router.pathname === path;
 
@@ -60,13 +63,19 @@ export const EmpeiriaSidebar = () => {
               _hover={{ bg: cardBg }}
               px={3}
               py={3}
-              bg={isActive("/services/testnet/empeiria") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/empeiria")}
+              bg={
+                isActive("/services/testnet/empeiria/")
+                  ? cardBg
+                  : "transparent"
+              }
+              onClick={() =>
+                router.push("/services/testnet/empeiria/")
+              }
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">⚙️</Text>
+                <Text fontSize="xl">🏠</Text>
                 <Text fontSize="sm" fontWeight="medium">
-                  API & Sync
+                  Introduction
                 </Text>
               </Flex>
               <AccordionIcon />
@@ -79,8 +88,39 @@ export const EmpeiriaSidebar = () => {
               _hover={{ bg: cardBg }}
               px={3}
               py={3}
-              bg={isActive("/services/testnet/empeiria/installation") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/empeiria/installation")}
+              bg={
+                isActive("/services/testnet/empeiria/public-endpoint")
+                  ? cardBg
+                  : "transparent"
+              }
+              onClick={() =>
+                router.push("/services/testnet/empeiria/public-endpoint")
+              }
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Text fontSize="xl">⚙️</Text>
+                <Text fontSize="sm" fontWeight="medium">
+                  Public Endpoint
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+          </AccordionItem>
+
+          <AccordionItem border="none" mb={2}>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={3}
+              bg={
+                isActive("/services/testnet/empeiria/installation")
+                  ? cardBg
+                  : "transparent"
+              }
+              onClick={() =>
+                router.push("/services/testnet/empeiria/installation")
+              }
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
                 <Text fontSize="xl">📌</Text>
@@ -98,7 +138,11 @@ export const EmpeiriaSidebar = () => {
               _hover={{ bg: cardBg }}
               px={3}
               py={3}
-              bg={isActive("/services/testnet/empeiria/upgrade") ? cardBg : "transparent"}
+              bg={
+                isActive("/services/testnet/empeiria/upgrade")
+                  ? cardBg
+                  : "transparent"
+              }
               onClick={() => router.push("/services/testnet/empeiria/upgrade")}
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
@@ -117,8 +161,14 @@ export const EmpeiriaSidebar = () => {
               _hover={{ bg: cardBg }}
               px={3}
               py={3}
-              bg={isActive("/services/testnet/empeiria/cheat-sheet") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/empeiria/cheat-sheet")}
+              bg={
+                isActive("/services/testnet/empeiria/cheat-sheet")
+                  ? cardBg
+                  : "transparent"
+              }
+              onClick={() =>
+                router.push("/services/testnet/empeiria/cheat-sheet")
+              }
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
                 <Text fontSize="xl">📝</Text>
@@ -134,16 +184,40 @@ export const EmpeiriaSidebar = () => {
         <Divider my={4} />
 
         <VStack align="stretch" spacing={2}>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🌐</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🌐</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Decentralization Analytics
           </Button>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🙏</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🙏</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Consensus
           </Button>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🛰️</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🛰️</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Public RPC Scanner
           </Button>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🤖</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🤖</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Proposal Bot
           </Button>
         </VStack>

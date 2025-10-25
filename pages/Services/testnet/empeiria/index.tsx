@@ -4,94 +4,117 @@ import {
   VStack,
   Heading,
   Text,
-  Flex,
-  Code,
-  IconButton,
-  useToast,
-  useColorModeValue,
   Button,
   Link as ChakraLink,
+  useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
-import { FiCopy } from "react-icons/fi";
 import EmpeiriaLayout from "@/components/sidebar/empeiria/EmpeiriaLayout";
 
 export default function EmpeiriaPage() {
-  const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
   const cardBg = useColorModeValue("whiteAlpha.50", "whiteAlpha.100");
-  const toast = useToast();
-
-  const copy = (text: string) => {
-    navigator.clipboard.writeText(text);
-    toast({ title: "Copied", status: "success", duration: 1500, isClosable: true });
-  };
+  const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
 
   return (
     <>
       <Head>
-        <title>Empeiria Testnet</title>
+        <title>Empeiria - Introduction</title>
       </Head>
 
       <EmpeiriaLayout>
         <VStack align="stretch" spacing={8}>
-          {[
-            {
-              title: "RPC, API, gRPC",
-              items: [
-                { label: "RPC", value: "https://empeiria-testnet-rpc.itrocket.net" },
-                { label: "API", value: "https://empeiria-testnet-api.itrocket.net" },
-                { label: "gRPC", value: "empeiria-testnet-grpc.itrocket.net:443" },
-              ],
-            },
-            {
-              title: "Peers & Seeds",
-              items: [
-                { label: "Peers", value: "03aa072f917ed1b79a14ea2cc660bc3bac787e82@empeiria-testnet-peer.itrocket.net:28656" },
-                { label: "Seeds", value: "20ca5fc4882e6f975add2d106da8afc4a5a6c6d@empeiria-testnet-seed.itrocket.net:28656" },
-              ],
-            },
-          ].map((section) => (
-            <Box key={section.title}>
-              <Heading fontSize="2xl" mb={4}>
-                {section.title}
-              </Heading>
-
-              <VStack align="stretch" spacing={3}>
-                {section.items.map((item) => (
-                  <Box key={item.label}>
-                    <Text fontSize="sm" mb={2}>
-                      {item.label}:
-                    </Text>
-
-                    <Flex
-                      bg={cardBg}
-                      border="1px solid"
-                      borderColor={border}
-                      borderRadius="md"
-                      p={3}
-                      align="center"
-                      justify="space-between"
-                      overflowX="auto"
-                      whiteSpace="pre"
-                    >
-                      <Code fontSize="sm" bg="transparent">
-                        {item.value}
-                      </Code>
-                      <IconButton
-                        aria-label={`Copy ${item.label}`}
-                        icon={<FiCopy />}
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => copy(item.value)}
-                      />
-                    </Flex>
-                  </Box>
-                ))}
-              </VStack>
+          <Box>
+            {/* Logo Empeiria - Centered */}
+            <Box display="flex" justifyContent="center" mb={8}>
+              <Image
+                src="https://pbs.twimg.com/profile_images/1887069794798632960/IvxbLJcg_400x400.jpg"
+                alt="Empeiria Logo"
+                maxW="200px"
+                h="auto"
+                objectFit="contain"
+                borderRadius="full"
+              />
             </Box>
-          ))}
+
+            <Heading fontSize="3xl" mb={6}>
+              Introduction
+            </Heading>
+            
+            <VStack align="stretch" spacing={6}>
+              <Box>
+                <Heading fontSize="2xl" mb={3}>
+                  Overview
+                </Heading>
+                <Text fontSize="md" lineHeight="tall" color="gray.300">
+                  Empeiria is the first End-to-End Verifiable Data Infrastructure (EVDI). 
+                  It enables seamless web3 adoption through one-click deployment, empowering 
+                  organizations with the data of the future.
+                </Text>
+              </Box>
+                <Heading fontSize="2xl" mt={4} mb={-3}>
+                  Hardware Requirements
+                </Heading>
+                <Text fontSize="md" color="gray.400">
+                  Below, you will find the recommended hardware configurations that can be used 
+                  to create a new Empe Testnet validator machine. Please note that the higher 
+                  the effort you put into creating a stable and robust machine and lower the 
+                  chances of getting slashed due to downtime.
+                </Text>
+
+                <VStack align="stretch" spacing={3}>
+                  <Box>
+                    <Text>
+                      <Text as="span" fontWeight="bold" color="orange.400">
+                        Operating System:
+                      </Text>{" "}
+                      <Text as="span" color="gray.300">
+                        Ubuntu 18.04 or later LTS
+                      </Text>
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Text>
+                      <Text as="span" fontWeight="bold" color="orange.400">
+                        Number of CPUs:
+                      </Text>{" "}
+                      <Text as="span" color="gray.300">
+                        6
+                      </Text>
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Text>
+                      <Text as="span" fontWeight="bold" color="orange.400">
+                        RAM:
+                      </Text>{" "}
+                      <Text as="span" color="gray.300">
+                        32 GB
+                      </Text>
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Text>
+                      <Text as="span" fontWeight="bold" color="orange.400">
+                        SSD:
+                      </Text>{" "}
+                      <Text as="span" color="gray.300">
+                        240 GB
+                      </Text>
+                    </Text>
+                  </Box>
+                </VStack>
+            </VStack>
+          </Box>
         </VStack>
 
-        <Button mt={8} as={ChakraLink} href="/services" variant="ghost" colorScheme="orange" size="sm">
+        <Button 
+          mt={8} 
+          as={ChakraLink} 
+          href="/services" 
+          variant="ghost" 
+          colorScheme="orange" 
+          size="sm"
+        >
           ← Back to Network
         </Button>
       </EmpeiriaLayout>
