@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { Navbar } from "@/components/navbar";
 import { navbarRoutes } from "@/config/navbar-routes";
+import { Footer } from "@/components/footer";
 import { EmpeiriaSidebar } from "@/components/sidebar/empeiria/EmpeiriaSidebar";
 import { ReactNode } from "react";
 import NextLink from "next/link";
@@ -28,7 +29,7 @@ export default function EmpeiriaLayout({ children }: { children: ReactNode }) {
         minH="100vh"
         pt="100px"
         pb="16"
-        overflow="hidden"
+        overflow="visible"
       >
         {/* Background gradient blur */}
         <Box
@@ -81,6 +82,9 @@ export default function EmpeiriaLayout({ children }: { children: ReactNode }) {
             </Box>
           </Box>
         </Flex>
+      </Box>
+      <Box position="relative" zIndex={10}>
+        <Footer />
       </Box>
     </>
   );

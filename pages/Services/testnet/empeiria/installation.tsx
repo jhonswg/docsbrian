@@ -21,6 +21,7 @@ import { navbarRoutes } from "@/config/navbar-routes";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { CodeBlock } from "@/components/CodeBlock";
+import { Footer } from "@/components/footer";
 import EmpeiriaNetworkBox from "@/components/sidebar/empeiria/EmpeiriaNetworkBox";
 
 export default function EmpeiriaInstallationPage() {
@@ -46,12 +47,13 @@ export default function EmpeiriaInstallationPage() {
 
       <Navbar routes={navbarRoutes} />
 
+      {/* Main Content Container */}
       <Box
         position="relative"
         minH="100vh"
         pt="100px"
         pb="16"
-        overflow="hidden"
+        overflow="visible" // ✅ Ubah dari hidden ke visible
       >
         {/* Background blur */}
         <Box
@@ -62,6 +64,7 @@ export default function EmpeiriaInstallationPage() {
           bg="purple.500"
           borderRadius="full"
           filter="blur(400px)"
+          zIndex={0}
         />
         <Box
           boxSize="72"
@@ -71,6 +74,7 @@ export default function EmpeiriaInstallationPage() {
           bg="pink.500"
           borderRadius="full"
           filter="blur(400px)"
+          zIndex={0}
         />
 
         <Flex
@@ -265,6 +269,7 @@ export default function EmpeiriaInstallationPage() {
               border="1px solid"
               borderColor={border}
               mt={0}
+              mb={8} // ✅ Tambah margin bottom untuk spacing dengan footer
             >
               <Heading fontSize="2xl" mb={6} mt={0}>
                 Installation
@@ -383,6 +388,11 @@ sudo systemctl restart emped && sudo journalctl -u emped -f`}
             </Box>
           </Box>
         </Flex>
+      </Box>
+
+      {/* ✅ Footer dipindah keluar dari Box utama dan ada z-index */}
+      <Box position="relative" zIndex={10}>
+        <Footer />
       </Box>
     </>
   );

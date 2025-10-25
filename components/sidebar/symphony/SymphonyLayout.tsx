@@ -14,6 +14,7 @@ import NextLink from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import SymphonyNetworkBox from "@/components/sidebar/symphony/SymphonyNetworkBox";
 import { HarmonySidebar } from "@/components/sidebar/symphony/SymphonySidebar";
+import { Footer } from "@/components/footer";
 
 export default function SymphonyLayout({ children }: { children: ReactNode }) {
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
@@ -29,7 +30,7 @@ export default function SymphonyLayout({ children }: { children: ReactNode }) {
         minH="100vh"
         pt="100px"
         pb="16"
-        overflow="hidden"
+        overflow="visible"
       >
         {/* Background gradient blur */}
         <Box
@@ -82,6 +83,9 @@ export default function SymphonyLayout({ children }: { children: ReactNode }) {
             </Box>
           </Box>
         </Flex>
+      </Box>
+      <Box position="relative" zIndex={10}>
+        <Footer />
       </Box>
     </>
   );

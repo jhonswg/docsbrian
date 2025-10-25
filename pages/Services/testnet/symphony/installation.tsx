@@ -22,6 +22,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { CodeBlock } from "@/components/CodeBlock";
 import SymphonyetworkBox from "@/components/sidebar/symphony/SymphonyNetworkBox";
+import { Footer } from "@/components/footer";
 
 export default function SymphonynstallationPage() {
   const router = useRouter();
@@ -51,7 +52,7 @@ export default function SymphonynstallationPage() {
         minH="100vh"
         pt="100px"
         pb="16"
-        overflow="hidden"
+        overflow="visible"
       >
         {/* Background blur */}
         <Box
@@ -383,6 +384,9 @@ sudo systemctl restart emped && sudo journalctl -u emped -f`}
             </Box>
           </Box>
         </Flex>
+      </Box>
+      <Box position="relative" zIndex={10}>
+        <Footer />
       </Box>
     </>
   );
