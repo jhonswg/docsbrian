@@ -1,11 +1,11 @@
 import Head from "next/head";
+import Link from "next/link";
 import {
   Box,
   VStack,
   Heading,
   Text,
   Button,
-  Link as ChakraLink,
   useColorModeValue,
   Image,
 } from "@chakra-ui/react";
@@ -39,84 +39,88 @@ export default function EmpeiriaPage() {
             <Heading fontSize="3xl" mb={6}>
               Introduction
             </Heading>
-            
+
             <VStack align="stretch" spacing={6}>
               <Box>
                 <Heading fontSize="2xl" mb={3}>
                   Overview
                 </Heading>
                 <Text fontSize="md" lineHeight="tall" color="gray.300">
-                  Empeiria is the first End-to-End Verifiable Data Infrastructure (EVDI). 
-                  It enables seamless web3 adoption through one-click deployment, empowering 
-                  organizations with the data of the future.
+                  Empeiria is the first End-to-End Verifiable Data
+                  Infrastructure (EVDI). It enables seamless web3 adoption
+                  through one-click deployment, empowering organizations with
+                  the data of the future.
                 </Text>
               </Box>
-                <Heading fontSize="2xl" mt={4} mb={-3}>
-                  Hardware Requirements
-                </Heading>
-                <Text fontSize="md" color="gray.400">
-                  Below, you will find the recommended hardware configurations that can be used 
-                  to create a new Empe Testnet validator machine. Please note that the higher 
-                  the effort you put into creating a stable and robust machine and lower the 
-                  chances of getting slashed due to downtime.
-                </Text>
+              <Heading fontSize="2xl" mt={4} mb={-3}>
+                Hardware Requirements
+              </Heading>
+              <Text fontSize="md" color="gray.400">
+                Below, you will find the recommended hardware configurations
+                that can be used to create a new Empe Testnet validator machine.
+                Please note that the higher the effort you put into creating a
+                stable and robust machine and lower the chances of getting
+                slashed due to downtime.
+              </Text>
 
-                <VStack align="stretch" spacing={3}>
-                  <Box>
-                    <Text>
-                      <Text as="span" fontWeight="bold" color="orange.400">
-                        Operating System:
-                      </Text>{" "}
-                      <Text as="span" color="gray.300">
-                        Ubuntu 18.04 or later LTS
-                      </Text>
+              <VStack align="stretch" spacing={3}>
+                <Box>
+                  <Text>
+                    <Text as="span" fontWeight="bold" color="orange.400">
+                      Operating System:
+                    </Text>{" "}
+                    <Text as="span" color="gray.300">
+                      Ubuntu 18.04 or later LTS
                     </Text>
-                  </Box>
-                  <Box>
-                    <Text>
-                      <Text as="span" fontWeight="bold" color="orange.400">
-                        Number of CPUs:
-                      </Text>{" "}
-                      <Text as="span" color="gray.300">
-                        6
-                      </Text>
+                  </Text>
+                </Box>
+                <Box>
+                  <Text>
+                    <Text as="span" fontWeight="bold" color="orange.400">
+                      Number of CPUs:
+                    </Text>{" "}
+                    <Text as="span" color="gray.300">
+                      6
                     </Text>
-                  </Box>
-                  <Box>
-                    <Text>
-                      <Text as="span" fontWeight="bold" color="orange.400">
-                        RAM:
-                      </Text>{" "}
-                      <Text as="span" color="gray.300">
-                        32 GB
-                      </Text>
+                  </Text>
+                </Box>
+                <Box>
+                  <Text>
+                    <Text as="span" fontWeight="bold" color="orange.400">
+                      RAM:
+                    </Text>{" "}
+                    <Text as="span" color="gray.300">
+                      32 GB
                     </Text>
-                  </Box>
-                  <Box>
-                    <Text>
-                      <Text as="span" fontWeight="bold" color="orange.400">
-                        SSD:
-                      </Text>{" "}
-                      <Text as="span" color="gray.300">
-                        240 GB
-                      </Text>
+                  </Text>
+                </Box>
+                <Box>
+                  <Text>
+                    <Text as="span" fontWeight="bold" color="orange.400">
+                      SSD:
+                    </Text>{" "}
+                    <Text as="span" color="gray.300">
+                      240 GB
                     </Text>
-                  </Box>
-                </VStack>
+                  </Text>
+                </Box>
+              </VStack>
             </VStack>
           </Box>
         </VStack>
 
-        <Button 
-          mt={8} 
-          as={ChakraLink} 
-          href="/services" 
-          variant="ghost" 
-          colorScheme="orange" 
-          size="sm"
-        >
-          ← Back to Network
-        </Button>
+        <Link href="/services" passHref>
+          <a>
+            <Button 
+              mt={8}
+              variant="ghost" 
+              colorScheme="orange" 
+              size="sm"
+            >
+              ← Back to Network
+            </Button>
+          </a>
+        </Link>
       </EmpeiriaLayout>
     </>
   );

@@ -13,8 +13,6 @@ import {
   AccordionIcon,
   Divider,
   Text,
-  HStack,
-  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Navbar } from "@/components/navbar";
 import { navbarRoutes } from "@/config/navbar-routes";

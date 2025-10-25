@@ -12,7 +12,6 @@ import {
   AccordionIcon,
   Divider,
   VStack,
-  Link as ChakraLink,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
