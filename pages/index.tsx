@@ -50,12 +50,16 @@ const networks = [
     id: "empe-testnet",
     logo: "https://pbs.twimg.com/profile_images/1887069794798632960/IvxbLJcg_400x400.jpg",
     type: "testnet",
+    serviceUrl: "/services/testnet/empeiria",
+    explorerUrl: "https://explorer.jhonswg.com/empeiria",
   },
   {
     name: "Symphony Labs",
     id: "sympn-testnet",
     logo: "https://pbs.twimg.com/profile_images/1896255605909725184/rC9pD5EQ_400x400.jpg",
     type: "testnet",
+    serviceUrl: "/services/testnet/symphony",
+    explorerUrl: "https://explorer.jhonswg.com/symphony",
   },
   {
     name: "Warden",
@@ -225,7 +229,6 @@ const Home = () => {
                         <Button
                           as="a"
                           href={net.serviceUrl}
-                          target="_blank"
                           rel="noopener noreferrer"
                           size="sm"
                           bg="purple.600"
