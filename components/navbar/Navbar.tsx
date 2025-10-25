@@ -13,10 +13,8 @@ import {
 import { Logo } from "@/components/logo";
 import { Link } from "@/components/link";
 import { LinkBox } from "@/components/link-box";
-import { ThemeMenu } from "@/components/theme-toggle";
-import { MobileMenu } from "@/components/mobile-menu";
-// import { MobileDrawerButton } from "@/components/mobile-drawer";
-import { RiGithubFill, RiArrowDownSLine } from "react-icons/ri";
+import { RiTwitterXFill, RiGithubFill, RiArrowDownSLine } from "react-icons/ri";
+import MobileOptionsMenu from "@/components/mobile-menu/MobileMenu";
 import { Route } from "@/types";
 import { siteConfig } from "@/config";
 import { useRouter } from "next/router";
@@ -128,7 +126,6 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
                         position="absolute"
                         top="180%"
                         left="0"
-                        w="90vw"
                         bg={dropdownBg}
                         border="1px solid"
                         borderColor={dropdownBorder}
@@ -171,16 +168,28 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
             <Center height="6" pl="4">
               <Divider orientation="vertical" />
             </Center>
-            <Flex pl="4" alignItems="center">
-              <ThemeMenu />
+            <Flex pl="4" alignItems="center" gap="3">
+              {/* Twitter Icon */}
+              <LinkBox
+                display="flex"
+                color={githubColor}
+                href="https://twitter.com/jhonswgg"
+                isExternal
+                _hover={{ color: hoverColor }}
+                transition="color 0.2s"
+              >
+                <Icon boxSize="6" as={RiTwitterXFill} />
+              </LinkBox>
+
+              {/* GitHub Icon */}
               {siteConfig.repo && (
                 <LinkBox
                   display="flex"
-                  ml="4"
                   color={githubColor}
                   href={siteConfig.repo.url}
                   isExternal
                   _hover={{ color: hoverColor }}
+                  transition="color 0.2s"
                 >
                   <Icon boxSize="6" as={RiGithubFill} />
                 </LinkBox>
@@ -190,7 +199,7 @@ const Navbar: FC<NavbarProps> = ({ routes, ...props }) => {
 
           {/* MOBILE */}
           <Box display={{ base: "flex", lg: "none" }} flex="1" justifyContent="end">
-            <MobileMenu routes={routes} />
+            <MobileOptionsMenu routes={routes} />
           </Box>
         </Flex>
       </Container>

@@ -15,7 +15,6 @@ import { Logo } from "@/components/logo";
 // import { SearchButton } from "@/components/search-button";
 import { Link } from "@/components/link";
 import { LinkBox } from "@/components/link-box";
-import { ThemeMenu } from "@/components/theme-toggle";
 import { MobileMenu } from "@/components/mobile-menu";
 import { MobileDrawer, MobileDrawerButton } from "@/components/mobile-drawer";
 import { RiGithubFill } from "react-icons/ri";
@@ -90,7 +89,6 @@ const DocsNavbar: FC<DocsNavbarProps> = ({ routes, ...props }) => {
                 <Divider orientation="vertical" />
               </Center>
               <Flex pl="4" alignItems="center">
-                <ThemeMenu />
                 {siteConfig.repo && (
                   <LinkBox
                     display="flex"

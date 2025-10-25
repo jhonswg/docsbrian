@@ -1,6 +1,7 @@
 import { FC } from "react";
 import {
   Divider,
+  Flex,
   Icon,
   IconButton,
   ListItem,
@@ -14,9 +15,10 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Link } from "@/components/link";
-import { ThemeSelect } from "@/components/theme-toggle";
+import { LinkBox } from "@/components/link-box";
+// import { ThemeSelect } from "@/components/theme-toggle";
 // import { MobileSearchButton } from "@/components/search-button";
-import { RiMore2Fill } from "react-icons/ri";
+import { RiMore2Fill, RiTwitterXFill, RiGithubFill } from "react-icons/ri";
 import { Route } from "@/types";
 import { siteConfig } from "@/config";
 
@@ -25,6 +27,9 @@ interface MobileOptionsMenuProps {
 }
 
 const MobileOptionsMenu: FC<MobileOptionsMenuProps> = ({ routes }) => {
+  const iconColor = useColorModeValue("gray.600", "gray.400");
+  const hoverColor = useColorModeValue("brand.500", "brand.400");
+
   return (
     <>
       {/* <MobileSearchButton aria-label="Search" /> */}
@@ -58,16 +63,40 @@ const MobileOptionsMenu: FC<MobileOptionsMenuProps> = ({ routes }) => {
                     <Link href={route.path}>{route.title}</Link>
                   </ListItem>
                 ))}
-                {siteConfig.repo && (
-                  <ListItem>
-                    <Link href={siteConfig.repo.url} isExternal>
-                      GitHub
-                    </Link>
-                  </ListItem>
-                )}
               </UnorderedList>
-              <Divider />
-              <ThemeSelect />
+              
+              <Divider mb="4" />
+              
+              {/* Social Media Icons */}
+              <Flex gap="6" justifyContent="center" mb="2">
+                {/* Twitter Icon */}
+                <LinkBox
+                  display="flex"
+                  color={iconColor}
+                  href="https://twitter.com/jhonswgg"
+                  isExternal
+                  _hover={{ color: hoverColor }}
+                  transition="color 0.2s"
+                >
+                  <Icon boxSize="6" as={RiTwitterXFill} />
+                </LinkBox>
+
+                {/* GitHub Icon */}
+                {siteConfig.repo && (
+                  <LinkBox
+                    display="flex"
+                    color={iconColor}
+                    href={siteConfig.repo.url}
+                    isExternal
+                    _hover={{ color: hoverColor }}
+                    transition="color 0.2s"
+                  >
+                    <Icon boxSize="6" as={RiGithubFill} />
+                  </LinkBox>
+                )}
+              </Flex>
+              
+              {/* <ThemeSelect /> */}
             </PopoverBody>
           </PopoverContent>
         </Portal>

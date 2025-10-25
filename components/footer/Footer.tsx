@@ -11,7 +11,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { Logo } from "@/components/logo";
-import { FaLinkedin, FaTelegram, FaFacebook } from "react-icons/fa";
+import { FaLinkedin, FaTelegram, FaFacebook, FaDiscord } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: FC = (props) => {
@@ -52,10 +52,10 @@ const Footer: FC = (props) => {
             />
             <IconButton
               as="a"
-              href="https://twitter.com/jhonswgg"
+              href="https://discordapp.com/users/847151330807382067"
               target="_blank"
-              aria-label="Twitter"
-              icon={<Icon as={FaXTwitter} />}
+              aria-label="Discord"
+              icon={<Icon as={FaDiscord} />}
               variant="ghost"
               size="lg"
               color={textColor}
