@@ -145,9 +145,10 @@ import {
           {/* KIRI: box logo + teks + ikon */}
           <HStack spacing={3}>
             <Box
-              border="1px solid"
-              borderColor={border}
-              borderRadius="md"
+              // border="1px solid"
+              // borderColor={border}
+              // borderRadius="md"
+              // bg={cardBg}
               px={3}
               py={1}
               display="flex"

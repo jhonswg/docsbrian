@@ -69,12 +69,9 @@ export default function SymphonyNetworkBox() {
   const [rotating, setRotating] = useState(false);
   const router = useRouter();
 
-  // 🔥 Deteksi network aktif dari URL - gunakan asPath untuk real-time path
+  // 🔥 Deteksi network aktif dari URL
   const getCurrentNetwork = (): string => {
-    // Gunakan asPath untuk mendapatkan URL yang sebenarnya
     const path = router.asPath;
-    
-    console.log("Current path:", path);
     
     if (path.includes("/empeiria")) return "empeiria";
     if (path.includes("/symphony")) return "symphony";
@@ -85,13 +82,6 @@ export default function SymphonyNetworkBox() {
 
   const currentNetworkKey = getCurrentNetwork();
   const currentNetwork = NETWORK_CONFIGS[currentNetworkKey];
-  
-  console.log("Detected network:", currentNetworkKey, currentNetwork);
-
-  // 🔥 Re-detect network saat route berubah
-  useEffect(() => {
-    console.log("Route changed to:", router.asPath);
-  }, [router.asPath]);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -150,26 +140,20 @@ export default function SymphonyNetworkBox() {
     },
   ];
 
-  // 🔥 Handler untuk pindah network dengan force navigation
+  // 🔥 Handler untuk pindah network
   const handleNetworkChange = async (link: string) => {
-    console.log("🚀 Navigating to:", link);
-    
-    // Tutup modal dan reset animasi
     onClose();
     setRotating(false);
     
     // Cek apakah sudah di network yang sama
     if (router.asPath === link) {
-      console.log("⚠️ Already on this network");
       return;
     }
     
     try {
-      // Force navigation
       await router.push(link);
-      console.log("✅ Navigation complete to:", link);
     } catch (error) {
-      console.error("❌ Navigation error:", error);
+      console.error("Navigation error:", error);
     }
   };
 
@@ -239,7 +223,7 @@ export default function SymphonyNetworkBox() {
 
   return (
     <>
-      {/* BOX utama - 🔥 Sekarang dinamis berdasarkan network aktif */}
+      {/* BOX utama - dinamis berdasarkan network aktif */}
       <Flex
         bg={sidebarBg}
         border="1px solid"
@@ -255,9 +239,6 @@ export default function SymphonyNetworkBox() {
         {/* KIRI: box logo + teks + ikon */}
         <HStack spacing={3}>
           <Box
-            border="1px solid"
-            borderColor={border}
-            borderRadius="md"
             px={3}
             py={1}
             display="flex"
