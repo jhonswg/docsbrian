@@ -8,20 +8,22 @@ import {
   Accordion,
   AccordionItem,
   AccordionButton,
-  AccordionPanel,
   AccordionIcon,
   Divider,
   VStack,
-  Link as ChakraLink,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export const HarmonySidebar = () => {
   const router = useRouter();
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
   const sidebarBg = useColorModeValue("white", "gray.800");
-  const cardBg = useColorModeValue("rgba(255,255,255,0.05)", "rgba(255,255,255,0.08)");
+  const cardBg = useColorModeValue(
+    "rgba(255,255,255,0.05)",
+    "rgba(255,255,255,0.08)"
+  );
 
   const isActive = (path: string) => router.pathname === path;
 
@@ -55,95 +57,139 @@ export const HarmonySidebar = () => {
         {/* Accordion Menu */}
         <Accordion allowMultiple defaultIndex={[1]}>
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={isActive("/services/testnet/symphony") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/symphony")}
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">⚙️</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  API & Sync
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/symphony" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/symphony")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">⚙️</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    API & Sync
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={isActive("/services/testnet/symphony/installation") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/symphony/installation")}
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">📌</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Installation
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/symphony/installation" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/symphony/installation")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">📌</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Installation
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={isActive("/services/testnet/symphony/upgrade") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/symphony/upgrade")}
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">🔄</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Upgrade
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/symphony/upgrade" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/symphony/upgrade")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">🔄</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Upgrade
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={isActive("/services/testnet/symphony/cheat-sheet") ? cardBg : "transparent"}
-              onClick={() => router.push("/services/testnet/symphony/cheat-sheet")}
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">📝</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Cheat Sheet
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/symphony/cheat-sheet" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/symphony/cheat-sheet")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">📝</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Cheat Sheet
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
         </Accordion>
 
         <Divider my={4} />
 
         <VStack align="stretch" spacing={2}>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🌐</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🌐</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Decentralization Analytics
           </Button>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🙏</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🙏</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Consensus
           </Button>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🛰️</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🛰️</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Public RPC Scanner
           </Button>
-          <Button variant="ghost" justifyContent="flex-start" leftIcon={<Text fontSize="xl">🤖</Text>} fontSize="sm" fontWeight="medium">
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            leftIcon={<Text fontSize="xl">🤖</Text>}
+            fontSize="sm"
+            fontWeight="medium"
+          >
             Proposal Bot
           </Button>
         </VStack>
