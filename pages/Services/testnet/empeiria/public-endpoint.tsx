@@ -28,7 +28,7 @@ export default function PublicEndpointPage() {
   return (
     <>
       <Head>
-        <title>Empeiria - Public Endpoint</title>
+        <title>Empeiria-Public Endpoint</title>
       </Head>
 
       <EmpeiriaLayout>
