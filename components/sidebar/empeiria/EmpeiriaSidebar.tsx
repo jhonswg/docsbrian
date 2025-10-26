@@ -15,6 +15,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export const EmpeiriaSidebar = () => {
   const router = useRouter();
@@ -57,126 +58,123 @@ export const EmpeiriaSidebar = () => {
         {/* Accordion Menu */}
         <Accordion allowMultiple defaultIndex={[1]}>
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={
-                isActive("/services/testnet/empeiria/")
-                  ? cardBg
-                  : "transparent"
-              }
-              onClick={() =>
-                router.push("/services/testnet/empeiria/")
-              }
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">🏠</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Introduction
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/empeiria/" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">🏠</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Introduction
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={
-                isActive("/services/testnet/empeiria/public-endpoint")
-                  ? cardBg
-                  : "transparent"
-              }
-              onClick={() =>
-                router.push("/services/testnet/empeiria/public-endpoint")
-              }
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">⚙️</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Public Endpoint
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/empeiria/public-endpoint" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/public-endpoint")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">⚙️</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Public Endpoint
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={
-                isActive("/services/testnet/empeiria/installation")
-                  ? cardBg
-                  : "transparent"
-              }
-              onClick={() =>
-                router.push("/services/testnet/empeiria/installation")
-              }
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">📌</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Installation
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/empeiria/installation" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/installation")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">📌</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Installation
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={
-                isActive("/services/testnet/empeiria/upgrade")
-                  ? cardBg
-                  : "transparent"
-              }
-              onClick={() => router.push("/services/testnet/empeiria/upgrade")}
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">🔄</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Upgrade
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/empeiria/upgrade" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/upgrade")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">🔄</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Upgrade
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
 
           <AccordionItem border="none" mb={2}>
-            <AccordionButton
-              borderRadius="lg"
-              _hover={{ bg: cardBg }}
-              px={3}
-              py={3}
-              bg={
-                isActive("/services/testnet/empeiria/cheat-sheet")
-                  ? cardBg
-                  : "transparent"
-              }
-              onClick={() =>
-                router.push("/services/testnet/empeiria/cheat-sheet")
-              }
-            >
-              <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">📝</Text>
-                <Text fontSize="sm" fontWeight="medium">
-                  Cheat Sheet
-                </Text>
-              </Flex>
-              <AccordionIcon />
-            </AccordionButton>
+            <Box as={Link} href="/services/testnet/empeiria/cheat-sheet" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/cheat-sheet")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">📝</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Cheat Sheet
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
           </AccordionItem>
         </Accordion>
 
