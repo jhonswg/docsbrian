@@ -109,18 +109,16 @@ export default function EmpeiriaPage() {
           </Box>
         </VStack>
 
-        <Link href="/services" passHref>
-          <a>
-            <Button 
-              mt={8}
-              variant="ghost" 
-              colorScheme="orange" 
-              size="sm"
-            >
-              ← Back to Network
-            </Button>
-          </a>
-        </Link>
+        <Box as={Link} href="/services" textDecoration="none">
+          <Button 
+            mt={8}
+            variant="ghost" 
+            colorScheme="orange" 
+            size="sm"
+          >
+            ← Back to Network
+          </Button>
+        </Box>
       </EmpeiriaLayout>
     </>
   );
