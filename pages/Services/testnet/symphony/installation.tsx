@@ -55,7 +55,7 @@ export default function SymphonynstallationPage() {
         overflow="visible"
       >
         {/* Background blur */}
-        <Box
+        {/* <Box
           boxSize="72"
           position="absolute"
           top="0"
@@ -72,7 +72,7 @@ export default function SymphonynstallationPage() {
           bg="pink.500"
           borderRadius="full"
           filter="blur(400px)"
-        />
+        /> */}
 
         <Flex
           position="relative"
