@@ -57,14 +57,38 @@ export const HarmonySidebar = () => {
         {/* Accordion Menu */}
         <Accordion allowMultiple defaultIndex={[1]}>
           <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/symphony" textDecoration="none">
+            <Box as={Link} href="/services/testnet/symphony/" textDecoration="none">
               <AccordionButton
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
                 py={3}
                 bg={
-                  isActive("/services/testnet/symphony")
+                  isActive("/services/testnet/symphony/")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">🏠</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Introduction
+                  </Text>
+                </Flex>
+                <AccordionIcon />
+              </AccordionButton>
+            </Box>
+          </AccordionItem>
+
+          <AccordionItem border="none" mb={2}>
+            <Box as={Link} href="/services/testnet/symphony/public-endpoint" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/symphony/public-endpoint")
                     ? cardBg
                     : "transparent"
                 }
@@ -72,7 +96,7 @@ export const HarmonySidebar = () => {
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
                   <Text fontSize="xl">⚙️</Text>
                   <Text fontSize="sm" fontWeight="medium">
-                    API & Sync
+                    Public Endpoint
                   </Text>
                 </Flex>
                 <AccordionIcon />
