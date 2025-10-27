@@ -161,76 +161,80 @@ export const EmpeiriaSidebar = () => {
             </AccordionPanel>
           </AccordionItem>
 
-          {/* Installation */}
+          {/* Installation with Submenu */}
           <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/empeiria/installation" textDecoration="none">
-              <AccordionButton
-                borderRadius="lg"
-                _hover={{ bg: cardBg }}
-                px={3}
-                py={3}
-                bg={
-                  isActive("/services/testnet/empeiria/installation")
-                    ? cardBg
-                    : "transparent"
-                }
-              >
-                <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">📌</Text>
-                  <Text fontSize="sm" fontWeight="medium">
-                    Installation
-                  </Text>
-                </Flex>
-              </AccordionButton>
-            </Box>
-          </AccordionItem>
-
-          {/* Token Management */}
-          <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/empeiria/token-management" textDecoration="none">
-              <AccordionButton
-                borderRadius="lg"
-                _hover={{ bg: cardBg }}
-                px={3}
-                py={3}
-                bg={
-                  isActive("/services/testnet/empeiria/token-management")
-                    ? cardBg
-                    : "transparent"
-                }
-              >
-                <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">💰</Text>
-                  <Text fontSize="sm" fontWeight="medium">
-                    Token Management
-                  </Text>
-                </Flex>
-              </AccordionButton>
-            </Box>
-          </AccordionItem>
-
-          {/* Validator Management */}
-          <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/empeiria/validator-management" textDecoration="none">
-              <AccordionButton
-                borderRadius="lg"
-                _hover={{ bg: cardBg }}
-                px={3}
-                py={3}
-                bg={
-                  isActive("/services/testnet/empeiria/validator-management")
-                    ? cardBg
-                    : "transparent"
-                }
-              >
-                <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">👨‍💼</Text>
-                  <Text fontSize="sm" fontWeight="medium">
-                    Validator Management
-                  </Text>
-                </Flex>
-              </AccordionButton>
-            </Box>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={3}
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Text fontSize="xl">📌</Text>
+                <Text fontSize="sm" fontWeight="medium">
+                  Installation
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={2} pt={2} px={0}>
+              <VStack align="stretch" spacing={1} pl={4}>
+                <Box as={Link} href="/services/testnet/empeiria/installation" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/testnet/empeiria/installation")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      🔧 Install Node
+                    </Text>
+                  </Box>
+                </Box>
+                <Box as={Link} href="/services/testnet/empeiria/token-management" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/testnet/empeiria/token-management")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      💰 Token Management
+                    </Text>
+                  </Box>
+                </Box>
+                <Box as={Link} href="/services/testnet/empeiria/validator-management" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/testnet/empeiria/validator-management")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      👨‍💼 Validator Management
+                    </Text>
+                  </Box>
+                </Box>
+              </VStack>
+            </AccordionPanel>
           </AccordionItem>
 
           {/* Upgrade */}

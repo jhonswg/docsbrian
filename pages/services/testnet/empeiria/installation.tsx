@@ -4,8 +4,6 @@ import {
   Heading,
   Button,
   VStack,
-  useColorModeValue,
-  Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { CodeBlock } from "@/components/CodeBlock";
@@ -24,7 +22,7 @@ export default function EmpeiriaInstallationPage() {
 
       <EmpeiriaLayout>
         <Heading fontSize="3xl" mb={6} textAlign="center">
-          Installation
+          🔧 Install Node
         </Heading>
 
         <VStack align="stretch" spacing={6}>
