@@ -8,6 +8,7 @@ import {
   Accordion,
   AccordionItem,
   AccordionButton,
+  AccordionPanel,
   AccordionIcon,
   Divider,
   VStack,
@@ -26,6 +27,13 @@ export const HarmonySidebar = () => {
   );
 
   const isActive = (path: string) => router.pathname === path;
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <Box display={{ base: "none", lg: "block" }} w="320px" flexShrink={0}>
@@ -55,7 +63,8 @@ export const HarmonySidebar = () => {
         </Flex>
 
         {/* Accordion Menu */}
-        <Accordion allowMultiple defaultIndex={[1]}>
+        <Accordion allowMultiple defaultIndex={[]}>
+          {/* Introduction */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/symphony/" textDecoration="none">
               <AccordionButton
@@ -75,35 +84,84 @@ export const HarmonySidebar = () => {
                     Introduction
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
 
+          {/* Public Endpoint with Submenu */}
           <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/symphony/public-endpoint" textDecoration="none">
-              <AccordionButton
-                borderRadius="lg"
-                _hover={{ bg: cardBg }}
-                px={3}
-                py={3}
-                bg={
-                  isActive("/services/testnet/symphony/public-endpoint")
-                    ? cardBg
-                    : "transparent"
-                }
-              >
-                <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">⚙️</Text>
-                  <Text fontSize="sm" fontWeight="medium">
-                    Public Endpoint
-                  </Text>
-                </Flex>
-                <AccordionIcon />
-              </AccordionButton>
-            </Box>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={3}
+              bg={
+                isActive("/services/testnet/symphony/public-endpoint")
+                  ? cardBg
+                  : "transparent"
+              }
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Text fontSize="xl">⚙️</Text>
+                <Text fontSize="sm" fontWeight="medium">
+                  Public Endpoint
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={2} pt={2} px={0}>
+              <VStack align="stretch" spacing={1} pl={4}>
+                <Box
+                  as={Link}
+                  href="/services/testnet/symphony/public-endpoint#rpc-api-grpc"
+                  textDecoration="none"
+                  onClick={(e) => {
+                    if (isActive("/services/testnet/symphony/public-endpoint")) {
+                      e.preventDefault();
+                      scrollToSection("rpc-api-grpc");
+                    }
+                  }}
+                >
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      📡 RPC, API & gRPC
+                    </Text>
+                  </Box>
+                </Box>
+                <Box
+                  as={Link}
+                  href="/services/testnet/symphony/public-endpoint#peers-seeds"
+                  textDecoration="none"
+                  onClick={(e) => {
+                    if (isActive("/services/testnet/symphony/public-endpoint")) {
+                      e.preventDefault();
+                      scrollToSection("peers-seeds");
+                    }
+                  }}
+                >
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      🌐 Peers & Seeds
+                    </Text>
+                  </Box>
+                </Box>
+              </VStack>
+            </AccordionPanel>
           </AccordionItem>
 
+          {/* Installation */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/symphony/installation" textDecoration="none">
               <AccordionButton
@@ -123,11 +181,11 @@ export const HarmonySidebar = () => {
                     Installation
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
 
+          {/* Upgrade */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/symphony/upgrade" textDecoration="none">
               <AccordionButton
@@ -147,11 +205,11 @@ export const HarmonySidebar = () => {
                     Upgrade
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
 
+          {/* Cheat Sheet */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/symphony/cheat-sheet" textDecoration="none">
               <AccordionButton
@@ -171,7 +229,6 @@ export const HarmonySidebar = () => {
                     Cheat Sheet
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>

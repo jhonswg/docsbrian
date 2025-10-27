@@ -28,6 +28,13 @@ export const EmpeiriaSidebar = () => {
 
   const isActive = (path: string) => router.pathname === path;
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <Box display={{ base: "none", lg: "block" }} w="320px" flexShrink={0}>
       <Box
@@ -56,7 +63,8 @@ export const EmpeiriaSidebar = () => {
         </Flex>
 
         {/* Accordion Menu */}
-        <Accordion allowMultiple defaultIndex={[1]}>
+        <Accordion allowMultiple defaultIndex={[]}>
+          {/* Introduction */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/empeiria/" textDecoration="none">
               <AccordionButton
@@ -76,35 +84,84 @@ export const EmpeiriaSidebar = () => {
                     Introduction
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
 
+          {/* Public Endpoint with Submenu */}
           <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/empeiria/public-endpoint" textDecoration="none">
-              <AccordionButton
-                borderRadius="lg"
-                _hover={{ bg: cardBg }}
-                px={3}
-                py={3}
-                bg={
-                  isActive("/services/testnet/empeiria/public-endpoint")
-                    ? cardBg
-                    : "transparent"
-                }
-              >
-                <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">⚙️</Text>
-                  <Text fontSize="sm" fontWeight="medium">
-                    Public Endpoint
-                  </Text>
-                </Flex>
-                <AccordionIcon />
-              </AccordionButton>
-            </Box>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={3}
+              bg={
+                isActive("/services/testnet/empeiria/public-endpoint")
+                  ? cardBg
+                  : "transparent"
+              }
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Text fontSize="xl">⚙️</Text>
+                <Text fontSize="sm" fontWeight="medium">
+                  Public Endpoint
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={2} pt={2} px={0}>
+              <VStack align="stretch" spacing={1} pl={4}>
+                <Box
+                  as={Link}
+                  href="/services/testnet/empeiria/public-endpoint#rpc-api-grpc"
+                  textDecoration="none"
+                  onClick={(e) => {
+                    if (isActive("/services/testnet/empeiria/public-endpoint")) {
+                      e.preventDefault();
+                      scrollToSection("rpc-api-grpc");
+                    }
+                  }}
+                >
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      📡 RPC, API & gRPC
+                    </Text>
+                  </Box>
+                </Box>
+                <Box
+                  as={Link}
+                  href="/services/testnet/empeiria/public-endpoint#peers-seeds"
+                  textDecoration="none"
+                  onClick={(e) => {
+                    if (isActive("/services/testnet/empeiria/public-endpoint")) {
+                      e.preventDefault();
+                      scrollToSection("peers-seeds");
+                    }
+                  }}
+                >
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      🌐 Peers & Seeds
+                    </Text>
+                  </Box>
+                </Box>
+              </VStack>
+            </AccordionPanel>
           </AccordionItem>
 
+          {/* Installation */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/empeiria/installation" textDecoration="none">
               <AccordionButton
@@ -124,11 +181,59 @@ export const EmpeiriaSidebar = () => {
                     Installation
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
 
+          {/* Token Management */}
+          <AccordionItem border="none" mb={2}>
+            <Box as={Link} href="/services/testnet/empeiria/token-management" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/token-management")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">💰</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Token Management
+                  </Text>
+                </Flex>
+              </AccordionButton>
+            </Box>
+          </AccordionItem>
+
+          {/* Validator Management */}
+          <AccordionItem border="none" mb={2}>
+            <Box as={Link} href="/services/testnet/empeiria/validator-management" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={3}
+                bg={
+                  isActive("/services/testnet/empeiria/validator-management")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Text fontSize="xl">👨‍💼</Text>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Validator Management
+                  </Text>
+                </Flex>
+              </AccordionButton>
+            </Box>
+          </AccordionItem>
+
+          {/* Upgrade */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/empeiria/upgrade" textDecoration="none">
               <AccordionButton
@@ -148,11 +253,11 @@ export const EmpeiriaSidebar = () => {
                     Upgrade
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
 
+          {/* Cheat Sheet */}
           <AccordionItem border="none" mb={2}>
             <Box as={Link} href="/services/testnet/empeiria/cheat-sheet" textDecoration="none">
               <AccordionButton
@@ -172,7 +277,6 @@ export const EmpeiriaSidebar = () => {
                     Cheat Sheet
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
             </Box>
           </AccordionItem>
