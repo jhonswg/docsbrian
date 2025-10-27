@@ -31,6 +31,7 @@ export default function EmpeiriaLayout({ children }: { children: ReactNode }) {
         pb="16"
         overflow="visible"
       >
+        
         {/* Background gradient blur */}
         <Box
           boxSize="72"
