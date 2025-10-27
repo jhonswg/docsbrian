@@ -33,7 +33,7 @@ export default function SymphonyLayout({ children }: { children: ReactNode }) {
         overflow="visible"
       >
         {/* Background gradient blur */}
-        {/* <Box
+        <Box
           boxSize="72"
           position="absolute"
           top="0"
@@ -50,7 +50,7 @@ export default function SymphonyLayout({ children }: { children: ReactNode }) {
           bg="pink.500"
           borderRadius="full"
           filter="blur(400px)"
-        /> */}
+        />
 
         {/* Main content */}
         <Flex
