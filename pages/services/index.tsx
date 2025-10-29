@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Navbar } from "@/components/navbar";
 import { navbarRoutes } from "@/config/navbar-routes";
+import { Footer } from "@/components/footer";
 import NextLink from "next/link";
 
 export default function ServicePage() {
@@ -115,8 +116,6 @@ export default function ServicePage() {
         minH="100vh"
         pt="100px"
         pb="16"
-        px={{ base: 6, md: 20 }}
-        overflow="hidden"
       >
         {/* Background blur efek */}
         <Box
@@ -127,6 +126,7 @@ export default function ServicePage() {
           bg="brand.500"
           borderRadius="full"
           filter="blur(400px)"
+          pointerEvents="none"
         />
         <Box
           boxSize="72"
@@ -136,47 +136,58 @@ export default function ServicePage() {
           bg="pink.500"
           borderRadius="full"
           filter="blur(400px)"
+          pointerEvents="none"
         />
 
-        {/* Border frame di sekeliling konten */}
+        {/* Content */}
         <Box
           position="relative"
           zIndex={1}
-          border="1px solid"
-          borderColor={border}
-          borderRadius="2xl"
-          p={{ base: 6, md: 10 }}
-          boxShadow="0 0 20px rgba(0,0,0,0.1)"
-          bg="transparent"
+          px={{ base: 6, md: 20 }}
         >
-          <Heading
-            mb={2}
-            fontSize="4xl"
-            textAlign="center"
-            bgGradient="linear(to-r, pink.400, orange.400)"
-            bgClip="text"
+          {/* Border frame di sekeliling konten */}
+          <Box
+            border="1px solid"
+            borderColor={border}
+            borderRadius="2xl"
+            p={{ base: 6, md: 10 }}
+            boxShadow="0 0 20px rgba(0,0,0,0.1)"
+            bg="transparent"
           >
-            Network Overview
-          </Heading>
-          <Text mb={8} fontSize="sm" opacity={0.7} textAlign="center">
-            Explore supported networks across both mainnet and testnet
-            environments.
-          </Text>
-
-          <Box mb={14}>
-            <Heading mb={4} fontSize="xl">
-              Mainnet
+            <Heading
+              mb={2}
+              fontSize="4xl"
+              textAlign="center"
+              bgGradient="linear(to-r, pink.400, orange.400)"
+              bgClip="text"
+            >
+              Network Overview
             </Heading>
-            {renderGrid(mainnet)}
-          </Box>
+            <Text mb={8} fontSize="sm" opacity={0.7} textAlign="center">
+              Explore supported networks across both mainnet and testnet
+              environments.
+            </Text>
 
-          <Box>
-            <Heading mb={4} fontSize="xl">
-              Testnet
-            </Heading>
-            {renderGrid(testnet)}
+            <Box mb={14}>
+              <Heading mb={4} fontSize="xl">
+                Mainnet
+              </Heading>
+              {renderGrid(mainnet)}
+            </Box>
+
+            <Box>
+              <Heading mb={4} fontSize="xl">
+                Testnet
+              </Heading>
+              {renderGrid(testnet)}
+            </Box>
           </Box>
         </Box>
+      </Box>
+
+      {/* Footer */}
+      <Box position="relative" zIndex={10}>
+        <Footer />
       </Box>
     </>
   );
