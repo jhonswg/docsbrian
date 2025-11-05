@@ -46,7 +46,7 @@ export default function WardenPage() {
                 </Heading>
                 <Text fontSize="md" lineHeight="tall" color="gray.300">
                   Warden Protocol modules are Cosmos SDK modules containing most
-                  of the Warden Protocol's logic. Users can interact with them
+                  of the Warden Protocol&apos;s logic. Users can interact with them
                   by sending transactions or querying nodes.
                 </Text>
               </Box>
