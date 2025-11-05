@@ -22,7 +22,7 @@ import {
   import NextLink from "next/link";
   import { useState } from "react";
   
-  export default function EmpeiriaNetworkBox() {
+  export default function WardenNetworkBox() {
     const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
     const sidebarBg = useColorModeValue("white", "gray.800");
     const cardBg = useColorModeValue("rgba(255,255,255,0.05)", "rgba(255,255,255,0.08)");
@@ -73,7 +73,6 @@ import {
       {
         name: "Warden",
         logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg",
-        link: "/services/testnet/warden" ,
       },
     ];
   
@@ -157,13 +156,13 @@ import {
               gap={2}
             >
               <Image
-                src="https://pbs.twimg.com/profile_images/1887069794798632960/IvxbLJcg_400x400.jpg"
-                alt="Empeiria Logo"
+                src="https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg"
+                alt="Warden Logo"
                 boxSize="30px"
                 borderRadius="full"
               />
               <Text fontSize="md" fontWeight="medium">
-                Empeiria
+                Warden
               </Text>
               <IconButton
                 aria-label="Change Network"
@@ -180,7 +179,7 @@ import {
               Chain ID:
             </Text>
             <Text fontSize="sm" fontWeight="medium">
-              empe-testnet-2
+              warden-testnet
             </Text>
           </HStack>
   

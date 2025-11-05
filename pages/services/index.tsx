@@ -50,6 +50,7 @@ export default function ServicePage() {
     {
       name: "Warden",
       logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg",
+      link: "/services/testnet/warden",
     },
   ];
 

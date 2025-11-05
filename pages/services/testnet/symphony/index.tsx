@@ -27,12 +27,11 @@ export default function SymphonyPage() {
             {/* Logo Empeiria - Centered */}
             <Box display="flex" justifyContent="center" mb={8}>
               <Image
-                src="https://pbs.twimg.com/profile_images/1896255605909725184/rC9pD5EQ_400x400.jpg"
+                src="https://pbs.twimg.com/profile_banners/1713260490229452800/1714542684/1500x500"
                 alt="Symphony Logo"
-                maxW="200px"
                 h="auto"
                 objectFit="contain"
-                borderRadius="full"
+                borderRadius="20px"
               />
             </Box>
 
