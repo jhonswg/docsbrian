@@ -19,8 +19,17 @@ export default function WardenInstallationPage() {
 
         <VStack align="stretch" spacing={6}>
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # install go, if needed
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Install dependencies
+            </Heading>
+            <CodeBlock
+              code={`sudo apt update && sudo apt upgrade -y && sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y`}
+            />
+          </Box>
+
+          <Box>
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Install go, if needed
             </Heading>
             <CodeBlock
               code={`cd $HOME
@@ -36,8 +45,8 @@ go version`}
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # download and build binaries
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Download and Build binaries
             </Heading>
             <CodeBlock
               code={`cd $HOME
@@ -50,15 +59,15 @@ make install
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # config and init app
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Config and Init app
             </Heading>
             <CodeBlock code={`wardend init Moniker --chain-id buenavista-1`} />
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # set seeds and peers
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Set seeds and peers
             </Heading>
             <CodeBlock
               code={`sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00uward\"/;" ~/.warden/config/app.toml
@@ -72,8 +81,8 @@ sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.005uward\"|" $HOM
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # config prunning
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Config prunning
             </Heading>
             <CodeBlock
               code={`
@@ -88,10 +97,9 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
             />
           </Box>
 
-
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # create service file
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Create service file
             </Heading>
             <CodeBlock
               code={`sudo tee /etc/systemd/system/wardend.service > /dev/null <<EOF
@@ -113,8 +121,8 @@ EOF`}
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # enable and start service
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Enable and Start service
             </Heading>
             <CodeBlock
               code={`sudo systemctl daemon-reload

@@ -1,10 +1,5 @@
 import Head from "next/head";
-import {
-  Box,
-  Heading,
-  Button,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Heading, Button, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { CodeBlock } from "@/components/CodeBlock";
 import EmpeiriaLayout from "@/components/sidebar/empeiria/EmpeiriaLayout";
@@ -27,8 +22,17 @@ export default function EmpeiriaInstallationPage() {
 
         <VStack align="stretch" spacing={6}>
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # install go, if needed
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Install dependencies
+            </Heading>
+            <CodeBlock
+              code={`sudo apt update && sudo apt upgrade -y && sudo apt install curl tar wget clang pkg-config libssl-dev jq build-essential bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y`}
+            />
+          </Box>
+
+          <Box>
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Install go, if needed
             </Heading>
             <CodeBlock
               code={`cd $HOME
@@ -45,8 +49,8 @@ source $HOME/.bash_profile
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # download and build binaries
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Download and build binaries
             </Heading>
             <CodeBlock
               code={`cd $HOME
@@ -58,8 +62,8 @@ make install`}
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # config and init app
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Config and init app
             </Heading>
             <CodeBlock
               code={`emped config node tcp://localhost:26657
@@ -70,8 +74,8 @@ emped init "your-moniker" --chain-id empe-testnet-2`}
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # download genesis and addrbook
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Download genesis and addrbook
             </Heading>
             <CodeBlock
               code={`wget -O genesis.json https://testnet-files.itrocket.net/empeiria/genesis.json --inet4-only
@@ -80,8 +84,8 @@ mv genesis.json ~/.empe/config`}
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # set seeds and peers
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Set seeds and peers
             </Heading>
             <CodeBlock
               code={`SEEDS="20ca5fc4882e6f975add2d106da8afc4a5a6c6d@empeiria-testnet-seed.itrocket.net:28656"
@@ -91,8 +95,8 @@ sed -i -e "s/^seeds *=.*/seeds = \\"$SEEDS\\"/; s/^persistent_peers *=.*/persist
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # create service file
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Create service file
             </Heading>
             <CodeBlock
               code={`sudo tee /etc/systemd/system/emped.service > /dev/null <<EOF
@@ -113,8 +117,8 @@ EOF`}
           </Box>
 
           <Box>
-            <Heading fontSize="lg" mb={3}>
-              # enable and start service
+            <Heading fontSize="lg" mb={3} color="orange.400">
+              Enable and start service
             </Heading>
             <CodeBlock
               code={`sudo systemctl daemon-reload
@@ -125,12 +129,7 @@ sudo systemctl restart emped && sudo journalctl -u emped -f`}
         </VStack>
 
         <Box as={Link} href="/services" textDecoration="none">
-          <Button
-            colorScheme="orange"
-            variant="ghost"
-            size="sm"
-            mt={8}
-          >
+          <Button colorScheme="orange" variant="ghost" size="sm" mt={8}>
             ← Back to Network
           </Button>
         </Box>
