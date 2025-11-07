@@ -22,7 +22,7 @@ import {
   import NextLink from "next/link";
   import { useState } from "react";
   
-  export default function WardenNetworkBox() {
+  export default function InitiaNetworkBox() {
     const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
     const sidebarBg = useColorModeValue("white", "gray.800");
     const cardBg = useColorModeValue("rgba(255,255,255,0.05)", "rgba(255,255,255,0.08)");
@@ -56,7 +56,7 @@ import {
       {
         name: "Initia",
         logo: "https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png",
-        link: "/services/mainnet/initia" ,
+        link: "/services/mainnet/initia"
       },
     ];
   
@@ -74,6 +74,7 @@ import {
       {
         name: "Warden",
         logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg",
+        link: "/services/testnet/warden"
       },
     ];
   
@@ -157,13 +158,13 @@ import {
               gap={2}
             >
               <Image
-                src="https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg"
-                alt="Warden Logo"
+                src="https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png"
+                alt="Initia Logo"
                 boxSize="30px"
                 borderRadius="full"
               />
               <Text fontSize="md" fontWeight="medium">
-                Warden
+                Initia
               </Text>
               <IconButton
                 aria-label="Change Network"
@@ -180,7 +181,7 @@ import {
               Chain ID:
             </Text>
             <Text fontSize="sm" fontWeight="medium">
-              warden-testnet
+              initia-testnet
             </Text>
           </HStack>
   

@@ -56,7 +56,7 @@ export const HarmonySidebar = () => {
           />
           <Box>
             <Heading fontSize="xl">Symphony</Heading>
-            <Text fontSize="sm" color="green.400">
+            <Text fontSize="sm" color="yellow.400">
               testnet
             </Text>
           </Box>

@@ -56,7 +56,7 @@ export const EmpeiriaSidebar = () => {
           />
           <Box>
             <Heading fontSize="xl">Empeiria</Heading>
-            <Text fontSize="sm" color="green.400">
+            <Text fontSize="sm" color="yellow.400">
               testnet
             </Text>
           </Box>

@@ -33,6 +33,7 @@ export default function ServicePage() {
     {
       name: "Initia",
       logo: "https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png",
+      link: "/services/mainnet/initia"
     },
   ];
 

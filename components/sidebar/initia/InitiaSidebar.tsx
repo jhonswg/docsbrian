@@ -17,7 +17,7 @@ import {
   import { useRouter } from "next/router";
   import Link from "next/link";
   
-  export const WardenSidebar = () => {
+  export const InitiaSidebar = () => {
     const router = useRouter();
     const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
     const sidebarBg = useColorModeValue("white", "gray.800");
@@ -49,15 +49,15 @@ import {
           {/* Logo & Title */}
           <Flex align="center" mb={6} gap={3}>
             <Image
-              src="https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg"
-              alt="Warden"
+              src="https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png"
+              alt="Initia"
               boxSize="50px"
               borderRadius="full"
             />
             <Box>
-              <Heading fontSize="xl">Warden</Heading>
-              <Text fontSize="sm" color="yellow.400">
-                testnet
+              <Heading fontSize="xl">Initia</Heading>
+              <Text fontSize="sm" color="green.400">
+                mainnet
               </Text>
             </Box>
           </Flex>
@@ -66,14 +66,14 @@ import {
           <Accordion allowMultiple defaultIndex={[]}>
             {/* Introduction */}
             <AccordionItem border="none" mb={2}>
-              <Box as={Link} href="/services/testnet/warden/" textDecoration="none">
+              <Box as={Link} href="/services/mainnet/initia/" textDecoration="none">
                 <AccordionButton
                   borderRadius="lg"
                   _hover={{ bg: cardBg }}
                   px={3}
                   py={3}
                   bg={
-                    isActive("/services/testnet/warden/")
+                    isActive("/services/mainnet/initia/")
                       ? cardBg
                       : "transparent"
                   }
@@ -96,7 +96,7 @@ import {
                 px={3}
                 py={3}
                 bg={
-                  isActive("/services/testnet/warden/public-endpoint")
+                  isActive("/services/mainnet/initia/public-endpoint")
                     ? cardBg
                     : "transparent"
                 }
@@ -113,10 +113,10 @@ import {
                 <VStack align="stretch" spacing={1} pl={4}>
                   <Box
                     as={Link}
-                    href="/services/testnet/warden/public-endpoint#rpc-api-grpc"
+                    href="/services/mainnet/initia/public-endpoint#rpc-api-grpc"
                     textDecoration="none"
                     onClick={(e) => {
-                      if (isActive("/services/testnet/warden/public-endpoint")) {
+                      if (isActive("/services/mainnet/initia/public-endpoint")) {
                         e.preventDefault();
                         scrollToSection("rpc-api-grpc");
                       }
@@ -136,10 +136,10 @@ import {
                   </Box>
                   <Box
                     as={Link}
-                    href="/services/testnet/warden/public-endpoint#peers-seeds"
+                    href="/services/mainnet/initia/public-endpoint#peers-seeds"
                     textDecoration="none"
                     onClick={(e) => {
-                      if (isActive("/services/testnet/warden/public-endpoint")) {
+                      if (isActive("/services/mainnet/initia/public-endpoint")) {
                         e.preventDefault();
                         scrollToSection("peers-seeds");
                       }
@@ -179,7 +179,7 @@ import {
               </AccordionButton>
               <AccordionPanel pb={2} pt={2} px={0}>
                 <VStack align="stretch" spacing={1} pl={4}>
-                  <Box as={Link} href="/services/testnet/warden/installation" textDecoration="none">
+                  <Box as={Link} href="/services/mainnet/initia/installation" textDecoration="none">
                     <Box
                       px={3}
                       py={2}
@@ -187,7 +187,7 @@ import {
                       _hover={{ bg: cardBg }}
                       cursor="pointer"
                       bg={
-                        isActive("/services/testnet/warden/installation")
+                        isActive("/services/mainnet/initia/installation")
                           ? cardBg
                           : "transparent"
                       }
@@ -197,7 +197,7 @@ import {
                       </Text>
                     </Box>
                   </Box>
-                  <Box as={Link} href="/services/testnet/warden/token-management" textDecoration="none">
+                  <Box as={Link} href="/services/mainnet/initia/token-management" textDecoration="none">
                     <Box
                       px={3}
                       py={2}
@@ -205,7 +205,7 @@ import {
                       _hover={{ bg: cardBg }}
                       cursor="pointer"
                       bg={
-                        isActive("/services/testnet/warden/token-management")
+                        isActive("/services/mainnet/initia/token-management")
                           ? cardBg
                           : "transparent"
                       }
@@ -215,7 +215,7 @@ import {
                       </Text>
                     </Box>
                   </Box>
-                  <Box as={Link} href="/services/testnet/warden/validator-management" textDecoration="none">
+                  <Box as={Link} href="/services/mainnet/initia/validator-management" textDecoration="none">
                     <Box
                       px={3}
                       py={2}
@@ -223,7 +223,7 @@ import {
                       _hover={{ bg: cardBg }}
                       cursor="pointer"
                       bg={
-                        isActive("/services/testnet/warden/validator-management")
+                        isActive("/services/mainnet/initia/validator-management")
                           ? cardBg
                           : "transparent"
                       }
@@ -239,14 +239,14 @@ import {
   
             {/* Upgrade */}
             <AccordionItem border="none" mb={2}>
-              <Box as={Link} href="/services/testnet/warden/upgrade" textDecoration="none">
+              <Box as={Link} href="/services/mainnet/initia/upgrade" textDecoration="none">
                 <AccordionButton
                   borderRadius="lg"
                   _hover={{ bg: cardBg }}
                   px={3}
                   py={3}
                   bg={
-                    isActive("/services/testnet/warden/upgrade")
+                    isActive("/services/mainnet/initia/upgrade")
                       ? cardBg
                       : "transparent"
                   }
@@ -263,14 +263,14 @@ import {
   
             {/* Cheat Sheet */}
             <AccordionItem border="none" mb={2}>
-              <Box as={Link} href="/services/testnet/warden/cheat-sheet" textDecoration="none">
+              <Box as={Link} href="/services/mainnet/initia/cheat-sheet" textDecoration="none">
                 <AccordionButton
                   borderRadius="lg"
                   _hover={{ bg: cardBg }}
                   px={3}
                   py={3}
                   bg={
-                    isActive("/services/testnet/warden/cheat-sheet")
+                    isActive("/services/mainnet/initia/cheat-sheet")
                       ? cardBg
                       : "transparent"
                   }
