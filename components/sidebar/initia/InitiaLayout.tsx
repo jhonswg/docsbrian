@@ -14,6 +14,7 @@ import {
   import { Link as ChakraLink } from "@chakra-ui/react";
   import { InitiaSidebar } from "./InitiaSidebar";
   import InitiaNetworkBox from "./InitiaNetworkBox";
+  import { InitiaHorizontalNav } from "./InitiaHorizontalNav";
   
   export default function InitiaLayout({ children }: { children: ReactNode }) {
     const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
@@ -71,6 +72,7 @@ import {
               {/* 🟣 Persistent Network Info Box */}
               <InitiaNetworkBox />
               {/* 🧱 Page-specific content */}
+              <InitiaHorizontalNav />
               <Box
                 bg={sidebarBg}
                 borderRadius="2xl"
