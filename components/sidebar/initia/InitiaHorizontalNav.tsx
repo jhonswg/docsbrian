@@ -77,6 +77,26 @@ export const InitiaHorizontalNav = () => {
       label: "Cheat Sheet",
       path: "/services/mainnet/initia/cheat-sheet",
     },
+    {
+      icon: "🌐",
+      label: "Decentralization Analytics",
+      path: "/services/mainnet/initia/decanaly",
+    },
+    {
+      icon: "🙏",
+      label: "Consensus",
+      path: "/services/mainnet/initia/consensus",
+    },
+    {
+      icon: "🛰️",
+      label: "Public RPC Scanner",
+      path: "/services/mainnet/initia/rpcscanner",
+    },
+    {
+      icon: "🤖",
+      label: "Proposal Bot",
+      path: "/services/mainnet/initia/proposalbot",
+    },
   ];
 
   const handleSubmenuClick = (path: string, hash?: string) => {
