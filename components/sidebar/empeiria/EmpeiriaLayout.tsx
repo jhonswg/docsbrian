@@ -14,6 +14,7 @@ import { ReactNode } from "react";
 import NextLink from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import EmpeiriaNetworkBox from "@/components/sidebar/empeiria/EmpeiriaNetworkBox";
+import { EmpeiriaHorizontalNav } from "./EmpeiriaHorizontalNav";
 
 export default function EmpeiriaLayout({ children }: { children: ReactNode }) {
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
@@ -72,6 +73,8 @@ export default function EmpeiriaLayout({ children }: { children: ReactNode }) {
             {/* 🟣 Persistent Network Info Box */}
             <EmpeiriaNetworkBox />
             {/* 🧱 Page-specific content */}
+            <EmpeiriaHorizontalNav/>
+            {/* horizontal nav */}
             <Box
               bg={sidebarBg}
               borderRadius="2xl"

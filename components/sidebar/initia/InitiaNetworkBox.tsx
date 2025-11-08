@@ -233,7 +233,7 @@ export default function InitiaNetworkBox() {
           {/* Explorer */}
           <Button
             as={ChakraLink}
-            href="https://explorer.empeiria.io"
+            // href="https://explorer.empeiria.io"
             isExternal
             size="sm"
             colorScheme="pink"

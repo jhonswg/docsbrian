@@ -13,6 +13,7 @@ import { ReactNode } from "react";
 import NextLink from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import SymphonyNetworkBox from "@/components/sidebar/symphony/SymphonyNetworkBox";
+import { SymphonyHorizontalNav } from "./SymphonyHorizontalNav";
 import { HarmonySidebar } from "@/components/sidebar/symphony/SymphonySidebar";
 import { Footer } from "@/components/footer";
 
@@ -73,6 +74,8 @@ export default function SymphonyLayout({ children }: { children: ReactNode }) {
             {/* 🟣 Persistent Network Info Box */}
             <SymphonyNetworkBox />
             {/* 🧱 Page-specific content */}
+            <SymphonyHorizontalNav/>
+            {/* Horizontal Nav */}
             <Box
               bg={sidebarBg}
               borderRadius="2xl"

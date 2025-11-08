@@ -14,6 +14,7 @@ import NextLink from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { WardenSidebar } from "@/components/sidebar/warden/WardenSidebar";
 import WardenNetworkBox from "@/components/sidebar/warden/WardenNetworkBox";
+import { WardenHorizontalNav } from "./WardenHorizontalNav";
 
 export default function WardenLayout({ children }: { children: ReactNode }) {
   const border = useColorModeValue("whiteAlpha.300", "whiteAlpha.200");
@@ -71,6 +72,8 @@ export default function WardenLayout({ children }: { children: ReactNode }) {
             {/* 🟣 Persistent Network Info Box */}
             <WardenNetworkBox />
             {/* 🧱 Page-specific content */}
+            <WardenHorizontalNav/>
+            {/* Horizontal Nav */}
             <Box
               bg={sidebarBg}
               borderRadius="2xl"
