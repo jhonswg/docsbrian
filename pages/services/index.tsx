@@ -25,10 +25,12 @@ export default function ServicePage() {
     {
       name: "CrossFi",
       logo: "https://pbs.twimg.com/profile_images/1719733805483790336/9rtdiMS-_400x400.jpg",
+      link: "/services/mainnet/crossfi"
     },
     {
       name: "Self Chain",
       logo: "https://pbs.twimg.com/profile_images/1879603544120008704/z2WKYx3z_400x400.jpg",
+      link: "/services/mainnet/selfchain"
     },
     {
       name: "Initia",

@@ -28,20 +28,24 @@ const networks = [
     id: "crossfi-testnet-1",
     logo: "https://pbs.twimg.com/profile_images/1719733805483790336/9rtdiMS-_400x400.jpg",
     type: "mainnet",
-    serviceUrl: "https://atomone.network/",
-    explorerUrl: "https://www.mintscan.io/atomone",
+    serviceUrl: "",
+    explorerUrl: "",
   },
   {
     name: "Self Chain",
     id: "self-testnet",
     logo: "https://pbs.twimg.com/profile_images/1879603544120008704/z2WKYx3z_400x400.jpg",
     type: "mainnet",
+    serviceUrl: "/services/mainnet/selfchain",
+    explorerUrl: "https://explorer.jhonswg.com/selfchain",
   },
   {
     name: "Initia",
     id: "initia-mainnet",
     logo: "https://pbs.twimg.com/profile_images/1919389207367491584/GFxs1SP5_400x400.png",
     type: "mainnet",
+    serviceUrl: "/services/mainnet/initia",
+    explorerUrl: "https://explorer.jhonswg.com/initia",
   },
 
   // === Testnet ===
@@ -66,6 +70,8 @@ const networks = [
     id: "warden-testnet",
     logo: "https://pbs.twimg.com/profile_images/1904848026742484992/nO3RP237_400x400.jpg",
     type: "testnet",
+    serviceUrl: "/services/testnet/warden",
+    explorerUrl: "https://explorer.jhonswg.com/warden",
   },
 ];
 
