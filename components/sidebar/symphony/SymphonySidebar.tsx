@@ -65,13 +65,14 @@ export const HarmonySidebar = () => {
         {/* Accordion Menu */}
         <Accordion allowMultiple defaultIndex={[]}>
           {/* Introduction */}
-          <AccordionItem border="none" mb={2}>
+          <AccordionItem border="none" mb={2} mt={5}>
             <Box as={Link} href="/services/testnet/symphony/" textDecoration="none">
               <AccordionButton
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
                   isActive("/services/testnet/symphony/")
                     ? cardBg
@@ -79,7 +80,9 @@ export const HarmonySidebar = () => {
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">🏠</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">🏠</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
                     Introduction
                   </Text>
@@ -94,7 +97,8 @@ export const HarmonySidebar = () => {
               borderRadius="lg"
               _hover={{ bg: cardBg }}
               px={3}
-              py={3}
+              py={2}
+              h="40px"
               bg={
                 isActive("/services/testnet/symphony/public-endpoint")
                   ? cardBg
@@ -102,7 +106,9 @@ export const HarmonySidebar = () => {
               }
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">⚙️</Text>
+                <Box minW="24px" display="flex" justifyContent="center">
+                  <Text fontSize="xl">⚙️</Text>
+                </Box>
                 <Text fontSize="sm" fontWeight="medium">
                   Public Endpoint
                 </Text>
@@ -161,28 +167,83 @@ export const HarmonySidebar = () => {
             </AccordionPanel>
           </AccordionItem>
 
-          {/* Installation */}
+          {/* Installation with Submenu */}
           <AccordionItem border="none" mb={2}>
-            <Box as={Link} href="/services/testnet/symphony/installation" textDecoration="none">
-              <AccordionButton
-                borderRadius="lg"
-                _hover={{ bg: cardBg }}
-                px={3}
-                py={3}
-                bg={
-                  isActive("/services/testnet/symphony/installation")
-                    ? cardBg
-                    : "transparent"
-                }
-              >
-                <Flex align="center" flex="1" textAlign="left" gap={3}>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={2}
+              h="40px"
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Box minW="24px" display="flex" justifyContent="center">
                   <Text fontSize="xl">📌</Text>
-                  <Text fontSize="sm" fontWeight="medium">
-                    Installation
-                  </Text>
-                </Flex>
-              </AccordionButton>
-            </Box>
+                </Box>
+                <Text fontSize="sm" fontWeight="medium">
+                  Installation
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={2} pt={2} px={0}>
+              <VStack align="stretch" spacing={1} pl={4}>
+                <Box as={Link} href="/services/testnet/symphony/installation" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/testnet/symphony/installation")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      🔧 Install Node
+                    </Text>
+                  </Box>
+                </Box>
+                <Box as={Link} href="/services/testnet/symphony/token-management" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/testnet/symphony/token-management")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      💰 Token Management
+                    </Text>
+                  </Box>
+                </Box>
+                <Box as={Link} href="/services/testnet/symphony/validator-management" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/testnet/symphony/validator-management")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      👨‍💼 Validator Management
+                    </Text>
+                  </Box>
+                </Box>
+              </VStack>
+            </AccordionPanel>
           </AccordionItem>
 
           {/* Upgrade */}
@@ -192,7 +253,8 @@ export const HarmonySidebar = () => {
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
                   isActive("/services/testnet/symphony/upgrade")
                     ? cardBg
@@ -200,7 +262,9 @@ export const HarmonySidebar = () => {
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">🔄</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">🔄</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
                     Upgrade
                   </Text>
@@ -216,7 +280,8 @@ export const HarmonySidebar = () => {
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
                   isActive("/services/testnet/symphony/cheat-sheet")
                     ? cardBg
@@ -224,7 +289,9 @@ export const HarmonySidebar = () => {
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">📝</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">📝</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
                     Cheat Sheet
                   </Text>
@@ -240,38 +307,62 @@ export const HarmonySidebar = () => {
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🌐</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Decentralization Analytics
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🌐</Text>
+              </Box>
+              <Text>Decentralization Analytics</Text>
+            </Flex>
           </Button>
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🙏</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Consensus
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🙏</Text>
+              </Box>
+              <Text>Consensus</Text>
+            </Flex>
           </Button>
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🛰️</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Public RPC Scanner
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🛰️</Text>
+              </Box>
+              <Text>Public RPC Scanner</Text>
+            </Flex>
           </Button>
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🤖</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Proposal Bot
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🤖</Text>
+              </Box>
+              <Text>Proposal Bot</Text>
+            </Flex>
           </Button>
         </VStack>
       </Box>

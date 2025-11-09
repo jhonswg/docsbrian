@@ -64,269 +64,308 @@ import {
   
           {/* Accordion Menu */}
           <Accordion allowMultiple defaultIndex={[]}>
-            {/* Introduction */}
-            <AccordionItem border="none" mb={2}>
-              <Box as={Link} href="/services/mainnet/initia/" textDecoration="none">
-                <AccordionButton
-                  borderRadius="lg"
-                  _hover={{ bg: cardBg }}
-                  px={3}
-                  py={3}
-                  bg={
-                    isActive("/services/mainnet/initia/")
-                      ? cardBg
-                      : "transparent"
-                  }
-                >
-                  <Flex align="center" flex="1" textAlign="left" gap={3}>
-                    <Text fontSize="xl">🏠</Text>
-                    <Text fontSize="sm" fontWeight="medium">
-                      Introduction
-                    </Text>
-                  </Flex>
-                </AccordionButton>
-              </Box>
-            </AccordionItem>
-  
-            {/* Public Endpoint with Submenu */}
-            <AccordionItem border="none" mb={2}>
+          {/* Introduction */}
+          <AccordionItem border="none" mb={2} mt={5}>
+            <Box as={Link} href="/services/mainnet/initia/" textDecoration="none">
               <AccordionButton
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
-                  isActive("/services/mainnet/initia/public-endpoint")
+                  isActive("/services/mainnet/initia/")
                     ? cardBg
                     : "transparent"
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">⚙️</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">🏠</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
-                    Public Endpoint
+                    Introduction
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
-              <AccordionPanel pb={2} pt={2} px={0}>
-                <VStack align="stretch" spacing={1} pl={4}>
+            </Box>
+          </AccordionItem>
+
+          {/* Public Endpoint with Submenu */}
+          <AccordionItem border="none" mb={2}>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={2}
+              h="40px"
+              bg={
+                isActive("/services/mainnet/initia/public-endpoint")
+                  ? cardBg
+                  : "transparent"
+              }
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Box minW="24px" display="flex" justifyContent="center">
+                  <Text fontSize="xl">⚙️</Text>
+                </Box>
+                <Text fontSize="sm" fontWeight="medium">
+                  Public Endpoint
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={2} pt={2} px={0}>
+              <VStack align="stretch" spacing={1} pl={4}>
+                <Box
+                  as={Link}
+                  href="/services/mainnet/initia/public-endpoint#rpc-api-grpc"
+                  textDecoration="none"
+                  onClick={(e) => {
+                    if (isActive("/services/mainnet/initia/public-endpoint")) {
+                      e.preventDefault();
+                      scrollToSection("rpc-api-grpc");
+                    }
+                  }}
+                >
                   <Box
-                    as={Link}
-                    href="/services/mainnet/initia/public-endpoint#rpc-api-grpc"
-                    textDecoration="none"
-                    onClick={(e) => {
-                      if (isActive("/services/mainnet/initia/public-endpoint")) {
-                        e.preventDefault();
-                        scrollToSection("rpc-api-grpc");
-                      }
-                    }}
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
                   >
-                    <Box
-                      px={3}
-                      py={2}
-                      borderRadius="md"
-                      _hover={{ bg: cardBg }}
-                      cursor="pointer"
-                    >
-                      <Text fontSize="xs" fontWeight="medium" color="gray.600">
-                        📡 RPC, API & gRPC
-                      </Text>
-                    </Box>
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      📡 RPC, API & gRPC
+                    </Text>
                   </Box>
+                </Box>
+                <Box
+                  as={Link}
+                  href="/services/mainnet/initia/public-endpoint#peers-seeds"
+                  textDecoration="none"
+                  onClick={(e) => {
+                    if (isActive("/services/mainnet/initia/public-endpoint")) {
+                      e.preventDefault();
+                      scrollToSection("peers-seeds");
+                    }
+                  }}
+                >
                   <Box
-                    as={Link}
-                    href="/services/mainnet/initia/public-endpoint#peers-seeds"
-                    textDecoration="none"
-                    onClick={(e) => {
-                      if (isActive("/services/mainnet/initia/public-endpoint")) {
-                        e.preventDefault();
-                        scrollToSection("peers-seeds");
-                      }
-                    }}
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
                   >
-                    <Box
-                      px={3}
-                      py={2}
-                      borderRadius="md"
-                      _hover={{ bg: cardBg }}
-                      cursor="pointer"
-                    >
-                      <Text fontSize="xs" fontWeight="medium" color="gray.600">
-                        🌐 Peers & Seeds
-                      </Text>
-                    </Box>
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      🌐 Peers & Seeds
+                    </Text>
                   </Box>
-                </VStack>
-              </AccordionPanel>
-            </AccordionItem>
-  
-            {/* Installation with Submenu */}
-            <AccordionItem border="none" mb={2}>
+                </Box>
+              </VStack>
+            </AccordionPanel>
+          </AccordionItem>
+
+          {/* Installation with Submenu */}
+          <AccordionItem border="none" mb={2}>
+            <AccordionButton
+              borderRadius="lg"
+              _hover={{ bg: cardBg }}
+              px={3}
+              py={2}
+              h="40px"
+            >
+              <Flex align="center" flex="1" textAlign="left" gap={3}>
+                <Box minW="24px" display="flex" justifyContent="center">
+                  <Text fontSize="xl">📌</Text>
+                </Box>
+                <Text fontSize="sm" fontWeight="medium">
+                  Installation
+                </Text>
+              </Flex>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={2} pt={2} px={0}>
+              <VStack align="stretch" spacing={1} pl={4}>
+                <Box as={Link} href="/services/mainnet/initia/installation" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/mainnet/initia/installation")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      🔧 Install Node
+                    </Text>
+                  </Box>
+                </Box>
+                <Box as={Link} href="/services/mainnet/initia/token-management" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/mainnet/initia/token-management")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      💰 Token Management
+                    </Text>
+                  </Box>
+                </Box>
+                <Box as={Link} href="/services/mainnet/initia/validator-management" textDecoration="none">
+                  <Box
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    _hover={{ bg: cardBg }}
+                    cursor="pointer"
+                    bg={
+                      isActive("/services/mainnet/initia/validator-management")
+                        ? cardBg
+                        : "transparent"
+                    }
+                  >
+                    <Text fontSize="xs" fontWeight="medium" color="gray.600">
+                      👨‍💼 Validator Management
+                    </Text>
+                  </Box>
+                </Box>
+              </VStack>
+            </AccordionPanel>
+          </AccordionItem>
+
+          {/* Upgrade */}
+          <AccordionItem border="none" mb={2}>
+            <Box as={Link} href="/services/mainnet/initia/upgrade" textDecoration="none">
               <AccordionButton
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
+                bg={
+                  isActive("/services/mainnet/initia/upgrade")
+                    ? cardBg
+                    : "transparent"
+                }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">📌</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">🔄</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
-                    Installation
+                    Upgrade
                   </Text>
                 </Flex>
-                <AccordionIcon />
               </AccordionButton>
-              <AccordionPanel pb={2} pt={2} px={0}>
-                <VStack align="stretch" spacing={1} pl={4}>
-                  <Box as={Link} href="/services/mainnet/initia/installation" textDecoration="none">
-                    <Box
-                      px={3}
-                      py={2}
-                      borderRadius="md"
-                      _hover={{ bg: cardBg }}
-                      cursor="pointer"
-                      bg={
-                        isActive("/services/mainnet/initia/installation")
-                          ? cardBg
-                          : "transparent"
-                      }
-                    >
-                      <Text fontSize="xs" fontWeight="medium" color="gray.600">
-                        🔧 Install Node
-                      </Text>
-                    </Box>
-                  </Box>
-                  <Box as={Link} href="/services/mainnet/initia/token-management" textDecoration="none">
-                    <Box
-                      px={3}
-                      py={2}
-                      borderRadius="md"
-                      _hover={{ bg: cardBg }}
-                      cursor="pointer"
-                      bg={
-                        isActive("/services/mainnet/initia/token-management")
-                          ? cardBg
-                          : "transparent"
-                      }
-                    >
-                      <Text fontSize="xs" fontWeight="medium" color="gray.600">
-                        💰 Token Management
-                      </Text>
-                    </Box>
-                  </Box>
-                  <Box as={Link} href="/services/mainnet/initia/validator-management" textDecoration="none">
-                    <Box
-                      px={3}
-                      py={2}
-                      borderRadius="md"
-                      _hover={{ bg: cardBg }}
-                      cursor="pointer"
-                      bg={
-                        isActive("/services/mainnet/initia/validator-management")
-                          ? cardBg
-                          : "transparent"
-                      }
-                    >
-                      <Text fontSize="xs" fontWeight="medium" color="gray.600">
-                        👨‍💼 Validator Management
-                      </Text>
-                    </Box>
-                  </Box>
-                </VStack>
-              </AccordionPanel>
-            </AccordionItem>
-  
-            {/* Upgrade */}
-            <AccordionItem border="none" mb={2}>
-              <Box as={Link} href="/services/mainnet/initia/upgrade" textDecoration="none">
-                <AccordionButton
-                  borderRadius="lg"
-                  _hover={{ bg: cardBg }}
-                  px={3}
-                  py={3}
-                  bg={
-                    isActive("/services/mainnet/initia/upgrade")
-                      ? cardBg
-                      : "transparent"
-                  }
-                >
-                  <Flex align="center" flex="1" textAlign="left" gap={3}>
-                    <Text fontSize="xl">🔄</Text>
-                    <Text fontSize="sm" fontWeight="medium">
-                      Upgrade
-                    </Text>
-                  </Flex>
-                </AccordionButton>
-              </Box>
-            </AccordionItem>
-  
-            {/* Cheat Sheet */}
-            <AccordionItem border="none" mb={2}>
-              <Box as={Link} href="/services/mainnet/initia/cheat-sheet" textDecoration="none">
-                <AccordionButton
-                  borderRadius="lg"
-                  _hover={{ bg: cardBg }}
-                  px={3}
-                  py={3}
-                  bg={
-                    isActive("/services/mainnet/initia/cheat-sheet")
-                      ? cardBg
-                      : "transparent"
-                  }
-                >
-                  <Flex align="center" flex="1" textAlign="left" gap={3}>
+            </Box>
+          </AccordionItem>
+
+          {/* Cheat Sheet */}
+          <AccordionItem border="none" mb={2}>
+            <Box as={Link} href="/services/mainnet/initia/cheat-sheet" textDecoration="none">
+              <AccordionButton
+                borderRadius="lg"
+                _hover={{ bg: cardBg }}
+                px={3}
+                py={2}
+                h="40px"
+                bg={
+                  isActive("/services/mainnet/initia/cheat-sheet")
+                    ? cardBg
+                    : "transparent"
+                }
+              >
+                <Flex align="center" flex="1" textAlign="left" gap={3}>
+                  <Box minW="24px" display="flex" justifyContent="center">
                     <Text fontSize="xl">📝</Text>
-                    <Text fontSize="sm" fontWeight="medium">
-                      Cheat Sheet
-                    </Text>
-                  </Flex>
-                </AccordionButton>
+                  </Box>
+                  <Text fontSize="sm" fontWeight="medium">
+                    Cheat Sheet
+                  </Text>
+                </Flex>
+              </AccordionButton>
+            </Box>
+          </AccordionItem>
+        </Accordion>
+
+        <Divider my={4} />
+
+        <VStack align="stretch" spacing={2}>
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            fontSize="sm"
+            fontWeight="medium"
+            px={3}
+            h="40px"
+          >
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🌐</Text>
               </Box>
-            </AccordionItem>
-          </Accordion>
-  
-          <Divider my={4} />
-  
-          <VStack align="stretch" spacing={2}>
-            <Button
-              variant="ghost"
-              justifyContent="flex-start"
-              leftIcon={<Text fontSize="xl">🌐</Text>}
-              fontSize="sm"
-              fontWeight="medium"
-            >
-              Decentralization Analytics
-            </Button>
-            <Button
-              variant="ghost"
-              justifyContent="flex-start"
-              leftIcon={<Text fontSize="xl">🙏</Text>}
-              fontSize="sm"
-              fontWeight="medium"
-            >
-              Consensus
-            </Button>
-            <Button
-              variant="ghost"
-              justifyContent="flex-start"
-              leftIcon={<Text fontSize="xl">🛰️</Text>}
-              fontSize="sm"
-              fontWeight="medium"
-            >
-              Public RPC Scanner
-            </Button>
-            <Button
-              variant="ghost"
-              justifyContent="flex-start"
-              leftIcon={<Text fontSize="xl">🤖</Text>}
-              fontSize="sm"
-              fontWeight="medium"
-            >
-              Proposal Bot
-            </Button>
-          </VStack>
-        </Box>
+              <Text>Decentralization Analytics</Text>
+            </Flex>
+          </Button>
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            fontSize="sm"
+            fontWeight="medium"
+            px={3}
+            h="40px"
+          >
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🙏</Text>
+              </Box>
+              <Text>Consensus</Text>
+            </Flex>
+          </Button>
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            fontSize="sm"
+            fontWeight="medium"
+            px={3}
+            h="40px"
+          >
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🛰️</Text>
+              </Box>
+              <Text>Public RPC Scanner</Text>
+            </Flex>
+          </Button>
+          <Button
+            variant="ghost"
+            justifyContent="flex-start"
+            fontSize="sm"
+            fontWeight="medium"
+            px={3}
+            h="40px"
+          >
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🤖</Text>
+              </Box>
+              <Text>Proposal Bot</Text>
+            </Flex>
+          </Button>
+        </VStack>
       </Box>
-    );
-  };
+    </Box>
+  );
+};

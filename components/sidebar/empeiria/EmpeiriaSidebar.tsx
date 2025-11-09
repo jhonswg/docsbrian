@@ -65,13 +65,14 @@ export const EmpeiriaSidebar = () => {
         {/* Accordion Menu */}
         <Accordion allowMultiple defaultIndex={[]}>
           {/* Introduction */}
-          <AccordionItem border="none" mb={2}>
+          <AccordionItem border="none" mb={2} mt={5}>
             <Box as={Link} href="/services/testnet/empeiria/" textDecoration="none">
               <AccordionButton
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
                   isActive("/services/testnet/empeiria/")
                     ? cardBg
@@ -79,7 +80,9 @@ export const EmpeiriaSidebar = () => {
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">🏠</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">🏠</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
                     Introduction
                   </Text>
@@ -94,7 +97,8 @@ export const EmpeiriaSidebar = () => {
               borderRadius="lg"
               _hover={{ bg: cardBg }}
               px={3}
-              py={3}
+              py={2}
+              h="40px"
               bg={
                 isActive("/services/testnet/empeiria/public-endpoint")
                   ? cardBg
@@ -102,7 +106,9 @@ export const EmpeiriaSidebar = () => {
               }
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">⚙️</Text>
+                <Box minW="24px" display="flex" justifyContent="center">
+                  <Text fontSize="xl">⚙️</Text>
+                </Box>
                 <Text fontSize="sm" fontWeight="medium">
                   Public Endpoint
                 </Text>
@@ -167,10 +173,13 @@ export const EmpeiriaSidebar = () => {
               borderRadius="lg"
               _hover={{ bg: cardBg }}
               px={3}
-              py={3}
+              py={2}
+              h="40px"
             >
               <Flex align="center" flex="1" textAlign="left" gap={3}>
-                <Text fontSize="xl">📌</Text>
+                <Box minW="24px" display="flex" justifyContent="center">
+                  <Text fontSize="xl">📌</Text>
+                </Box>
                 <Text fontSize="sm" fontWeight="medium">
                   Installation
                 </Text>
@@ -244,7 +253,8 @@ export const EmpeiriaSidebar = () => {
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
                   isActive("/services/testnet/empeiria/upgrade")
                     ? cardBg
@@ -252,7 +262,9 @@ export const EmpeiriaSidebar = () => {
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">🔄</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">🔄</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
                     Upgrade
                   </Text>
@@ -268,7 +280,8 @@ export const EmpeiriaSidebar = () => {
                 borderRadius="lg"
                 _hover={{ bg: cardBg }}
                 px={3}
-                py={3}
+                py={2}
+                h="40px"
                 bg={
                   isActive("/services/testnet/empeiria/cheat-sheet")
                     ? cardBg
@@ -276,7 +289,9 @@ export const EmpeiriaSidebar = () => {
                 }
               >
                 <Flex align="center" flex="1" textAlign="left" gap={3}>
-                  <Text fontSize="xl">📝</Text>
+                  <Box minW="24px" display="flex" justifyContent="center">
+                    <Text fontSize="xl">📝</Text>
+                  </Box>
                   <Text fontSize="sm" fontWeight="medium">
                     Cheat Sheet
                   </Text>
@@ -292,38 +307,62 @@ export const EmpeiriaSidebar = () => {
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🌐</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Decentralization Analytics
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🌐</Text>
+              </Box>
+              <Text>Decentralization Analytics</Text>
+            </Flex>
           </Button>
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🙏</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Consensus
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🙏</Text>
+              </Box>
+              <Text>Consensus</Text>
+            </Flex>
           </Button>
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🛰️</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Public RPC Scanner
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🛰️</Text>
+              </Box>
+              <Text>Public RPC Scanner</Text>
+            </Flex>
           </Button>
           <Button
             variant="ghost"
             justifyContent="flex-start"
-            leftIcon={<Text fontSize="xl">🤖</Text>}
             fontSize="sm"
             fontWeight="medium"
+            px={3}
+            h="40px"
           >
-            Proposal Bot
+            <Flex align="center" gap={3} w="full">
+              <Box minW="24px" display="flex" justifyContent="center">
+                <Text fontSize="xl">🤖</Text>
+              </Box>
+              <Text>Proposal Bot</Text>
+            </Flex>
           </Button>
         </VStack>
       </Box>
